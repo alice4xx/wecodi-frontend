@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import App from "./Pages/App"
+import Main from "./Pages/Main"
 
 class Routes extends Component {
   render() {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={App} />
+          <Route exact path="/" component={Main} />
         </Switch>
       </Router>
     );
