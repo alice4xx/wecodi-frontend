@@ -82,6 +82,20 @@ video {
   font-size: 100%;
   vertical-align: baseline;
   background: transparent;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  color: inherit;
+}
+
+*:focus {
+  outline: none;
+  border: none;
 }
 
 body {
