@@ -2,20 +2,17 @@
 
 .Main {
   margin-top: 110px;
-  width: 100vw;
+  // width: 100vw;
   display: flex;
   justify-content: center;
   padding: 0 12px;
   text-transform: uppercase;
 
   .Wrapper {
-    max-width: 960px;
     width: 100%;
+    max-width: 960px;
     .Slider {
-      width: 100%;
-      max-width: 960px;
       text-align: center;
-      justify-content: center;
       border-bottom: 2px solid $headerBorder;
 
       .SliderHeader {
@@ -105,7 +102,7 @@
         }
 
         .ContentDetail {
-          padding: 6px 20px;
+          padding: 10px 20px;
           .ContentCategory {
             font-size: 14px;
             color: $sliderCategory;

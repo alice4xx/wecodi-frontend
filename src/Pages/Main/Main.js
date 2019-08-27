@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Main.scss';
+import Readmore from '../../Components/Readmore/Readmore.js';
 import SlideImg from '../../Images/slider-sample.png';
 import GridImg from '../../Images/grid-sample.png';
 
@@ -132,8 +133,10 @@ class Main extends Component {
                   </h2>
                 </div>
               </div>
+              <div className=""></div>
             </div>
           </section>
+          <Readmore />
         </div>
       </div>
     );
