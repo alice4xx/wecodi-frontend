@@ -1,0 +1,53 @@
+@import '../../styles/theme.scss';
+
+.Readmore {
+  color: $Readmore;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  position: relative;
+
+  .LineWrap {
+    display: flex;
+    width: 100%;
+    position: absolute;
+  }
+
+  .LeftLine,
+  .RightLine {
+    width: 33%;
+    border: 1px solid $ReadmoreBorder;
+    position: absolute;
+  }
+
+  .RightLine {
+    right: 0;
+  }
+
+  .ReadmoreText {
+    border: 1px solid $Readmore;
+    background-color: #fff;
+    z-index: 1;
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .ReadmoreText:hover {
+    color: $ReadmoreHover;
+    border-color: $ReadmoreHover;
+    transition: 0.4s color;
+  }
+
+  span {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-align: center;
+  }
+}
