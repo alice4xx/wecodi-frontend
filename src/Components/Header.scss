@@ -1,0 +1,103 @@
+@import '../styles/theme.scss';
+
+.Header {
+  background-color: pink;
+  padding: 22px 18px;
+  background-color: $headerBG;
+  border-bottom: 2px solid $headerBorder;
+  height: 110px;
+  position: fixed;
+  top: 0;
+  justify-content: center;
+  width: 100vw;
+
+  .Wrapper {
+    max-width: 1280px;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  #logo a {
+    margin: 0 auto;
+  }
+
+  .Menu {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+
+  .MenuList {
+    font-weight: 600;
+    border-left: 1px solid $menuBorder;
+    margin-top: 6px;
+    margin-left: 15px;
+    padding: 0 10px;
+    padding-left: 25px;
+  }
+
+  .MenuList:first-child {
+    border: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .MenuList a {
+    font-size: 12px;
+    line-height: 12px;
+    height: 12px;
+    color: $headerFont;
+  }
+
+  .MenuList a:hover {
+    color: $menuHover;
+    border-bottom: 1px solid $menuHover;
+    transition: 0.4s color;
+  }
+
+  .LoginWrap {
+    position: absolute;
+    font-size: 13px;
+    line-height: 18px;
+    right: 12px;
+    text-align: center;
+    top: -1px;
+  }
+
+  .Login {
+    width: 190px;
+    color: #fff;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-bottom: 2px solid $headerLoginBorder;
+    background-color: $headerLogin;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  .Login:hover {
+    background-color: $headerLoginHover;
+    border-bottom: 2px solid $headerLoginHoverBorder;
+    transition: 0.4s background-color;
+  }
+
+  .Signup {
+    color: $headerLogin;
+    background-color: #fff;
+    padding: 4px 16px;
+    border: 1px solid $headerLoginBorder;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .Signup:hover {
+    background-color: $headerSignupHover;
+    transition: 0.4s background-color;
+  }
+}
