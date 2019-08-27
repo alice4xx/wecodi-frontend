@@ -1,2 +1,66 @@
+@import '../styles/theme.scss';
+
 .Main {
+  margin-top: 110px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 0 12px;
+  text-transform: uppercase;
+
+  .Wrapper {
+    max-width: 960px;
+
+    .Slider {
+      width: 100%;
+      max-width: 960px;
+      text-align: center;
+      justify-content: center;
+      border-bottom: 2px solid $headerBorder;
+
+      .SliderHeader {
+        margin: 24px 0;
+      }
+
+      .Title {
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        line-height: 1.5;
+      }
+
+      .SliderWrap {
+        width: 100%;
+        cursor: pointer;
+        background-color: $sliderBox;
+
+        img {
+          width: 100%;
+        }
+
+        .SliderDetail {
+          height: 120px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        .DetailCategory {
+          font-size: 16px;
+          height: 24px;
+          line-height: 24px;
+          font-weight: 600;
+          color: $sliderCategory;
+        }
+        .DetailTitle {
+          font-size: 24px;
+          line-height: 28px;
+          max-height: 56px;
+          font-weight: 700;
+          color: $headerFont;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
 }

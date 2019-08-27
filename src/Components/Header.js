@@ -6,7 +6,7 @@ class Header extends Component {
   render() {
     return (
       <div className="Header">
-        <div className="Wrap">
+        <div className="Wrapper">
           <div id="logo">
             <a href="/">
               <img src={Logo} alt="logo" width="140" />
