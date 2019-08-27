@@ -133,7 +133,6 @@ class Main extends Component {
                   </h2>
                 </div>
               </div>
-              <div className=""></div>
             </div>
           </section>
           <Readmore />

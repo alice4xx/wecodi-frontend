@@ -38,6 +38,12 @@
     cursor: pointer;
   }
 
+  .ReadmoreText:hover {
+    color: $ReadmoreHover;
+    border-color: $ReadmoreHover;
+    transition: 0.4s color;
+  }
+
   span {
     font-size: 12px;
     font-weight: 700;
