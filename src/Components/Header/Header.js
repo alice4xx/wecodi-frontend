@@ -25,12 +25,12 @@ class Header extends Component {
             </li>
           </ul>
           <div className="LoginWrap">
-            <div className="Login">
-              <Link to="/login">Login</Link>
-            </div>
-            <div className="Signup">
-              <Link to="/signup">Signup</Link>
-            </div>
+            <Link to="/login">
+              <div className="Login">Login</div>
+            </Link>
+            <Link to="/signup">
+              <div className="Signup">Signup</div>
+            </Link>
           </div>
         </div>
       </div>
