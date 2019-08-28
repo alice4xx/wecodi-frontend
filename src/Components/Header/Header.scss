@@ -1,4 +1,4 @@
-@import '../styles/theme.scss';
+@import '../../styles/theme.scss';
 
 .Header {
   background-color: pink;
@@ -10,6 +10,7 @@
   top: 0;
   justify-content: center;
   width: 100vw;
+  z-index: 99;
 
   .Wrapper {
     max-width: 1280px;
@@ -38,7 +39,7 @@
   .MenuList {
     font-weight: 600;
     border-left: 1px solid $menuBorder;
-    margin-top: 6px;
+    margin-top: 8px;
     margin-left: 15px;
     padding: 0 10px;
     padding-left: 25px;
