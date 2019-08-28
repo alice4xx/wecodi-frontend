@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.scss';
-import Logo from '../../Images/logo.png'
+import Logo from '../../Images/logo.png';
 
 class Header extends Component {
   render() {
@@ -24,12 +25,16 @@ class Header extends Component {
             </li>
           </ul>
           <div className="LoginWrap">
-            <div className="Login"><a href="/">Login</a></div>
-            <div className="Signup"><a href="/">Signup</a></div>
+            <div className="Login">
+              <Link to="/login">Login</Link>
+            </div>
+            <div className="Signup">
+              <Link to="/signup">Signup</Link>
+            </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
