@@ -1,8 +1,7 @@
 import React from 'react';
 
-const Post = props => {
-  console.log(props);
-  const { thumbnail, category, title } = props.info;
+const Post = ({ info = {} }) => {
+  const { thumbnail, category, title } = info;
   return (
     <div className="RecentContent">
       <img src={thumbnail} alt="test" width="300" />
