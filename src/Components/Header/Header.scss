@@ -1,7 +1,7 @@
 @import '../../styles/theme.scss';
+@import '../../styles/media.scss';
 
 .Header {
-  background-color: pink;
   padding: 22px 18px;
   background-color: $headerBG;
   border-bottom: 2px solid $headerBorder;
@@ -11,6 +11,10 @@
   justify-content: center;
   width: 100vw;
   z-index: 99;
+  @media screen and (max-width: $break-medium) {
+    height: 60px;
+    padding: 12px 18px;
+  }
 
   .Wrapper {
     max-width: 1280px;
@@ -25,15 +29,31 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    @media screen and (max-width: $break-medium) {
+      justify-content: space-between;
+      align-items: center;
+    }
   }
-  #logo a {
-    margin: 0 auto;
+
+  .Bars {
+    cursor: pointer;
+    display: none;
+    color: $logo;
+    .BarsBtn {
+      font-size: 20px;
+    }
+    @media screen and (max-width: $break-medium) {
+      display: block;
+    }
   }
 
   .Menu {
     display: flex;
     justify-content: center;
     text-transform: uppercase;
+    @media screen and (max-width: $break-medium) {
+      display: none;
+    }
   }
 
   .MenuList {
@@ -71,6 +91,9 @@
     right: 12px;
     text-align: center;
     top: -1px;
+    @media screen and (max-width: $break-medium) {
+      display: none;
+    }
   }
 
   .Login {
@@ -101,4 +124,12 @@
     background-color: $headerSignupHover;
     transition: 0.4s background-color;
   }
+}
+
+.BarsMenu {
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  height: 100vh;
+  background-color: #fff;
 }

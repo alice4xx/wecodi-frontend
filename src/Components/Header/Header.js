@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import BarsMenu from './BarsMenu';
 import './Header.scss';
-import Logo from '../../Images/logo.png'
+import Logo from '../../Images/logo.png';
 
 class Header extends Component {
+  state = {
+    bars: false,
+  };
+
+  onToggleBar = () => {
+    this.setState(prev => ({
+      bars: !this.state.bars,
+    }));
+  };
+
   render() {
     return (
       <div className="Header">
@@ -11,6 +23,10 @@ class Header extends Component {
             <a href="/">
               <img src={Logo} alt="logo" width="140" />
             </a>
+            <div className="Bars" onClick={this.onToggleBar}>
+              <i className="fas fa-bars BarsBtn" />
+            </div>
+            {this.state.bars && <BarsMenu />}
           </div>
           <ul className="Menu">
             <li className="MenuList">
@@ -24,12 +40,16 @@ class Header extends Component {
             </li>
           </ul>
           <div className="LoginWrap">
-            <div className="Login"><a href="/">Login</a></div>
-            <div className="Signup"><a href="/">Signup</a></div>
+            <Link to="/login">
+              <div className="Login">Login</div>
+            </Link>
+            <Link to="/signup">
+              <div className="Signup">Signup</div>
+            </Link>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

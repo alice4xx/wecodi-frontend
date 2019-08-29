@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Readmore.scss';
 
 const Readmore = () => {
   return (
     <div className="Readmore">
       <div className="LineWrap">
-        <div className="LeftLine"></div>
-        <div className="RightLine"></div>
+        <div className="LeftLine" />
+        <div className="RightLine" />
       </div>
       <div className="ReadmoreText">
         <span>Read More</span>

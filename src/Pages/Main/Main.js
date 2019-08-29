@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './Main.scss';
-import Readmore from '../../Components/Readmore/Readmore.js';
+import Post from './Post';
+import data from './data';
+import Readmore from '../../Components/Readmore/Readmore';
 import SlideImg from '../../Images/slider-sample.png';
-import GridImg from '../../Images/grid-sample.png';
 
 class Main extends Component {
   render() {
@@ -52,87 +53,9 @@ class Main extends Component {
               </h2>
             </header>
             <div className="Posts">
-              <div className="RecentContent">
-                <img src={GridImg} alt="test" width="300" />
-                <div className="ContentDetail">
-                  <p className="ContentCategory">Fashion Tips</p>
-                  <h2 className="ContentTitle">
-                    <a href="/">31 Days of Outfits: August Edition</a>
-                  </h2>
-                </div>
-              </div>
-              <div className="RecentContent">
-                <img src={GridImg} alt="test" width="300" />
-                <div className="ContentDetail">
-                  <p className="ContentCategory">Fashion Tips</p>
-                  <h2 className="ContentTitle">
-                    <a href="/">31 Days of Outfits: August Edition</a>
-                  </h2>
-                </div>
-              </div>
-              <div className="RecentContent">
-                <img src={GridImg} alt="test" width="300" />
-                <div className="ContentDetail">
-                  <p className="ContentCategory">Fashion Tips</p>
-                  <h2 className="ContentTitle">
-                    <a href="/">31 Days of Outfits: August Edition</a>
-                  </h2>
-                </div>
-              </div>
-              <div className="RecentContent">
-                <img src={GridImg} alt="test" width="300" />
-                <div className="ContentDetail">
-                  <p className="ContentCategory">Fashion Tips</p>
-                  <h2 className="ContentTitle">
-                    <a href="/">31 Days of Outfits: August Edition</a>
-                  </h2>
-                </div>
-              </div>
-              <div className="RecentContent">
-                <img src={GridImg} alt="test" width="300" />
-                <div className="ContentDetail">
-                  <p className="ContentCategory">Fashion Tips</p>
-                  <h2 className="ContentTitle">
-                    <a href="/">31 Days of Outfits: August Edition</a>
-                  </h2>
-                </div>
-              </div>
-              <div className="RecentContent">
-                <img src={GridImg} alt="test" width="300" />
-                <div className="ContentDetail">
-                  <p className="ContentCategory">Fashion Tips</p>
-                  <h2 className="ContentTitle">
-                    <a href="/">31 Days of Outfits: August Edition</a>
-                  </h2>
-                </div>
-              </div>
-              <div className="RecentContent">
-                <img src={GridImg} alt="test" width="300" />
-                <div className="ContentDetail">
-                  <p className="ContentCategory">Fashion Tips</p>
-                  <h2 className="ContentTitle">
-                    <a href="/">31 Days of Outfits: August Edition</a>
-                  </h2>
-                </div>
-              </div>
-              <div className="RecentContent">
-                <img src={GridImg} alt="test" width="300" />
-                <div className="ContentDetail">
-                  <p className="ContentCategory">Fashion Tips</p>
-                  <h2 className="ContentTitle">
-                    <a href="/">31 Days of Outfits: August Edition</a>
-                  </h2>
-                </div>
-              </div>
-              <div className="RecentContent">
-                <img src={GridImg} alt="test" width="300" />
-                <div className="ContentDetail">
-                  <p className="ContentCategory">Fashion Tips</p>
-                  <h2 className="ContentTitle">
-                    <a href="/">31 Days of Outfits: August Edition</a>
-                  </h2>
-                </div>
-              </div>
+              {data.map((el, i) => (
+                <Post key={i} info={el} />
+              ))}
             </div>
           </section>
           <Readmore />
