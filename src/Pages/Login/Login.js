@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Login.scss';
-import Footer from '../../Components/Footer/Footer.js';
+import Google from '../../Images/google_logo.png';
+import Facebook from '../../Images/facebook_logo.png';
+import Kakaotalk from '../../Images/kakaotalk_logo.png';
 
 class Login extends Component {
   render() {
@@ -28,11 +30,30 @@ class Login extends Component {
 
           <div className="forgot">
             <a href="/" className="forgot-1">
-              Forgot your password?
+              Or you can join with,
             </a>
+
+            <div className="social--Login">
+              <div className="social-LoginWrap">
+                <div className="socialLogin">
+                  <div className="imageCenter">
+                    <img src={Google} alt="googlelogo" width="35" />
+                  </div>
+                </div>
+                <div className="socialLogin">
+                  <div className="imageCenter">
+                    <img src={Facebook} alt="facebooklogo" width="39" />
+                  </div>
+                </div>
+                <div className="socialLogin">
+                  <div className="imageCenter">
+                    <img src={Kakaotalk} alt="kakaotalklogo" width="35" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <Footer />
       </div>
     );
   }
