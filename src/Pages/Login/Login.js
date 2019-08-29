@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Login.scss';
+import Footer from '../../Components/Footer/Footer.js';
 
 class Login extends Component {
   render() {
@@ -26,11 +27,12 @@ class Login extends Component {
           </div>
 
           <div className="forgot">
-            <a href="#" className="forgot-1">
+            <a href="/" className="forgot-1">
               Forgot your password?
             </a>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

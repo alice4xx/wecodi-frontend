@@ -1,0 +1,50 @@
+//@at-root@import '../../styles/theme.scss';
+
+.page--Footer {
+  width: 100%;
+
+  background-image: url('https://www.stitchfix.com/women/blog/wp-content/themes/stitchfix/media/bg--footer.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  color: white;
+  font-size: 16px;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  .footerWrap {
+    width: 100%;
+  }
+  .footerRow {
+    width: 100%;
+
+    display: flex;
+    align-items: row;
+  }
+  .logo--stacked {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 10px;
+  }
+  .footerListWrap {
+    width: 70%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 90px;
+    line-height: 28px;
+    font-size: 14px;
+
+    ul {
+      padding-left: 40px;
+    }
+    a:hover {
+      color: #10b8e5;
+      border-bottom: 1px solid #10b8e5;
+      transition: 0.4s color;
+    }
+  }
+}
