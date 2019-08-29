@@ -1,13 +1,15 @@
 import React from 'react';
 
 const Post = props => {
+  console.log(props);
+  const { thumbnail, category, title } = props.info;
   return (
     <div className="RecentContent">
-      <img src={props.info.thumbnail} alt="test" width="300" />
+      <img src={thumbnail} alt="test" width="300" />
       <div className="ContentDetail">
-        <p className="ContentCategory">{props.info.category}</p>
+        <p className="ContentCategory">{category}</p>
         <h2 className="ContentTitle">
-          <a href="/">{props.info.title}</a>
+          <a href="/">{title}</a>
         </h2>
       </div>
     </div>
