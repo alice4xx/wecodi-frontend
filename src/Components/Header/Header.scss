@@ -128,8 +128,32 @@
 
 .BarsMenu {
   width: 100%;
-  position: absolute;
+  left: 0;
+  top: 0;
+  position: fixed;
   z-index: 999;
-  height: 100vh;
   background-color: #fff;
+  border-bottom: 1px solid $headerBorder;
+  .BarsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    span {
+      font-size: 14px;
+      margin-left: 16px;
+    }
+    a {
+      font-weight: 600;
+    }
+    i {
+      font-size: 24px;
+    }
+    .CloseBtnWrap {
+      padding: 16px;
+      width: 52px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
 }

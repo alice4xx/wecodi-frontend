@@ -26,7 +26,8 @@ class Header extends Component {
             <div className="Bars" onClick={this.onToggleBar}>
               <i className="fas fa-bars BarsBtn" />
             </div>
-            {this.state.bars && <BarsMenu />}
+            {/* {this.state.bars && <BarsMenu />} */}
+            <BarsMenu />
           </div>
           <ul className="Menu">
             <li className="MenuList">
