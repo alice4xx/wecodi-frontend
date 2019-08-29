@@ -4,6 +4,7 @@ import Main from './Pages/Main/Main';
 import Header from './Components/Header/Header';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
+import Footer from './Components/Footer/Footer';
 
 class Routes extends Component {
   render() {

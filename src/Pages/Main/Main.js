@@ -60,6 +60,7 @@ class Main extends Component {
           </section>
           <Readmore />
         </div>
+        <footer />
       </div>
     );
   }
