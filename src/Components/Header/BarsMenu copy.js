@@ -1,24 +1,26 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { thisExpression } from '@babel/types';
 import Close from '../../Images/close.png';
-
-const path_url = {
-  home: '/',
-  fashion: '/fashion-tips',
-  outfit: '/outfit-ideas',
-  inside: '/inside-stitch-fix',
-};
 
 const BarsMenu = props => {
   const toggle = props.mode ? `BarsMenu` : `BarsMenu BarMenuFocus`;
 
-  const goToPage = e => {
-    console.log(e.target.dataset);
-    props.history.push(path_url[e.target.dataset.path]);
+  const goToHome = () => {
+    props.history.push('/');
     props.handleClick();
   };
-
+  const goToFashion = () => {
+    props.history.push('/fashion-tips');
+    props.handleClick();
+  };
+  const goToOutfit = () => {
+    props.history.push('/outfit-ideas');
+    props.handleClick();
+  };
+  const goToInside = () => {
+    props.history.push('/inside-stitch-fix');
+    props.handleClick();
+  };
   return (
     <div className={toggle}>
       <div className="BarsHeader">
@@ -31,31 +33,23 @@ const BarsMenu = props => {
       </div>
       <div className="ListWrap">
         <div className="Category">
-          <div className="CategoryName">
-            <h3 data-path="home" onClick={goToPage}>
-              HOME
-            </h3>
+          <div className="CategoryName" onClick={goToHome}>
+            <h3>HOME</h3>
           </div>
         </div>
         <div className="Category">
-          <div className="CategoryName">
-            <h3 data-path="fashion" onClick={goToPage}>
-              FASHION TIPS
-            </h3>
+          <div className="CategoryName" onClick={goToFashion}>
+            <h3>FASHION TIPS</h3>
           </div>
         </div>
         <div className="Category">
-          <div className="CategoryName" onClick={goToPage}>
-            <h3 data-path="outfit" onClick={goToPage}>
-              OUTFIT IDEAS
-            </h3>
+          <div className="CategoryName" onClick={goToOutfit}>
+            <h3>OUTFIT IDEAS</h3>
           </div>
         </div>
         <div className="Category">
-          <div className="CategoryName" onClick={goToPage}>
-            <h3 data-path="inside" onClick={goToPage}>
-              INSIDE STITCH FIX
-            </h3>
+          <div className="CategoryName" onClick={goToInside}>
+            <h3>INSIDE STITCH FIX</h3>
           </div>
         </div>
       </div>
