@@ -10,7 +10,7 @@ class Footer extends Component {
           <div className="footerRow">
             <div className="logo--stacked">
               <a href="/">
-                <img src={Logo} alt="logo" width="140" />
+                <img src={Logo} alt="logo" />
               </a>
             </div>
             <div className="footerListWrap">
