@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { thisExpression } from '@babel/types';
 import Close from '../../Images/close.png';
 
 const path_url = {
@@ -14,7 +13,6 @@ const BarsMenu = props => {
   const toggle = props.mode ? `BarsMenu` : `BarsMenu BarMenuFocus`;
 
   const goToPage = e => {
-    console.log(e.target.dataset);
     props.history.push(path_url[e.target.dataset.path]);
     props.handleClick();
   };
