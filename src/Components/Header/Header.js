@@ -5,14 +5,17 @@ import './Header.scss';
 import Logo from '../../Images/logo.png';
 
 class Header extends Component {
-  state = {
-    bars: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      mode: true,
+    };
+  }
 
-  onToggleBar = () => {
-    this.setState(prev => ({
-      bars: !this.state.bars,
-    }));
+  barsClick = () => {
+    this.setState({
+      mode: !this.state.mode,
+    });
   };
 
   render() {
@@ -21,22 +24,22 @@ class Header extends Component {
         <div className="Wrapper">
           <div id="logo">
             <a href="/">
-              <img src={Logo} alt="logo" width="140" />
+              <img className="logo" src={Logo} alt="logo" />
             </a>
-            <div className="Bars" onClick={this.onToggleBar}>
+            <div className="Bars" onClick={this.barsClick}>
               <i className="fas fa-bars BarsBtn" />
             </div>
-            {this.state.bars && <BarsMenu />}
+            <BarsMenu mode={this.state.mode} handleClick={this.barsClick} />
           </div>
           <ul className="Menu">
             <li className="MenuList">
-              <a href="/">FASHION TIPS</a>
+              <Link to="/fashion-tops">FASHION TIPS</Link>
             </li>
             <li className="MenuList">
-              <a href="/">OUTFIT IDEAS</a>
+              <Link to="/outfit-ideas">OUTFIT IDEAS</Link>
             </li>
             <li className="MenuList">
-              <a href="/">INSIDE STITCH FIX</a>
+              <Link to="/inside-stitch-fix">INSIDE STITCH FIX</Link>
             </li>
           </ul>
           <div className="LoginWrap">

@@ -33,12 +33,34 @@
       .SliderWrap {
         cursor: pointer;
         background-color: $sliderBox;
-
+        position: relative;
         img {
           width: 100%;
         }
         .Indicator {
           margin-top: -30px;
+        }
+        .ButtonWrap {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          position: absolute;
+          top: 35%;
+          width: 100%;
+          color: #fff;
+          padding: 0 14px;
+          @media screen and (max-width: $break-small) {
+            top: 30%;
+          }
+          i {
+            font-size: 30px;
+            @media screen and (max-width: $break-medium) {
+              font-size: 26px;
+            }
+            @media screen and (max-width: $break-small) {
+              font-size: 22px;
+            }
+          }
         }
         .Icon {
           color: #fff;
@@ -53,6 +75,9 @@
           justify-content: center;
           align-items: center;
           margin-top: 12px;
+          @media screen and (max-width: $break-small) {
+            height: 100px;
+          }
         }
         .DetailCategory {
           font-size: 16px;
@@ -60,8 +85,9 @@
           line-height: 24px;
           font-weight: 600;
           color: $sliderCategory;
+
           @media screen and (max-width: $break-small) {
-            font-size: 16px;
+            font-size: 14px;
           }
         }
         .DetailTitle {
@@ -71,8 +97,12 @@
           font-weight: 700;
           color: $headerFont;
           margin-top: 5px;
-          @media screen and (max-width: $break-small) {
+          @media screen and (max-width: $break-medium) {
             font-size: 20px;
+          }
+          @media screen and (max-width: $break-small) {
+            font-size: 16px;
+            margin-top: 0;
           }
         }
       }
@@ -98,9 +128,13 @@
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 30px;
         max-width: 960px;
+        @media screen and (max-width: $break-medium) {
+          grid-template-columns: repeat(2, 1fr);
+        }
         @media screen and (max-width: $break-small) {
           display: block;
         }
+
         img {
           width: 100%;
           cursor: pointer;
