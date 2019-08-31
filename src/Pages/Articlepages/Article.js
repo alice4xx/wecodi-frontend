@@ -3,6 +3,7 @@ import './Article.scss';
 import Slideshowimg from '../../Images/slideshowsample-img.png';
 
 class Article extends Component {
+  console.log('wip');
   render() {
     return (
       <div className="detailpages">
