@@ -5,6 +5,7 @@ import Header from './Components/Header/Header';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import Fashion from './Pages/Fashiontips/Fashion';
+import InsideStitch from './Pages/InsideStitchFix/InsideStitch';
 
 class Routes extends Component {
   render() {
@@ -16,6 +17,7 @@ class Routes extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/fashion-tips" component={Fashion} />
+          <Route exact path="/inside-stitch-fix" component={InsideStitch} />
         </Switch>
       </Router>
     );

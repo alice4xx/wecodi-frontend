@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import './Fashion.scss';
+import './InsideStitch.scss';
 import Footer from '../../Components/Footer/Footer';
-import outfit1 from '../../Images/fashiontips_1.png';
-import outfit2 from '../../Images/fashiontips_2.png';
+import Inside1 from '../../Images/insidestitchfix_1.png';
 import Readmore from '../../Components/Readmore/Readmore';
 
-class Fashion extends Component {
+class Inside extends Component {
   render() {
     return (
       <>
@@ -14,20 +13,21 @@ class Fashion extends Component {
             <div className="body_Left">
               <div className="title_Left">
                 <div className="recent">
-                  <span>•</span> RECENT FASHION TIPS <span>•</span>
+                  <span>•</span> RECENT INSIDE STITCH FIX <span>•</span>
                 </div>
                 <div className="fashionTips">
                   <div className="fashionTips_3">
                     <div className="articles">
                       <div className="thumbnail">
-                        <img src={outfit1} alt="outfit_1" width="120" />
+                        <img src={Inside1} alt="inside_1" width="120" />
                       </div>
                       <div className="entry">
                         <header className="entry-Container">
-                          <p className="entry-category">Fashion Tips</p>
+                          <p className="entry-category">INSIDE STITCH FIX</p>
                           <h3 className="entry-title">
                             <a href="/" className="articleTitle">
-                              31 Days of Outfits : August Edition
+                              Stitch Fix Stylists Share Their Favorite Fall 2019
+                              Looks
                             </a>
                           </h3>
                         </header>
@@ -39,14 +39,15 @@ class Fashion extends Component {
                   <div className="fashionTips_3">
                     <div className="articles">
                       <div className="thumbnail">
-                        <img src={outfit1} alt="outfit_1" width="120" />
+                        <img src={Inside1} alt="outfit_1" width="120" />
                       </div>
                       <div className="entry">
                         <header className="entry-Container">
-                          <p className="entry-category">Fashion Tips</p>
+                          <p className="entry-category">INSIDE STITCH FIX</p>
                           <h3 className="entry-title">
                             <a href="/" className="articleTitle">
-                              31 Days of Outfits : August Edition
+                              Stitch Fix Stylists Share Their Favorite Fall 2019
+                              Looks
                             </a>
                           </h3>
                         </header>
@@ -58,14 +59,15 @@ class Fashion extends Component {
                   <div className="fashionTips_3">
                     <div className="articles">
                       <div className="thumbnail">
-                        <img src={outfit1} alt="outfit_1" width="120" />
+                        <img src={Inside1} alt="inside_1" width="120" />
                       </div>
                       <div className="entry">
                         <header className="entry-Container">
-                          <p className="entry-category">Fashion Tips</p>
+                          <p className="entry-category">INSIDE STITCH FIX</p>
                           <h3 className="entry-title">
                             <a href="/" className="articleTitle">
-                              31 Days of Outfits : August Edition
+                              Stitch Fix Stylists Share Their Favorite Fall 2019
+                              Looks
                             </a>
                           </h3>
                         </header>
@@ -77,14 +79,15 @@ class Fashion extends Component {
                   <div className="fashionTips_3">
                     <div className="articles">
                       <div className="thumbnail">
-                        <img src={outfit1} alt="outfit_1" width="120" />
+                        <img src={Inside1} alt="inside_1" width="120" />
                       </div>
                       <div className="entry">
                         <header className="entry-Container">
-                          <p className="entry-category">Fashion Tips</p>
+                          <p className="entry-category">INSIDE STITCH FIX</p>
                           <h3 className="entry-title">
                             <a href="/" className="articleTitle">
-                              31 Days of Outfits : August Edition
+                              Stitch Fix Stylists Share Their Favorite Fall 2019
+                              Looks
                             </a>
                           </h3>
                         </header>
@@ -96,14 +99,15 @@ class Fashion extends Component {
                   <div className="fashionTips_3">
                     <div className="articles">
                       <div className="thumbnail">
-                        <img src={outfit1} alt="outfit_1" width="120" />
+                        <img src={Inside1} alt="inside_1" width="120" />
                       </div>
                       <div className="entry">
                         <header className="entry-Container">
-                          <p className="entry-category">Fashion Tips</p>
+                          <p className="entry-category">INSIDE STITCH FIX</p>
                           <h3 className="entry-title">
                             <a href="/" className="articleTitle">
-                              31 Days of Outfits : August Edition
+                              Stitch Fix Stylists Share Their Favorite Fall 2019
+                              Looks
                             </a>
                           </h3>
                         </header>
@@ -115,14 +119,15 @@ class Fashion extends Component {
                   <div className="fashionTips_3">
                     <div className="articles">
                       <div className="thumbnail">
-                        <img src={outfit2} alt="outfit_2" width="120" />
+                        <img src={Inside1} alt="inside_1" width="120" />
                       </div>
                       <div className="entry">
                         <header className="entry-Container">
-                          <p className="entry-category">Fashion Tips</p>
+                          <p className="entry-category">INSIDE STITCH FIX</p>
                           <h3 className="entry-title">
                             <a href="/" className="articleTitle">
-                              One-And-Done Pieces To Try This Summer
+                              Stitch Fix Stylists Share Their Favorite Fall 2019
+                              Looks
                             </a>
                           </h3>
                         </header>
@@ -191,4 +196,4 @@ class Fashion extends Component {
   }
 }
 
-export default Fashion;
+export default Inside;
