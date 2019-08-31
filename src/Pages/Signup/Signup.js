@@ -1,24 +1,34 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './Signup.scss';
+import {Link} from 'react-router-dom';
+  
 
 class Signup extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-
-      firstName: null,
-      lastName: null,
-      email: null,
-      password: null,
-      
-      }
-    };
-
-  handleSubmit = e => {
-    e.preventDefault();
-  }
-
+    
+      singup = async () => {
+    
+        const response = await fetch('http://10.58.4.74:8000/signup', {
+    
+          method: 'POST',
+    
+          body: JSON.stringify({
+            user_id: '12341234sdfsdfsfsdfsd',
+            password: 'good'
+          })
+        });   
+        const result = await response.json();
+        console.log(result)
+    
+        console.log('sdfsdf')
+        if (result.message === 'same ID exists') {
+          alert('이미 있는 아이디 입니다!! 다시 가입 해주세요.')
+        } else if (result.message === 'SUCCESS') {
+          alert('환영합니다!! 가입 되었습니다!!!')
+          this.props.history.push('/login');
+        }
+      };
 
   render() {
     return (
@@ -40,7 +50,7 @@ class Signup extends Component {
               <label htmlFor="password">Password<input type="password" className="inputPw" placeholder="Password" noValidate onChange={this.handleChange} /></label>
             </div>
             <div className="createAccount">
-              <button type="submit">Signup</button>
+              <button type="submit" value="Register" onClick={this.singup}> Signup </button>
             </div>
           </form>
         </div>
@@ -50,6 +60,6 @@ class Signup extends Component {
     }
   }
  
-export default Signup;
+  export default withRouter(Signup);
 
 

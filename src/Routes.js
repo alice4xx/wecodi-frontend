@@ -4,6 +4,7 @@ import Main from './Pages/Main/Main';
 import Header from './Components/Header/Header';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
+import Article from  './Pages/Articlepages/Article';
 
 class Routes extends Component {
   render() {
@@ -14,6 +15,7 @@ class Routes extends Component {
           <Route exact path="/" component={Main} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/Article" component={Article} />
         </Switch>
       </Router>
     );
