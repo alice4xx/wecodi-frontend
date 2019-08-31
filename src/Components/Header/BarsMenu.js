@@ -29,16 +29,16 @@ const BarsMenu = props => {
       </div>
       <div className="ListWrap">
         <div className="Category" data-path="home" onClick={goToPage}>
-          <h3>HOME</h3>
+          HOME
         </div>
         <div className="Category" data-path="fashion" onClick={goToPage}>
-          <h3>FASHION TIPS</h3>
+          FASHION TIPS
         </div>
-        <div className="Category" onClick={goToPage} data-path="outfit">
-          <h3>OUTFIT IDEAS</h3>
+        <div className="Category" data-path="outfit" onClick={goToPage}>
+          OUTFIT IDEAS
         </div>
         <div className="Category" data-path="inside" onClick={goToPage}>
-          <h3>INSIDE STITCH FIX</h3>
+          INSIDE STITCH FIX
         </div>
       </div>
     </div>
