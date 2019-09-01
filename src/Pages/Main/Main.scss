@@ -48,6 +48,7 @@
           .ImageCover {
             height: 415px;
             overflow: hidden;
+
             @media screen and (max-width: $break-large) {
               height: 520px;
             }
@@ -72,7 +73,22 @@
             position: absolute;
             width: 100%;
             bottom: 20px;
-            z-index: 99;
+            z-index: 0;
+            @media screen and (max-width: $break-small) {
+              bottom: 12px;
+            }
+          }
+          .Icon {
+            color: #fff;
+            font-size: 14px;
+            margin: 0 10px;
+            cursor: pointer;
+            @media screen and (max-width: $break-small) {
+              font-size: 12px;
+            }
+            i {
+              // z-index: -9;
+            }
           }
           .ButtonWrap {
             display: flex;
@@ -100,23 +116,14 @@
               transition: 0.3s all;
             }
           }
-          .Icon {
-            color: #fff;
-            font-size: 14px;
-            margin: 0 10px;
-            // cursor: pointer;
-          }
 
           .SliderDetail {
-            padding: 20px 0;
+            padding: 16px 0;
             z-index: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            @media screen and (max-width: $break-small) {
-              height: 100px;
-            }
           }
           .DetailCategory {
             font-size: 15px;
@@ -136,13 +143,15 @@
             display: inline-block;
             color: $headerFont;
             margin-top: 5px;
-            width: 70%;
-            max-width: 440px;
+            width: 92%;
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
             @media screen and (max-width: $break-medium) {
               font-size: 19px;
+              overflow: visible;
+              text-overflow: inherit;
+              white-space: normal;
             }
             @media screen and (max-width: $break-small) {
               font-size: 16px;

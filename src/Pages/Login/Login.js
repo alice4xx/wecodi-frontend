@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Login.scss';
-import Footer from '../../Components/Footer/Footer';
 import Google from '../../Images/google_logo.png';
 import Facebook from '../../Images/facebook_logo.png';
 import Kakaotalk from '../../Images/kakaotalk_logo.png';
@@ -39,25 +38,22 @@ class Login extends Component {
                 <div className="social-LoginWrap">
                   <div className="socialLogin">
                     <div className="imageCenter">
-                      <img src={Google} alt="googlelogo" width="35" />
+                      <img src={Google} alt="googlelogo" width="48" />
                     </div>
                   </div>
                   <div className="socialLogin">
                     <div className="imageCenter">
-                      <img src={Facebook} alt="facebooklogo" width="39" />
+                      <img src={Facebook} alt="facebooklogo" width="48" />
                     </div>
                   </div>
                   <div className="socialLogin">
-                    <div className="imageCenter">
-                      <img src={Kakaotalk} alt="kakaotalklogo" width="35" />
-                    </div>
+                    <img src={Kakaotalk} alt="kakaotalklogo" width="48" />
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <Footer />
       </>
     );
   }

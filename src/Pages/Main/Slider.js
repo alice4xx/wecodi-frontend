@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import data from './slider-data';
 import {Link} from 'react-router-dom';
 
-// ----------구현해야하는 로직-----------
-// 받아온 data의 length만큼 setInterval을 돌려서 title, category, slider 값 변경을 준다.
-// ----------필요한 함수----------------
-// 1) nextSlider => 다음 슬라이더로 넘어가는 함수(setInterval, leftBtn에 넘겨주면 될 듯)
-//    => 인덱스가 data.length-1이면 0번째 인덱스로 보내야할 것 같다.
-// 2) beforeSlider => 이전 슬라이더로 넘기는 함수, index===0인 순간엔 length-1 인덱스로 보내야할 것 -> leftBtn에 적용
-
 class Slider extends Component {
   constructor() {
     super();
@@ -20,22 +13,19 @@ class Slider extends Component {
     };
   }
 
-  nextSlider = () => {
+  moveSlider = (e, point=0) => {
     let nextI = this.state.i;
-    nextI++;
+
+    if (e === null){
+      nextI += point;
+    } else {
+      nextI += Number(e.target.dataset.value);
+      clearInterval(this.interval);
+    }
+
     if (nextI >= data.length) {
       nextI = 0;
-    }
-    this.setState({
-      i: nextI,
-      title: data[nextI].title,
-      category: data[nextI].category,
-      img: data[nextI].slider,
-    });
-  };
-  beforeSlider = () => {
-    let nextI = this.state.i;
-    nextI--;
+    } 
     if (nextI < 0) {
       nextI = data.length - 1;
     }
@@ -47,8 +37,21 @@ class Slider extends Component {
     });
   };
 
+  indicatorClick = (e) => {
+    const idx = Number(e.target.dataset.idx);
+    clearInterval(this.interval);
+    this.setState({
+      i: idx,
+      title: data[idx].title,
+      category: data[idx].category,
+      img: data[idx].slider,
+    })
+  }
+
   componentDidMount() {
-    this.interval = setInterval(this.nextSlider, 3000);
+    this.interval = setInterval(() => {
+      return this.moveSlider(null, 1);
+    }, 3000);
   }
 
   componentWillUnmount() {
@@ -70,20 +73,20 @@ class Slider extends Component {
                 <img src={this.state.img} alt="featured stories" />
               </div>
               <div className="Indicator">
-                {data.map((el, i) => {
+                {data.map((el, idx) => {
                   return (
-                    <span className="Icon" key={i} >
-                      <i className={`${this.state.i === i ? 'fas' : 'far'} fa-square`}/>
-                   </span>
+                    <span className="Icon" key={idx} >
+                      <i className={`${this.state.i === idx ? 'fas' : 'far'} fa-square`} data-idx={idx} onClick={this.indicatorClick} />
+                    </span>
                   )
                 })}
               </div>
               <div className="ButtonWrap">
-                <div className="Left" onClick={this.beforeSlider}>
-                  <i className="fas fa-chevron-circle-left" />
+                <div className="Left" onClick={this.moveSlider}>
+                  <i className="fas fa-chevron-circle-left" data-value="-1" />
                 </div>
-                <div className="Right" onClick={this.nextSlider}>
-                  <i className="fas fa-chevron-circle-right" />
+                <div className="Right" onClick={this.moveSlider}>
+                  <i className="fas fa-chevron-circle-right" data-value="1" />
                 </div>
               </div>
             </div>
