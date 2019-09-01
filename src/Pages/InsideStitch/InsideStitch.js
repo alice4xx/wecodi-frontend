@@ -8,7 +8,7 @@ class Inside extends Component {
   render() {
     return (
       <>
-        <div className="pageContainer">
+        <div className="Stitch_Container">
           <div className="page_Body">
             <div className="body_Left">
               <div className="title_Left">

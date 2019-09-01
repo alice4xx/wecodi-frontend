@@ -5,7 +5,7 @@ import Header from './Components/Header/Header';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import Fashion from './Pages/Fashiontips/Fashion';
-import InsideStitch from './Pages/InsideStitchFix/InsideStitch';
+import InsideStitch from './Pages/InsideStitch/InsideStitch';
 
 class Routes extends Component {
   render() {
