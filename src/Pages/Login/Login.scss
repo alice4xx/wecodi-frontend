@@ -114,16 +114,19 @@
     }
 
     .socialLogin {
-      width: 55px;
-      height: 55px;
-      border-radius: 100%;
-      border: 1px solid $menuBorder;
-
+      height: 50px;
+      width: 50px;
+      border-radius: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ddd;
       .imageCenter {
-        height: 55px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        height: 100%;
+      }
+      img {
+        border-radius: 100%;
+        width: 100%;
       }
     }
     .socialLogin:hover {

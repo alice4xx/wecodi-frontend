@@ -30,10 +30,10 @@ const slider = [
   {
     id: 5,
     title:
-      'Styled For Your Area Code: Stylists Share Their Regional Style Tips',
-    category: 'FASHION TIPS',
+      'Stitch Fix Stylists Share Their Favorite Fall 2019 Looks',
+    category: 'INSIDE STITCH FIX',
     slider:
-      'https://s3.amazonaws.com/com.stitchfix.blog/wp-content/uploads/2019/04/08124119/W_BLG_StylistTakeRegionalDressing_AH.jpg',
+      'https://s3.amazonaws.com/com.stitchfix.blog/wp-content/uploads/2016/10/30114225/T3_W20_BLG_Stylists-Favorite-Fall-Trends_382575736_SQ.jpg',
   },
 ];
 

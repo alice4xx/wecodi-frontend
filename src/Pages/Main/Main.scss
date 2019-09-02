@@ -10,103 +10,218 @@
   @media screen and (max-width: $break-medium) {
     display: block;
     padding: 0 16px;
-    margin-top: 90px;
+    margin-top: 80px;
   }
 
   .Wrapper {
     max-width: 960px;
-    .Slider {
-      text-align: center;
-      border-bottom: 2px solid $headerBorder;
-
-      .SliderHeader {
-        margin: 24px 0;
+    .SliderWrapper {
+      display: flex;
+      @media screen and (max-width: $break-large) {
+        display: block;
       }
-
-      .Title {
-        font-size: 16px;
-        font-weight: 600;
-        letter-spacing: 2px;
-        line-height: 1.5;
-      }
-
-      .SliderWrap {
-        cursor: pointer;
-        background-color: $sliderBox;
-        position: relative;
-        img {
+      .Slider {
+        border-bottom: 2px solid $headerBorder;
+        width: 66.6%;
+        text-align: center;
+        @media screen and (max-width: $break-large) {
           width: 100%;
         }
-        .Indicator {
-          margin-top: -30px;
-        }
-        .ButtonWrap {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          position: absolute;
-          top: 35%;
-          width: 100%;
-          color: #fff;
-          padding: 0 14px;
-          @media screen and (max-width: $break-small) {
-            top: 30%;
+        .SliderHeader {
+          margin: 24px 0;
+          .Title {
+            color: $CategoryTitle;
+            font-size: 16px;
+            padding: 0 12px;
+            line-height: 1.5;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
           }
-          i {
-            font-size: 30px;
+        }
+
+        .SliderBody {
+          background-color: $sliderBox;
+          .ImageWrap {
+            position: relative;
+          }
+          .ImageCover {
+            height: 415px;
+            overflow: hidden;
+
+            @media screen and (max-width: $break-large) {
+              height: 520px;
+            }
             @media screen and (max-width: $break-medium) {
-              font-size: 26px;
+              height: 400px;
             }
             @media screen and (max-width: $break-small) {
-              font-size: 22px;
+              height: 320px;
+            }
+            @media screen and (max-width: $break-mobile) {
+              height: 260px;
+            }
+            @media screen and (max-width: $break-mini-mobile) {
+              height: 180px;
+            }
+          }
+
+          img {
+            width: 100%;
+          }
+          .Indicator {
+            position: absolute;
+            width: 100%;
+            bottom: 20px;
+            z-index: 0;
+            @media screen and (max-width: $break-small) {
+              bottom: 12px;
+            }
+          }
+          .Icon {
+            color: #fff;
+            font-size: 14px;
+            margin: 0 10px;
+            cursor: pointer;
+            @media screen and (max-width: $break-small) {
+              font-size: 12px;
+            }
+            i {
+              // z-index: -9;
+            }
+          }
+          .ButtonWrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: absolute;
+            top: 45%;
+            width: 100%;
+            color: #fff;
+            padding: 0 14px;
+
+            i {
+              font-size: 30px;
+              cursor: pointer;
+
+              @media screen and (max-width: $break-medium) {
+                font-size: 26px;
+              }
+              @media screen and (max-width: $break-small) {
+                font-size: 22px;
+              }
+            }
+            i:hover {
+              opacity: 0.8;
+              transition: 0.3s all;
+            }
+          }
+
+          .SliderDetail {
+            padding: 16px 0;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+          .DetailCategory {
+            font-size: 15px;
+            height: 24px;
+            line-height: 24px;
+            font-weight: 600;
+            color: $sliderCategory;
+
+            @media screen and (max-width: $break-small) {
+              font-size: 14px;
+            }
+          }
+          .DetailTitle {
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 700;
+            display: inline-block;
+            color: $headerFont;
+            margin-top: 5px;
+            width: 92%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            @media screen and (max-width: $break-medium) {
+              font-size: 19px;
+              overflow: visible;
+              text-overflow: inherit;
+              white-space: normal;
+            }
+            @media screen and (max-width: $break-small) {
+              font-size: 16px;
+              margin-top: 0;
             }
           }
         }
-        .Icon {
-          color: #fff;
-          font-size: 14px;
-          margin: 0 10px;
+      }
+      .Widget {
+        width: 33%;
+        margin-top: 72px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        padding-left: 40px;
+        text-transform: none;
+        @media screen and (max-width: $break-large) {
+          width: 100%;
+          max-width: 960px;
+          flex-direction: row;
+          margin: 0;
+          padding-top: 40px;
+          padding-left: 0;
         }
-
-        .SliderDetail {
-          height: 120px;
+        @media screen and (max-width: $break-small) {
+          flex-direction: column;
+          padding-top: 30px;
+        }
+        .TrendingWidget,
+        .RecentWidget {
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          margin-top: 12px;
+          text-align: center;
+          padding: 0 10px;
+        }
+        .RecentWidget {
           @media screen and (max-width: $break-small) {
-            height: 100px;
+            padding: 30px 0 10px;
           }
         }
-        .DetailCategory {
-          font-size: 16px;
-          height: 24px;
-          line-height: 24px;
-          font-weight: 600;
-          color: $sliderCategory;
 
-          @media screen and (max-width: $break-small) {
-            font-size: 14px;
-          }
-        }
-        .DetailTitle {
-          font-size: 24px;
-          line-height: 28px;
-          max-height: 56px;
+        .WidgetTitle {
+          color: $CategoryTitle;
+          font-size: 16px;
+          padding: 0 12px;
+          line-height: 1.5;
+          letter-spacing: 2px;
           font-weight: 700;
-          color: $headerFont;
-          margin-top: 5px;
-          @media screen and (max-width: $break-medium) {
-            font-size: 20px;
+          text-transform: uppercase;
+        }
+
+        .WidgetDetails {
+          text-align: center;
+          p {
+            font-weight: 400;
+            font-size: 15px;
+            margin-top: 12px;
+            line-height: 1.5;
+            letter-spacing: 0.2;
           }
-          @media screen and (max-width: $break-small) {
-            font-size: 16px;
-            margin-top: 0;
+          a:hover {
+            color: $menuHover;
+            border-bottom: 1px solid $menuHover;
+            transition: 0.4s color;
           }
         }
       }
     }
+
     .Recent {
       display: flex;
       flex-direction: column;
@@ -117,10 +232,13 @@
       }
 
       .Title {
+        color: $CategoryTitle;
         font-size: 16px;
-        font-weight: 600;
-        letter-spacing: 2px;
+        padding: 0 12px;
         line-height: 1.5;
+        letter-spacing: 2px;
+        font-weight: 700;
+        text-transform: uppercase;
       }
 
       .Posts {
