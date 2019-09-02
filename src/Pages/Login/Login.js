@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Login.scss';
-
 import Google from '../../Images/google_logo.png';
 import Facebook from '../../Images/facebook_logo.png';
 import Kakaotalk from '../../Images/kakaotalk_logo.png';

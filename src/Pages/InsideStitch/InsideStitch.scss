@@ -14,11 +14,6 @@
   }
   .body_Left {
     width: 65%;
-
-    .title_Left {
-      text-align: center;
-      height: 100%;
-    }
   }
   .recent {
     display: flex;
@@ -95,20 +90,17 @@
     padding: 68px 0 24px;
 
     .trending {
-      width: 100%;
       padding: 0 12px 24px;
       text-align: center;
     }
     .nomoreTrending {
       padding: 20px 0;
-      height: 50px;
       font-weight: 600;
       letter-spacing: 2px;
       color: #5e4c4c;
     }
     .trendingNow {
       width: 90%;
-      height: 104px;
       margin: auto;
       font-size: 14px;
       line-height: 2;
@@ -122,7 +114,6 @@
 
     .nomoreTrending2 {
       padding: 20px 0;
-      height: 50px;
       font-weight: 600;
       letter-spacing: 2px;
       color: #5e4c4c;
