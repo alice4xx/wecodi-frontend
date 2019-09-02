@@ -16,34 +16,30 @@ class Footer extends Component {
             <div className="footerListWrap">
               <ul className="footerList">
                 <li>
-                  <a href="/">About Us</a>
+                  <a href="/about">About Us</a>
                 </li>
                 <li>
-                  <a target="_blank" className="ourMember" href="/">
+                  <a target="_blank" href="https://soongyu.github.io/">
                     Soongyu Kwon
                   </a>
                 </li>
                 <li>
-                  <a target="_blank" className="ourMember" href="/">
+                  <a target="_blank" href="https://playwright20.github.io/">
                     kamsa kim
                   </a>
                 </li>
                 <li>
-                  <a target="_blank" className="ourMember" href="/">
+                  <a target="_blank" href="https://babytiger.netlify.com">
                     I Re Shin
                   </a>
                 </li>
                 <li>
-                  <a
-                    target="_blank"
-                    className="ourMember"
-                    href="https://alice4xx.github.io/"
-                  >
+                  <a target="_blank" href="https://alice4xx.github.io/">
                     JinKyung Lee
                   </a>
                 </li>
                 <li>
-                  <a target="_blank" className="ourMember" href="/">
+                  <a target="_blank" href="https://rumbarum.github.io/">
                     Bareum Han
                   </a>
                 </li>

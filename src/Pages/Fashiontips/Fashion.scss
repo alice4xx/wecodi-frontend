@@ -1,0 +1,110 @@
+@import '../../styles/theme.scss';
+@import '../../styles/media.scss';
+
+.Fashion_Container {
+  margin-top: 110px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .page_Body {
+    max-width: 960px;
+    margin: auto;
+    //padding: 0 12px;
+    display: flex;
+  }
+  .body_Left {
+    width: 65%;
+  }
+  .recent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 0;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    color: #5e4c4c;
+  }
+  .fashionTips {
+    width: 100%;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .postWrap {
+      width: 100%;
+    }
+  }
+
+  .fashion_articles {
+    border-top: 2px solid #e8e4e1;
+    padding: 36px 0;
+    display: flex;
+    //border: 1px solid green;
+    .thumbnail {
+      display: flex;
+    }
+  }
+  .entry {
+    padding-left: 34px;
+    display: flex;
+    align-items: center;
+  }
+
+  .entry-category {
+    font-size: 14px;
+    color: $menuBorder;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+  .entry-title {
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: left;
+  }
+  .articleTitle:hover {
+    border-bottom-color: $menuHover;
+    border-bottom: 1px solid $menuHover;
+    transition: 0.4s border-bottom-color;
+  }
+
+  .body_Right {
+    width: 35%;
+    padding: 68px 0 24px;
+
+    .trending {
+      padding: 0 12px 24px;
+      text-align: center;
+    }
+    .nomoreTrending {
+      padding: 20px 0;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #5e4c4c;
+    }
+    .trendingNow {
+      width: 90%;
+      margin: auto;
+      font-size: 14px;
+      line-height: 2;
+      color: #2f3237;
+    }
+    .trendingNow a:hover {
+      color: $menuHover;
+      border-bottom: 1px solid $menuHover;
+      transition: 0.4s color;
+    }
+
+    .nomoreTrending2 {
+      padding: 20px 0;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #5e4c4c;
+      margin-top: 60px;
+    }
+  }
+}
