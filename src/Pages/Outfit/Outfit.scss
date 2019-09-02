@@ -1,1 +1,183 @@
 @import '../../styles/theme.scss';
+@import '../../styles/media.scss';
+
+.Outfit {
+  display: flex;
+  justify-content: center;
+  margin-top: 110px;
+  padding: 0 12px;
+  @media screen and (max-width: $break-medium) {
+    margin-top: 60px;
+  }
+  .Wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 960px;
+
+    .OutfitHeader {
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+      .Title {
+        color: $CategoryTitle;
+        font-size: 16px;
+        padding: 24px 12px;
+        line-height: 1.5;
+        letter-spacing: 2px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+    }
+    .MainGallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .GalleryHeader {
+        text-align: center;
+        .GalleryTitle {
+          font-size: 40px;
+          font-weight: 600;
+          color: $headerFont;
+          text-align: center;
+          line-height: 1.2;
+          margin-bottom: 6px;
+          letter-spacing: 0.6px;
+          @media screen and (max-width: $break-medium) {
+            font-size: 36px;
+          }
+          @media screen and (max-width: $break-small) {
+            font-size: 28px;
+          }
+          @media screen and (max-width: $break-mini-mobile) {
+            font-size: 24px;
+          }
+        }
+        .GalleryDescription {
+          font-size: 15px;
+          margin: 20px 0;
+          font-weight: 400;
+          letter-spacing: 0.6px;
+          line-height: 1.4;
+          @media screen and (max-width: $break-small) {
+            font-size: 13px;
+          }
+        }
+      }
+      .GalleryContainer {
+        margin: 24px 0;
+
+        .GalleryGrid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 14px;
+
+          @media screen and (max-width: $break-small) {
+            display: flex;
+            flex-direction: column;
+          }
+          .GridDetail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-gap: 14px;
+            @media screen and (max-width: $break-small) {
+              margin-top: 14px;
+            }
+          }
+          img {
+            width: 100%;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .FilteredGallery {
+    // width: 100%;
+    .TagsWrap {
+      display: flex;
+      justify-content: center;
+      border: 1px solid $headerBorder;
+      border-left: 0;
+      border-right: 0;
+      @media screen and (max-width: $break-medium) {
+        flex-direction: column;
+        align-items: center;
+        border: 0;
+      }
+      .TagsList {
+        margin: 0 12px;
+        line-height: 64px;
+        text-transform: uppercase;
+        cursor: pointer;
+        @media screen and (max-width: $break-medium) {
+          width: 100%;
+          text-align: center;
+          border-top: 1px solid $headerBorder;
+        }
+      }
+      .TagsList:hover {
+        text-decoration: underline;
+      }
+      .TagsList:last-child {
+        @media screen and (max-width: $break-medium) {
+          border-bottom: 1px solid $headerBorder;
+        }
+      }
+    }
+    .FilterdContainer {
+      margin: 24px 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 14px;
+
+      @media screen and (max-width: $break-medium) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media screen and (max-width: $break-small) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0;
+        margin-top: 30px;
+      }
+    }
+  }
+  .ImageWrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: $break-small) {
+      margin-bottom: 14px;
+    }
+    .HoverWrap {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      i {
+        color: #fff;
+        font-size: 36px;
+      }
+    }
+    img {
+      width: 100%;
+      cursor: pointer;
+    }
+  }
+  .ImageWrap:hover {
+    .HoverWrap {
+      display: flex;
+    }
+  }
+}

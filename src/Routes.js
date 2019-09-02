@@ -6,6 +6,7 @@ import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import Article from  './Pages/Articlepages/Article';
 import About from './Pages/About/About';
+import Outfit from './Pages/Outfit/Outfit';
 
 class Routes extends Component {
   render() {
@@ -18,6 +19,7 @@ class Routes extends Component {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/article" component={Article} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/outfit-ideas" component={Outfit} />
         </Switch>
       </Router>
     );
