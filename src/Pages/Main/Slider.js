@@ -77,7 +77,7 @@ class Slider extends Component {
           <section className="SliderBody">
             <div className="ImageWrap">
               <div className="ImageCover">
-                <Link to="/">
+                <Link to="/article">
                   <img src={this.state.img} alt="featured stories" />
                 </Link>
               </div>
