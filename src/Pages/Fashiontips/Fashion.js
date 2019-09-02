@@ -17,10 +17,16 @@ class Fashion extends Component {
               </div>
               <div className="fashionTips">
                 <div className="postWrap">
+                  {data.map((el, idx) => (
+                    <FashionPost info={el} key={idx} />
+                  ))}
+                </div>
+
+                {/* <div className="postWrap">
                   {data.map((el, i) => (
                     <FashionPost key={i} info={el} />
                   ))}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -80,39 +86,3 @@ class Fashion extends Component {
 }
 
 export default Fashion;
-
-{
-  /* <div className="fashion_articles">
-  <div className="thumbnail">
-    <img src={outfit1} alt="outfit_1" width="120" />
-  </div>
-  <div className="entry">
-    <header className="entry-Container">
-      <p className="entry-category">Fashion Tips</p>
-      <h3 className="entry-title">
-        <a href="/" className="articleTitle">
-          31 Days of Outfits : August Editi
-        </a>
-      </h3>
-    </header>
-  </div>
-</div>
-</div>
-<div className="fashion_articles">
-<div className="thumbnail">
-  <img src={outfit2} alt="outfit_2" width="120" />
-</div>
-<div className="entry">
-  <header className="entry-Container">
-    <p className="entry-category">Fashion Tips</p>
-    <h3 className="entry-title">
-      <a href="/" className="articleTitle">
-        One-And-Done Pieces To Try This Summer
-      </a>
-    </h3>
-  </header>
-</div>
-</div>
-</div>
-</div> */
-}

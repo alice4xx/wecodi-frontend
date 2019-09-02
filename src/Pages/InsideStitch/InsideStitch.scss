@@ -2,7 +2,6 @@
 @import '../../styles/media.scss';
 
 .Stitch_Container {
-  width: 100vw;
   margin-top: 110px;
   display: flex;
   align-items: center;
@@ -10,10 +9,8 @@
   .page_Body {
     width: 100%;
     max-width: 960px;
-    height: 100%;
     margin: auto;
     display: flex;
-    flex-direction: row;
   }
   .body_Left {
     width: 65%;

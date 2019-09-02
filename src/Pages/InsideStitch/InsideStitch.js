@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './InsideStitch.scss';
 import Footer from '../../Components/Footer/Footer';
-import Inside1 from '../../Images/insidestitchfix_1.png';
+import InsidePost from './InsidePost';
+import data from './data';
 import Readmore from '../../Components/Readmore/Readmore';
 
 class Inside extends Component {
@@ -15,125 +16,10 @@ class Inside extends Component {
                 <div className="recent">
                   <span>•</span> RECENT INSIDE STITCH FIX <span>•</span>
                 </div>
-                <div className="fashionTips">
-                  <div className="fashionTips_3">
-                    <div className="articles">
-                      <div className="thumbnail">
-                        <img src={Inside1} alt="inside_1" width="120" />
-                      </div>
-                      <div className="entry">
-                        <header className="entry-Container">
-                          <p className="entry-category">INSIDE STITCH FIX</p>
-                          <h3 className="entry-title">
-                            <a href="/" className="articleTitle">
-                              Stitch Fix Stylists Share Their Favorite Fall 2019
-                              Looks
-                            </a>
-                          </h3>
-                        </header>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="fashionTips">
-                  <div className="fashionTips_3">
-                    <div className="articles">
-                      <div className="thumbnail">
-                        <img src={Inside1} alt="outfit_1" width="120" />
-                      </div>
-                      <div className="entry">
-                        <header className="entry-Container">
-                          <p className="entry-category">INSIDE STITCH FIX</p>
-                          <h3 className="entry-title">
-                            <a href="/" className="articleTitle">
-                              Stitch Fix Stylists Share Their Favorite Fall 2019
-                              Looks
-                            </a>
-                          </h3>
-                        </header>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="fashionTips">
-                  <div className="fashionTips_3">
-                    <div className="articles">
-                      <div className="thumbnail">
-                        <img src={Inside1} alt="inside_1" width="120" />
-                      </div>
-                      <div className="entry">
-                        <header className="entry-Container">
-                          <p className="entry-category">INSIDE STITCH FIX</p>
-                          <h3 className="entry-title">
-                            <a href="/" className="articleTitle">
-                              Stitch Fix Stylists Share Their Favorite Fall 2019
-                              Looks
-                            </a>
-                          </h3>
-                        </header>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="fashionTips">
-                  <div className="fashionTips_3">
-                    <div className="articles">
-                      <div className="thumbnail">
-                        <img src={Inside1} alt="inside_1" width="120" />
-                      </div>
-                      <div className="entry">
-                        <header className="entry-Container">
-                          <p className="entry-category">INSIDE STITCH FIX</p>
-                          <h3 className="entry-title">
-                            <a href="/" className="articleTitle">
-                              Stitch Fix Stylists Share Their Favorite Fall 2019
-                              Looks
-                            </a>
-                          </h3>
-                        </header>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="fashionTips">
-                  <div className="fashionTips_3">
-                    <div className="articles">
-                      <div className="thumbnail">
-                        <img src={Inside1} alt="inside_1" width="120" />
-                      </div>
-                      <div className="entry">
-                        <header className="entry-Container">
-                          <p className="entry-category">INSIDE STITCH FIX</p>
-                          <h3 className="entry-title">
-                            <a href="/" className="articleTitle">
-                              Stitch Fix Stylists Share Their Favorite Fall 2019
-                              Looks
-                            </a>
-                          </h3>
-                        </header>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="fashionTips">
-                  <div className="fashionTips_3">
-                    <div className="articles">
-                      <div className="thumbnail">
-                        <img src={Inside1} alt="inside_1" width="120" />
-                      </div>
-                      <div className="entry">
-                        <header className="entry-Container">
-                          <p className="entry-category">INSIDE STITCH FIX</p>
-                          <h3 className="entry-title">
-                            <a href="/" className="articleTitle">
-                              Stitch Fix Stylists Share Their Favorite Fall 2019
-                              Looks
-                            </a>
-                          </h3>
-                        </header>
-                      </div>
-                    </div>
-                  </div>
+                <div className="InsidePostWrap">
+                  {data.map((el, i) => (
+                    <InsidePost info={el} key={i} />
+                  ))}
                 </div>
               </div>
             </div>

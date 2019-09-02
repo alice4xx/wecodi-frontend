@@ -1,24 +1,28 @@
 import React from 'react';
 
-const FashionPost = props => (
-  <div className="fashion_articles">
-    <div className="thumbnail">
-      <img src={props.info.thumbnail} alt="sample" width="120" />
-    </div>
-    <div className="entry">
-      <div className="entry-Container">
-        <p className="entry-category">{props.info.category}</p>
-        <h3 className="entry-title">
-          <a href="/" className="articleTitle">
-            {props.info.title}
-          </a>
-        </h3>
+const InsidePost = props => (
+  <div className="fashionTips">
+    <div className="fashionTips_3">
+      <div className="articles">
+        <div className="thumbnail">
+          <img src={props.info.thumbnail} alt="inside_1" width="120" />
+        </div>
+        <div className="entry">
+          <div className="entry-Container">
+            <p className="entry-category">{props.info.category}</p>
+            <h3 className="entry-title">
+              <a href="/" className="articleTitle">
+                {props.info.title}
+              </a>
+            </h3>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 );
 
-export default FashionPost;
+export default InsidePost;
 
 // const FashionPost = ({ info = {} }) => {
 //   const { thumbnail, category, title } = info;
