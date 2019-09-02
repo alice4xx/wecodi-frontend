@@ -75,7 +75,7 @@ class Article extends Component {
               <div className="heart-wrap">
                 <p>love this? Help trend it! </p>
                 <div className="vote-counter">
-                  <button className="vote-button" />
+                  <i className="far fa-heart heart-button" />
                 </div>
               </div>
             </section>
@@ -83,6 +83,7 @@ class Article extends Component {
               <div className="gotocomments">Comments</div>
               <div className="comments-area" />
             </div>
+
           </div>    
         </div>
       </div>

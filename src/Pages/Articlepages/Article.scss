@@ -181,6 +181,10 @@
   }
 
   .heart-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     p {
       color: $searchFont;
       display: inline-block;
@@ -189,11 +193,11 @@
       margin: 0;
       text-transform: uppercase;
     }
-    .vote-button {
+    .heart-button {
+      font-size: 24px;
+      color: $headerLogin;
+      padding-left: 10px;
       cursor: pointer;
-      background: none;
-      margin-left: 24px;
-      padding: 0 !important;
     }
   }
 
