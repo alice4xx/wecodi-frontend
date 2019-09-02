@@ -8,7 +8,7 @@
 }
 
 .page-container {
-  width: 100%;
+  // width: 100%;
   max-width: 960px;
   line-height: 24px;
   text-align: center;
@@ -54,6 +54,7 @@
   .slideshow-slide-first {
     img {
       width: 100%;
+      margin-bottom: 20px;
     }
   }
 
@@ -79,6 +80,7 @@
   .slideshow-slide-second {
     img {
       width: 100%;
+      margin-bottom: 20px;
     }
   }
 
@@ -104,6 +106,7 @@
   .slideshow-slide-third {
     img {
       width: 100%;
+      margin-bottom: 20px;
     }
   }
 
@@ -172,6 +175,7 @@
   .heart-counter {
     text-align: center;
     border-top: 1px solid #e0dedd;
+    border-bottom: 1px solid #e0dedd;
     margin: 24px 0 0;
     padding: 24px 0;
   }
@@ -190,6 +194,16 @@
       background: none;
       margin-left: 24px;
       padding: 0 !important;
+    }
+  }
+
+  .comments {
+    margin: 48px 0;
+
+    .gotocomments {
+      margin: 24px 0;
+      padding: 24px;
+      background-color: $headerBG;
     }
   }
 }

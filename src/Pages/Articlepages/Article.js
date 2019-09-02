@@ -3,7 +3,7 @@ import './Article.scss';
 import Slideshowimg from '../../Images/slideshowsample-img.png';
 
 class Article extends Component {
-  console.log('wip');
+  
   render() {
     return (
       <div className="detailpages">
@@ -71,15 +71,19 @@ class Article extends Component {
                 </div>
               </div>
             </section>
-          </div>    
-          <section className="heart-counter">
-            <div className="heart-wrap">
-              <p>love this? Help trend it! </p>
-              <div className="vote-counter">
-                <button className="vote-button" />
+            <section className="heart-counter">
+              <div className="heart-wrap">
+                <p>love this? Help trend it! </p>
+                <div className="vote-counter">
+                  <button className="vote-button" />
+                </div>
               </div>
+            </section>
+            <div className="comments">
+              <div className="gotocomments">Comments</div>
+              <div className="comments-area" />
             </div>
-          </section>
+          </div>    
         </div>
       </div>
      

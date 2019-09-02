@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import './Signup.scss';
+import Footer from '../../Components/Footer/Footer';
 import {Link} from 'react-router-dom';
+
   
 
 class Signup extends Component {
 
     
-      singup = async () => {
+      Singup = async () => {
     
         const response = await fetch('http://10.58.4.74:8000/signup', {
     
@@ -34,25 +36,31 @@ class Signup extends Component {
     return (
      <div className="signup-page">
       <div className="wrapper">
-        <div className="form-wrapper">
-          <h1>Sign up</h1>
-          <form onSubmit={this.handleSubmit} noValidate>
-            <div className="firstName">
-              <label htmlFor="firstName">Firstname<input type="text" className="inputFirst" placeholder="Firstname" noValidate onChange={this.handleChange} /></label>
+        <div className="input-wrapper">
+          <div className="input-box">
+            <h1>Sign up</h1>
+            <div className="" onSubmit={this.handleSubmit} noValidate>
+              <div className="firstName">
+                Firstname
+              </div>
+              <input type="text" className="inputFirst" placeholder="Firstname" noValidate onChange={this.handleChange} />
+              <div className="lastName">
+                Lastname
+              </div>
+              <input type="text" className="inputLast" placeholder="Lastname" noValidate onChange={this.handleChange} />
+              <div className="email">
+                Email
+              </div>
+              <input type="email" className="inputEmail" placeholder="Email address" noValidate onChange={this.handleChange} />
+              <div className="password">
+                Password
+              </div>
+              <input type="password" className="inputPw" placeholder="Password" noValidate onChange={this.handleChange} />
+              <div className="createAccount">
+                <button type="submit" value="Register" onClick={this.singup}> Signup </button>
+              </div>
             </div>
-            <div className="lastName">
-              <label htmlFor="LastName">Lastname<input type="text" className="inputLast" placeholder="Lastname" noValidate onChange={this.handleChange} /></label>
-            </div>
-            <div className="email">
-              <label htmlFor="email">Email<input type="email" className="inputEmail" placeholder="Email address" noValidate onChange={this.handleChange} /></label>
-            </div>
-            <div className="password">
-              <label htmlFor="password">Password<input type="password" className="inputPw" placeholder="Password" noValidate onChange={this.handleChange} /></label>
-            </div>
-            <div className="createAccount">
-              <button type="submit" value="Register" onClick={this.singup}> Signup </button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div> 
