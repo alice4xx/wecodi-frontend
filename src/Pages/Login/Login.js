@@ -13,13 +13,13 @@ class Login extends Component {
             <div className="loginWordingWrap">
               <h3 className="loginWording"> Log In </h3>
             </div>
-            <div className="emailpassword"> EMAIL</div>
+            <div className="emailpassword"> Email</div>
             <input
               type="email"
               className="addressBox"
               placeholder="Email address"
             />
-            <div className="emailpassword"> PASSWORD </div>
+            <div className="emailpassword"> Password</div>
             <input
               type="password"
               className="passwordBox"
