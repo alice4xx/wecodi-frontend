@@ -17,23 +17,45 @@ class Outfit extends Component {
             </section>
             <section className="MainGallery">
               <div className="GalleryHeader">
-                <h3 className="GalleryTitle">Explore, Discover & Be Inspired</h3>
-                <p className="GalleryDescription">Need some outfit ideas? Look through hundreds of Stitch Fix styles or see what our clients are wearing!</p>
+                <h3 className="GalleryTitle">
+                  Explore, Discover & Be Inspired
+                </h3>
+                <p className="GalleryDescription">
+                  Need some outfit ideas? Look through hundreds of Stitch Fix
+                  styles or see what our clients are wearing!
+                </p>
               </div>
               <section className="GalleryContainer">
                 <div className="GalleryGrid">
-                  <img src={GridSample} alt="grid-sample" />
+                  <div className="ImageWrap">
+                    <div className="HoverWrap">
+                      <i className="fas fa-plus" />
+                    </div>
+                    <img src={GridSample} alt="grid-sample" />
+                  </div>
                   <div className="GridDetail">
                     <div className="ImageWrap">
+                      <div className="HoverWrap">
+                        <i className="fas fa-plus" />
+                      </div>
                       <img src={GridSample} alt="grid-sample" />
                     </div>
                     <div className="ImageWrap">
+                      <div className="HoverWrap">
+                        <i className="fas fa-plus" />
+                      </div>
                       <img src={GridSample} alt="grid-sample" />
                     </div>
                     <div className="ImageWrap">
+                      <div className="HoverWrap">
+                        <i className="fas fa-plus" />
+                      </div>
                       <img src={GridSample} alt="grid-sample" />
                     </div>
                     <div className="ImageWrap">
+                      <div className="HoverWrap">
+                        <i className="fas fa-plus" />
+                      </div>
                       <img src={GridSample} alt="grid-sample" />
                     </div>
                   </div>
@@ -57,51 +79,71 @@ class Outfit extends Component {
                   <img src={GridSample} alt="grid-sample" />
                 </div>
                 <div className="ImageWrap">
+                  <div className="HoverWrap">
+                    <i className="fas fa-plus" />
+                  </div>
                   <img src={GridSample} alt="grid-sample" />
                 </div>
                 <div className="ImageWrap">
+                  <div className="HoverWrap">
+                    <i className="fas fa-plus" />
+                  </div>
                   <img src={GridSample} alt="grid-sample" />
                 </div>
                 <div className="ImageWrap">
+                  <div className="HoverWrap">
+                    <i className="fas fa-plus" />
+                  </div>
                   <img src={GridSample} alt="grid-sample" />
                 </div>
                 <div className="ImageWrap">
+                  <div className="HoverWrap">
+                    <i className="fas fa-plus" />
+                  </div>
                   <img src={GridSample} alt="grid-sample" />
                 </div>
                 <div className="ImageWrap">
+                  <div className="HoverWrap">
+                    <i className="fas fa-plus" />
+                  </div>
                   <img src={GridSample} alt="grid-sample" />
                 </div>
                 <div className="ImageWrap">
+                  <div className="HoverWrap">
+                    <i className="fas fa-plus" />
+                  </div>
                   <img src={GridSample} alt="grid-sample" />
                 </div>
                 <div className="ImageWrap">
+                  <div className="HoverWrap">
+                    <i className="fas fa-plus" />
+                  </div>
                   <img src={GridSample} alt="grid-sample" />
                 </div>
                 <div className="ImageWrap">
+                  <div className="HoverWrap">
+                    <i className="fas fa-plus" />
+                  </div>
                   <img src={GridSample} alt="grid-sample" />
                 </div>
                 <div className="ImageWrap">
+                  <div className="HoverWrap">
+                    <i className="fas fa-plus" />
+                  </div>
                   <img src={GridSample} alt="grid-sample" />
                 </div>
                 <div className="ImageWrap">
+                  <div className="HoverWrap">
+                    <i className="fas fa-plus" />
+                  </div>
                   <img src={GridSample} alt="grid-sample" />
                 </div>
                 <div className="ImageWrap">
+                  <div className="HoverWrap">
+                    <i className="fas fa-plus" />
+                  </div>
                   <img src={GridSample} alt="grid-sample" />
                 </div>
-                <div className="ImageWrap">
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-                <div className="ImageWrap">
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-                <div className="ImageWrap">
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-                <div className="ImageWrap">
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-
               </div>
               <Readmore />
             </section>
