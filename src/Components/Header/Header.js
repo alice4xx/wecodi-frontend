@@ -33,7 +33,7 @@ class Header extends Component {
           </div>
           <ul className="Menu">
             <li className="MenuList">
-              <Link to="/fashion-tops">FASHION TIPS</Link>
+              <Link to="/fashion-tips">FASHION TIPS</Link>
             </li>
             <li className="MenuList">
               <Link to="/outfit-ideas">OUTFIT IDEAS</Link>
