@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import data from './slider-data';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Slider extends Component {
   constructor() {
@@ -13,19 +13,17 @@ class Slider extends Component {
     };
   }
 
-  moveSlider = (e, point=0) => {
+  moveSlider = (e, point = 1) => {
     let nextI = this.state.i;
 
-    if (e === null){
-      nextI += point;
-    } else {
-      nextI += Number(e.target.dataset.value);
-      clearInterval(this.interval);
-    }
+    nextI += point;
+    clearInterval(this.interval);
+    this.interval = setInterval(() => this.moveSlider(null), 3000);
+    setTimeout(this.interval, 1000);
 
     if (nextI >= data.length) {
       nextI = 0;
-    } 
+    }
     if (nextI < 0) {
       nextI = data.length - 1;
     }
@@ -37,20 +35,26 @@ class Slider extends Component {
     });
   };
 
-  indicatorClick = (e) => {
+  indicatorClick = e => {
     const idx = Number(e.target.dataset.idx);
     clearInterval(this.interval);
+    setTimeout(() => {
+      this.interval = setInterval(() => {
+        this.moveSlider(null);
+      }, 3000);
+    }, 1000);
+
     this.setState({
       i: idx,
       title: data[idx].title,
       category: data[idx].category,
       img: data[idx].slider,
-    })
-  }
+    });
+  };
 
   componentDidMount() {
     this.interval = setInterval(() => {
-      return this.moveSlider(null, 1);
+      return this.moveSlider(null);
     }, 3000);
   }
 
@@ -75,18 +79,24 @@ class Slider extends Component {
               <div className="Indicator">
                 {data.map((el, idx) => {
                   return (
-                    <span className="Icon" key={idx} >
-                      <i className={`${this.state.i === idx ? 'fas' : 'far'} fa-square`} data-idx={idx} onClick={this.indicatorClick} />
+                    <span className="Icon" key={idx}>
+                      <i
+                        className={`${
+                          this.state.i === idx ? 'fas' : 'far'
+                        } fa-square`}
+                        data-idx={idx}
+                        onClick={this.indicatorClick}
+                      />
                     </span>
-                  )
+                  );
                 })}
               </div>
               <div className="ButtonWrap">
-                <div className="Left" onClick={this.moveSlider}>
-                  <i className="fas fa-chevron-circle-left" data-value="-1" />
+                <div className="Left" onClick={e => this.moveSlider(e, -1)}>
+                  <i className="fas fa-chevron-circle-left" />
                 </div>
-                <div className="Right" onClick={this.moveSlider}>
-                  <i className="fas fa-chevron-circle-right" data-value="1" />
+                <div className="Right" onClick={e => this.moveSlider(e, 1)}>
+                  <i className="fas fa-chevron-circle-right" />
                 </div>
               </div>
             </div>
@@ -98,19 +108,37 @@ class Slider extends Component {
         </section>
         <section className="Widget">
           <div className="TrendingWidget">
-            <h3 className="WidgetTitle"><span>•</span> Trending Now <span>•</span></h3>
+            <h3 className="WidgetTitle">
+              <span>•</span> Trending Now <span>•</span>
+            </h3>
             <div className="WidgetDetails">
-              <p><Link to="/">31 Days of Outfits: August Edition</Link></p>
-              <p><Link to="/">Stitch Fix Stylists Share Their Favorite Fall 2019 Looks</Link></p>
-              <p><Link to="/">Not A Shorts Fan? Meet The Summer Pant</Link></p>
+              <p>
+                <Link to="/">31 Days of Outfits: August Edition</Link>
+              </p>
+              <p>
+                <Link to="/">
+                  Stitch Fix Stylists Share Their Favorite Fall 2019 Looks
+                </Link>
+              </p>
+              <p>
+                <Link to="/">Not A Shorts Fan? Meet The Summer Pant</Link>
+              </p>
             </div>
           </div>
           <div className="RecentWidget">
-            <h3 className="WidgetTitle"><span>•</span> Recent Stylist Advice <span>•</span></h3>
+            <h3 className="WidgetTitle">
+              <span>•</span> Recent Stylist Advice <span>•</span>
+            </h3>
             <div className="WidgetDetails">
-              <p><Link to="/">Can I wear gold & silver jewelry together?</Link></p>
-              <p><Link to="/">How can I build a capsule wardrobe for work?</Link></p>
-              <p><Link to="/">What are the new fall trends?</Link></p>
+              <p>
+                <Link to="/">Can I wear gold & silver jewelry together?</Link>
+              </p>
+              <p>
+                <Link to="/">How can I build a capsule wardrobe for work?</Link>
+              </p>
+              <p>
+                <Link to="/">What are the new fall trends?</Link>
+              </p>
             </div>
           </div>
         </section>
