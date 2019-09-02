@@ -10,6 +10,7 @@ class Slider extends Component {
       title: data[0].title,
       category: data[0].category,
       img: data[0].slider,
+      path: data[0].path,
     };
   }
 
@@ -32,6 +33,7 @@ class Slider extends Component {
       title: data[nextI].title,
       category: data[nextI].category,
       img: data[nextI].slider,
+      path: data[nextI].path,
     });
   };
 
@@ -49,6 +51,7 @@ class Slider extends Component {
       title: data[idx].title,
       category: data[idx].category,
       img: data[idx].slider,
+      path: data[idx].path,
     });
   };
 
@@ -74,7 +77,9 @@ class Slider extends Component {
           <section className="SliderBody">
             <div className="ImageWrap">
               <div className="ImageCover">
-                <img src={this.state.img} alt="featured stories" />
+                <Link to="/">
+                  <img src={this.state.img} alt="featured stories" />
+                </Link>
               </div>
               <div className="Indicator">
                 {data.map((el, idx) => {
@@ -101,8 +106,13 @@ class Slider extends Component {
               </div>
             </div>
             <div className="SliderDetail">
-              <p className="DetailCategory">{this.state.category}</p>
-              <h2 className="DetailTitle">{this.state.title}</h2>
+              <p className="DetailCategory">
+                <Link to={`/${this.state.path}`}>{this.state.category}</Link>
+              </p>
+
+              <h2 className="DetailTitle">
+                <Link to="/">{this.state.title}</Link>
+              </h2>
             </div>
           </section>
         </section>

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Main from './Pages/Main/Main';
-import Header from './Components/Header/Header';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import About from './Pages/About/About';
 import Outfit from './Pages/Outfit/Outfit';
+import Header from './Components/Header/Header';
 
 class Routes extends Component {
   render() {
