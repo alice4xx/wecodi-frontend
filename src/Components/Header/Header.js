@@ -6,6 +6,7 @@ import Logo from '../../Images/logo.png';
 
 const Header = () => {
   const [mode, setMode] = useState(true);
+  const [login, setLogin] = useState(false);
 
   return (
     <div className="Header">
@@ -24,19 +25,32 @@ const Header = () => {
             <Link to="/fashion-tips">FASHION TIPS</Link>
           </li>
           <li className="MenuList">
-            <Link to="/outfit-ideas">OUTFIT IDEAS</Link>
+            <Link to="/inside-stitch-fix">FEATURE</Link>
           </li>
           <li className="MenuList">
-            <Link to="/inside-stitch-fix">INSIDE STITCH FIX</Link>
+            <Link to="/outfit-ideas">OUTFIT IDEAS</Link>
           </li>
         </ul>
         <div className="LoginWrap">
-          <Link to="/login">
-            <div className="Login">Login</div>
-          </Link>
-          <Link to="/signup">
-            <div className="Signup">Signup</div>
-          </Link>
+          {login === false ? (
+            <>
+              <Link to="/login">
+                <div className="Login">Login</div>
+              </Link>
+              <Link to="/signup">
+                <div className="Signup">Signup</div>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/login">
+                <div className="Login">Logout</div>
+              </Link>
+              <Link to="/signup">
+                <div className="Signup">My Pick</div>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>
