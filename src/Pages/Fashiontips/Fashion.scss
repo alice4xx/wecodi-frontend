@@ -7,14 +7,26 @@
   align-items: center;
   flex-direction: column;
 
+  @media screen and (max-width: $break-medium) {
+    padding: 0 12px;
+    margin-top: 60px;
+  }
+
   .page_Body {
     max-width: 960px;
     margin: auto;
-    //padding: 0 12px;
     display: flex;
+    @media screen and (max-width: $break-large) {
+      display: block;
+      padding: 0 12px;
+    }
   }
   .body_Left {
     width: 65%;
+    @media screen and (max-width: $break-large) {
+      width: 100%;
+      max-width: 960px;
+    }
   }
   .recent {
     display: flex;
@@ -43,7 +55,6 @@
     border-top: 2px solid #e8e4e1;
     padding: 36px 0;
     display: flex;
-    //border: 1px solid green;
     .thumbnail {
       display: flex;
     }
@@ -60,11 +71,17 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 800;
+    @media screen and (max-width: $break-small) {
+      font-size: 12px;
+    }
   }
   .entry-title {
     font-size: 20px;
     line-height: 1.2;
     text-align: left;
+    @media screen and (max-width: $break-small) {
+      font-size: 18px;
+    }
   }
   .articleTitle:hover {
     border-bottom-color: $menuHover;
@@ -75,10 +92,32 @@
   .body_Right {
     width: 35%;
     padding: 68px 0 24px;
+    @media screen and (max-width: $break-large) {
+      width: 100%;
+      padding: 10px 0;
+    }
 
     .trending {
       padding: 0 12px 24px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (max-width: $break-large) {
+        width: 100%;
+        max-width: 960px;
+        flex-direction: row;
+      }
+      @media screen and (max-width: $break-small) {
+        display: block;
+        width: 100%;
+      }
+    }
+    .trending_3 {
+      flex-direction: column;
+    }
+    .trending_4 {
+      flex-direction: column;
     }
     .nomoreTrending {
       padding: 20px 0;
@@ -105,6 +144,12 @@
       letter-spacing: 2px;
       color: #5e4c4c;
       margin-top: 60px;
+      @media screen and (max-width: $break-large) {
+        margin-top: 00px;
+      }
+      @media screen and (max-width: $break-small) {
+        margin-top: 30px;
+      }
     }
   }
 }
