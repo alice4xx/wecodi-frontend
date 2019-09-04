@@ -14,6 +14,7 @@
 
   .page_Body {
     max-width: 960px;
+    width: 100%;
     margin: auto;
     display: flex;
     @media screen and (max-width: $break-large) {
@@ -23,6 +24,7 @@
   }
   .body_Left {
     width: 65%;
+
     @media screen and (max-width: $break-large) {
       width: 100%;
       max-width: 960px;
@@ -66,13 +68,13 @@
   }
 
   .entry-category {
-    font-size: 14px;
+    font-size: 12px;
     color: $menuBorder;
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 800;
     @media screen and (max-width: $break-small) {
-      font-size: 12px;
+      font-size: 14px;
     }
   }
   .entry-title {

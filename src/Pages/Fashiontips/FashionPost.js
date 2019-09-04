@@ -3,11 +3,11 @@ import React from 'react';
 const FashionPost = props => (
   <div className="fashion_articles">
     <div className="thumbnail">
-      <img src={props.info.thumbnail} alt="sample" width="120" />
+      <img src={props.info.thumb_img} alt="sample" width="120" />
     </div>
     <div className="entry">
       <div className="entry-Container">
-        <p className="entry-category">{props.info.category}</p>
+        <p className="entry-category">{props.info.categoryname}</p>
         <h3 className="entry-title">
           <a href="/" className="articleTitle">
             {props.info.title}

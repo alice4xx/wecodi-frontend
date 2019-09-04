@@ -1,11 +1,34 @@
 import React, { Component } from 'react';
 import './Fashion.scss';
 import FashionPost from './FashionPost';
-import data from './data';
+// import data from './data';
 import Readmore from '../../Components/Readmore/Readmore';
 import Footer from '../../Components/Footer/Footer';
 
 class Fashion extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      articles: [],
+    };
+  }
+
+  // 리액트 lifecycle 확인..
+  componentDidMount() {
+    fetch('http://10.58.2.142:8001/article/category/1?offset=1&limit=9', {
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+      },
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        this.setState({ articles: response.DATA });
+      });
+  }
+
   render() {
     return (
       <div className="Fashion_Container">
@@ -16,9 +39,9 @@ class Fashion extends Component {
             </div>
             <div className="fashionTips">
               <div className="postWrap">
-                {data.map((el, idx) => (
-                  <FashionPost info={el} key={idx} />
-                ))}
+                {this.state.articles.map(function(el) {
+                  return <FashionPost info={el} />;
+                })}
               </div>
 
               {/* <div className="postWrap">
