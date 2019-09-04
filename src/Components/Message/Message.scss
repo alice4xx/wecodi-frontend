@@ -1,0 +1,58 @@
+@import '../../styles/media.scss';
+@import '../../styles/theme.scss';
+
+.MessageWrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+  .MessageBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 420px;
+    height: 200px;
+    background-color: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+    i {
+      font-size: 32px;
+      margin-bottom: 12px;
+      color: $logo;
+    }
+  }
+  .MessageBody {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .ButtonWrap {
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+  }
+
+  .Button {
+    margin-top: 32px;
+    width: 190px;
+    color: #fff;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-bottom: 2px solid $headerLoginBorder;
+    background-color: $headerLogin;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  .Button:hover {
+    background-color: $headerLoginHover;
+    border-bottom: 2px solid $headerLoginHoverBorder;
+    transition: 0.4s background-color;
+  }
+}

@@ -180,4 +180,82 @@
       display: flex;
     }
   }
+
+  .FancyBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .FancyWrapper {
+      width: 960px;
+      padding: 80px 40px 40px 40px;
+      display: flex;
+      background-color: #fff;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .FancyImageWrap {
+      img {
+        width: 100%;
+      }
+    }
+
+    .RelatedWrap {
+      width: 420px;
+      display: flex;
+      flex-direction: column;
+      padding: 16px 24px;
+      padding-right: 0;
+      .CategoryTitle {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        .Line {
+          height: 1px;
+          width: 60%;
+          background-color: #000;
+        }
+      }
+      .CloseBtn {
+        width: 36px;
+        height: 36px;
+        border: 1px solid $headerBorder;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        cursor: pointer;
+
+        img {
+          width: 60%;
+        }
+      }
+      .StoriesList {
+        padding: 36px 0;
+        border-bottom: 1px solid $headerBorder;
+        .Category {
+          color: $OutfitTitle;
+          font-weight: 700;
+        }
+        .Title {
+          line-height: 1.2;
+          font-size: 15px;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
 }

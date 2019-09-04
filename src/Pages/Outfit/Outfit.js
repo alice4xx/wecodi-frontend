@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './Outfit.scss';
 import Footer from '../../Components/Footer/Footer';
-import GridSample from '../../Images/grid-sample.png';
 import Readmore from '../../Components/Readmore/Readmore';
+import FancyBox from './FancyBox';
+import Content from './Content';
 
 class Outfit extends Component {
   render() {
@@ -10,6 +11,7 @@ class Outfit extends Component {
       <>
         <div className="Outfit">
           <div className="Wrapper">
+            <FancyBox />
             <section className="OutfitHeader">
               <h2 className="Title">
                 <span>•</span> Outfit Ideas <span>•</span>
@@ -27,37 +29,12 @@ class Outfit extends Component {
               </div>
               <section className="GalleryContainer">
                 <div className="GalleryGrid">
-                  <div className="ImageWrap">
-                    <div className="HoverWrap">
-                      <i className="fas fa-plus" />
-                    </div>
-                    <img src={GridSample} alt="grid-sample" />
-                  </div>
+                  <Content />
                   <div className="GridDetail">
-                    <div className="ImageWrap">
-                      <div className="HoverWrap">
-                        <i className="fas fa-plus" />
-                      </div>
-                      <img src={GridSample} alt="grid-sample" />
-                    </div>
-                    <div className="ImageWrap">
-                      <div className="HoverWrap">
-                        <i className="fas fa-plus" />
-                      </div>
-                      <img src={GridSample} alt="grid-sample" />
-                    </div>
-                    <div className="ImageWrap">
-                      <div className="HoverWrap">
-                        <i className="fas fa-plus" />
-                      </div>
-                      <img src={GridSample} alt="grid-sample" />
-                    </div>
-                    <div className="ImageWrap">
-                      <div className="HoverWrap">
-                        <i className="fas fa-plus" />
-                      </div>
-                      <img src={GridSample} alt="grid-sample" />
-                    </div>
+                    <Content />
+                    <Content />
+                    <Content />
+                    <Content />
                   </div>
                 </div>
               </section>
@@ -72,78 +49,18 @@ class Outfit extends Component {
                 <li className="TagsList">Date</li>
               </ul>
               <div className="FilterdContainer">
-                <div className="ImageWrap">
-                  <div className="HoverWrap">
-                    <i className="fas fa-plus" />
-                  </div>
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-                <div className="ImageWrap">
-                  <div className="HoverWrap">
-                    <i className="fas fa-plus" />
-                  </div>
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-                <div className="ImageWrap">
-                  <div className="HoverWrap">
-                    <i className="fas fa-plus" />
-                  </div>
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-                <div className="ImageWrap">
-                  <div className="HoverWrap">
-                    <i className="fas fa-plus" />
-                  </div>
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-                <div className="ImageWrap">
-                  <div className="HoverWrap">
-                    <i className="fas fa-plus" />
-                  </div>
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-                <div className="ImageWrap">
-                  <div className="HoverWrap">
-                    <i className="fas fa-plus" />
-                  </div>
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-                <div className="ImageWrap">
-                  <div className="HoverWrap">
-                    <i className="fas fa-plus" />
-                  </div>
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-                <div className="ImageWrap">
-                  <div className="HoverWrap">
-                    <i className="fas fa-plus" />
-                  </div>
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-                <div className="ImageWrap">
-                  <div className="HoverWrap">
-                    <i className="fas fa-plus" />
-                  </div>
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-                <div className="ImageWrap">
-                  <div className="HoverWrap">
-                    <i className="fas fa-plus" />
-                  </div>
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-                <div className="ImageWrap">
-                  <div className="HoverWrap">
-                    <i className="fas fa-plus" />
-                  </div>
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
-                <div className="ImageWrap">
-                  <div className="HoverWrap">
-                    <i className="fas fa-plus" />
-                  </div>
-                  <img src={GridSample} alt="grid-sample" />
-                </div>
+                <Content />
+                <Content />
+                <Content />
+                <Content />
+                <Content />
+                <Content />
+                <Content />
+                <Content />
+                <Content />
+                <Content />
+                <Content />
+                <Content />
               </div>
               <Readmore />
             </section>
