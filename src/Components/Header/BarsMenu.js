@@ -7,6 +7,7 @@ const path_url = {
   fashion: '/fashion-tips',
   outfit: '/outfit-ideas',
   inside: '/inside-stitch-fix',
+  about: '/about'
 };
 
 const BarsMenu = props => {
@@ -39,6 +40,9 @@ const BarsMenu = props => {
         </div>
         <div className="Category" data-path="inside" onClick={goToPage}>
           INSIDE STITCH FIX
+        </div>
+        <div className="Category" data-path="about" onClick={goToPage}>
+          ABOUT
         </div>
       </div>
     </div>

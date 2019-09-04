@@ -4,7 +4,6 @@ import Post from './Post';
 import Footer from '../../Components/Footer/Footer';
 import Slider from './Slider';
 import data from './data';
-import slider from './slider-data';
 import Readmore from '../../Components/Readmore/Readmore';
 
 class Main extends Component {
