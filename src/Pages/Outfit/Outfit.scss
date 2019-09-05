@@ -195,15 +195,22 @@
     align-items: center;
 
     .FancyWrapper {
-      width: 960px;
+      max-width: 960px;
       padding: 80px 40px 40px 40px;
       display: flex;
       background-color: #fff;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
       position: relative;
+      @media screen and (max-width: $break-medium) {
+        padding: 60px 30px 30px 30px;
+      }
     }
-
+    .FancyContentWrap {
+      display: flex;
+      margin-top: 12px;
+    }
     .FancyImageWrap {
+      padding-top: 10px;
       img {
         width: 100%;
       }
@@ -215,32 +222,20 @@
       flex-direction: column;
       padding: 16px 24px;
       padding-right: 0;
+      @media screen and (max-width: $break-medium) {
+        display: none;
+      }
       .CategoryTitle {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         font-size: 14px;
+
         .Line {
           height: 1px;
           width: 60%;
           background-color: #000;
-        }
-      }
-      .CloseBtn {
-        width: 36px;
-        height: 36px;
-        border: 1px solid $headerBorder;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        right: 40px;
-        top: 40px;
-        cursor: pointer;
-
-        img {
-          width: 60%;
         }
       }
       .StoriesList {
@@ -255,6 +250,25 @@
           font-size: 15px;
           margin-top: 10px;
         }
+      }
+    }
+    .CloseBtn {
+      width: 36px;
+      height: 36px;
+      border: 1px solid $headerBorder;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      cursor: pointer;
+      @media screen and (max-width: $break-medium) {
+        top: 30px;
+        right: 30px;
+      }
+      img {
+        width: 60%;
       }
     }
   }

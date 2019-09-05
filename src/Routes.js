@@ -20,7 +20,7 @@ class Routes extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/fashion-tips" component={Fashion} />
-          <Route exact path="/inside-stitch-fix" component={InsideStitch} />
+          <Route exact path="/inside-wecodi" component={InsideStitch} />
           <Route exact path="/article" component={Article} />
           <Route exact path="/about" component={About} />
           <Route exact path="/outfit-ideas" component={Outfit} />

@@ -4,14 +4,67 @@ import Footer from '../../Components/Footer/Footer';
 import Readmore from '../../Components/Readmore/Readmore';
 import FancyBox from './FancyBox';
 import Content from './Content';
+import Loading from '../../Components/Loading/Loading';
 
 class Outfit extends Component {
+  state = {
+    mode: false,
+    index: 0,
+    limit: 1,
+    outfits: [],
+    target: 0,
+  }
+
+  // handleOutsideClick(e) {
+  //   // this.modal 는 모달 부분의 ref
+  //   if (this.modal.contains(e.target)/* || !this.props.show*/) {
+  //     return;
+  //   }
+
+  //   this.close();
+  // }
+
+  getMore = () => {
+    this.setState({
+      index: this.state.index+8,
+      limit: 0,
+    }, () => this.getOutfit());
+    ;
+  }
+
+  getOutfit = async () => {
+    const outfits = await this.callApi();
+    this.setState({
+      outfits: [...this.state.outfits, ...outfits],
+    })
+  }
+
+  callApi = () => {
+    return fetch(
+      `http://10.58.2.142:8002/article/category/0?offset=${this.state.index}&limit=${this.state.limit+this.state.index+8}`, 
+      {
+        method: 'GET',
+        headers: {
+          'AUTHORIZATION':
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+        },
+      },
+    )
+    .then(response => response.json())
+    .then(response => response.DATA);
+  }
+
+  componentDidMount() {
+    this.getOutfit();
+  }
+
   render() {
+    const { mode, outfits, index, target } = this.state;
     return (
       <>
         <div className="Outfit">
           <div className="Wrapper">
-            <FancyBox />
+            { mode && <FancyBox img={outfits[target].thumb_img} handleClick = {() => this.setState({mode: !mode})}/>}
             <section className="OutfitHeader">
               <h2 className="Title">
                 <span>•</span> Outfit Ideas <span>•</span>
@@ -23,18 +76,19 @@ class Outfit extends Component {
                   Explore, Discover & Be Inspired
                 </h3>
                 <p className="GalleryDescription">
-                  Need some outfit ideas? Look through hundreds of Stitch Fix
-                  styles or see what our clients are wearing!
+                  Need some outfit ideas? Look through hundreds of Wecodi styles or see what our clients are wearing!
                 </p>
               </div>
               <section className="GalleryContainer">
                 <div className="GalleryGrid">
-                  <Content />
+                  {outfits.length > 0 ? <Content img={outfits[0].thumb_img} handleClick={() => this.setState({mode: !mode, target: 0})} /> : <div />}
+                  
                   <div className="GridDetail">
-                    <Content />
-                    <Content />
-                    <Content />
-                    <Content />
+                    {outfits.length > 0 ? outfits.map((el, i) => {
+                      if (i >= 1 && i <= 4) {
+                        return (<Content key={i} img={outfits[i].thumb_img} handleClick={() => this.setState({mode: !mode, target: i})} />)
+                      }
+                    }) : <Loading />}
                   </div>
                 </div>
               </section>
@@ -49,20 +103,13 @@ class Outfit extends Component {
                 <li className="TagsList">Date</li>
               </ul>
               <div className="FilterdContainer">
-                <Content />
-                <Content />
-                <Content />
-                <Content />
-                <Content />
-                <Content />
-                <Content />
-                <Content />
-                <Content />
-                <Content />
-                <Content />
-                <Content />
+                {outfits.length > 0 ? outfits.map((el, i) => {
+                  if (i >= 5) {
+                    return (<Content key={i} img={el.thumb_img} handleClick={() => this.setState({mode: !mode, target: i})} />)
+                  }
+                }) : <Loading />}
               </div>
-              <Readmore />
+              <Readmore handleClick={this.getMore} />
             </section>
           </div>
         </div>

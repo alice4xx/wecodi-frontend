@@ -1,13 +1,12 @@
 import React from 'react';
-import GridSample from '../../Images/grid-sample.png';
 
-const Content = () => {
+const Content = props => {
   return (
-    <div className="ImageWrap">
+    <div className="ImageWrap" onClick={props.handleClick}>
       <div className="HoverWrap">
         <i className="fas fa-plus" />
       </div>
-      <img src={GridSample} alt="grid-sample" />
+      <img src={props.img} alt="grid-sample" />
     </div>
   );
 };
