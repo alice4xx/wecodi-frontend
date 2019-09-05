@@ -32,14 +32,14 @@ class Login extends Component {
   };
 
   clickLogInButton = () => {
-    // if (this.state.EmailValue.length === 0) {
-    //   alert('email 입력해주세요');
-    //   return;
-    // }
-    // if (this.state.PwValue.length === 0) {
-    //   alert('pw 입력해주세요');
-    //   return;
-    // }
+    if (this.state.EmailValue.length === 0) {
+      alert('email 입력해주세요');
+      return;
+    }
+    if (this.state.PwValue.length === 0) {
+      alert('pw 입력해주세요');
+      return;
+    }
     fetch('http://10.58.2.142:8001/user/login ', {
       method: 'POST',
       headers: {
@@ -107,12 +107,20 @@ class Login extends Component {
               <div className="social-LoginWrap">
                 <div className="socialLogin">
                   <div className="imageCenter">
-                    <img src={Google} alt="googlelogo" />
+                    <img
+                      src={Google}
+                      alt="googlelogo"
+                      onClick={this.clickKakaoBttn}
+                    />
                   </div>
                 </div>
                 <div className="socialLogin">
                   <div className="imageCenter">
-                    <img src={Facebook} alt="facebooklogo" />
+                    <img
+                      src={Facebook}
+                      alt="facebooklogo"
+                      onClick={this.clickKakaoBttn}
+                    />
                   </div>
                 </div>
 

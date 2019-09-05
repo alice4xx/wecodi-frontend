@@ -1,16 +1,16 @@
 import React from 'react';
 
-const FashionPost = props => (
+const FashionPost = a => (
   <div className="fashion_articles">
     <div className="thumbnail">
-      <img src={props.info.thumb_img} alt="sample" width="120" />
+      <img src={a.info.thumb_img} alt="sample" width="120" />
     </div>
     <div className="entry">
       <div className="entry-Container">
-        <p className="entry-category">{props.info.categoryname}</p>
+        <p className="entry-category">{a.info.categoryname}</p>
         <h3 className="entry-title">
           <a href="/" className="articleTitle">
-            {props.info.title}
+            {a.info.title}
           </a>
         </h3>
       </div>

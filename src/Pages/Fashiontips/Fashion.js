@@ -16,15 +16,17 @@ class Fashion extends Component {
 
   // 리액트 lifecycle 확인..
   componentDidMount() {
-    fetch('http://10.58.2.142:8001/article/category/1?offset=1&limit=9', {
+    fetch('http://10.58.2.142:8002/article/category/1?offset=0&limit=20', {
+      method: 'GET',
       headers: {
         Authorization:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+        'Content-Type': 'application/json',
       },
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response);
+        // console.log(response);
         this.setState({ articles: response.DATA });
       });
   }
