@@ -15,9 +15,6 @@ class Signup extends Component {
       }),
     });
     const result = await response.json();
-    console.log(result);
-
-    console.log('sdfsdf');
     if (result.message === 'same ID exists') {
       alert('이미 있는 아이디 입니다!! 다시 가입 해주세요.');
     } else if (result.message === 'SUCCESS') {
