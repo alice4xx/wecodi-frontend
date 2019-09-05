@@ -1,11 +1,52 @@
 import React, { Component } from 'react';
 import './Article.scss';
+import { get } from 'http';
 import Footer from '../../Components/Footer/Footer';
 import Slideshowimg from '../../Images/slideshowsample-img.png';
+import ReviewContent from '../../Components/CommentBox/comment';
 
 
 class Article extends Component {
-  
+  constructor() {
+
+    super();
+
+    this.state = {
+
+      comments: [],
+      heart: 0,
+
+    };
+
+  } 
+
+  componentDidMount() {
+
+    fetch('http://10.58.4.74:8003/comment', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        this.setState({ comments: response });
+      });
+
+      fetch('http://10.58.2.142:8002/article/heartcheck/1', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'AUTHORIZATION' : 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo'
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        this.setState({ heart: response.HEART_COUNT });
+      });
+
+  }
+
   render() {
     return (
       <>
@@ -78,13 +119,31 @@ class Article extends Component {
                 <div className="heart-wrap">
                   <p>love this? Help trend it! </p>
                   <div className="vote-counter">
+                    <p className="heart-count">{this.state.heart}</p>
                     <i className="far fa-heart heart-button" />
                   </div>
                 </div>
               </section>
               <div className="comments">
-                <div className="gotocomments">Comments</div>
-                <div className="comments-area" />
+                <div className="gotocomments">
+                  <h3>Comments</h3>
+                </div>
+                <div className="comment-new-form">
+                  <div className="comment-user-icon">
+                    <img className="img-icon" src="https://www.facebook.com/rsrc.php/v1/yi/r/odA9sNLrE86.jpg?_nc_x=Ij3Wp8lg5Kz" alt="" />
+                  </div>
+                  <textarea className="add-comment" placeholder="Add a comment..." />
+                  <div className="comment-send">
+                    <button type="button" className="comment-btn" value="Register" onClick={this.clickCommentBtn}> SEND </button>
+                  </div>
+                </div>
+                <div className="real-user-comment">
+                  {
+                    this.state.comments.map((el) => {
+                      return <ReviewContent comment={el} />;
+                    })
+                  }
+                </div>  
               </div>
             </div>    
           </div>

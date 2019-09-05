@@ -117,67 +117,60 @@ class Signup extends React.Component {
  
   render() {
     return (
-      <div className="signup-page">
-        <div className="wrapper">
+        <div className="signup-page">
           <div className="input-wrapper">
-            <div className="input-box">
+            <div className="signup-title-box">
               <h1>Sign up</h1>
-              <div className="signup-info">
-                <div className="firstName">
+            </div>
+            <div className="firstName">
                 Firstname
-                </div>
-                <input            
+            </div>
+            <input            
                   type="text" 
                   className="inputFirst" 
                   placeholder="Firstname" 
                   value={this.state.firstname}
                   maxLength="20"
                   onChange={this.setFirstname}
-                />
-
-                <div className="lastName">
+            />
+            <div className="lastName">
                 Lastname
-                </div>
-                <input 
+            </div>
+            <input 
                   type="text" 
                   className="inputLast"              
                   placeholder="Lastname"  
                   value={this.state.lastname}             
                   onChange={this.setLastname}
                   maxLength="20"
-                />
-
-                <div className="email">
+            />
+            <div className="email">
                 Email
-                </div>
-                <input
+            </div>
+            <input
                   type="email"              
                   className="inputEmail"               
                   placeholder="Email address"            
                   value={this.state.email}             
                   onChange={this.setEmail}
                   maxLength="30"
-                />
-
-                <div className="password">
+            />
+            <div className="password">
                 Password
-                </div>
-                <input              
+            </div>
+            <input              
                   type="password"              
                   className="inputPw"              
                   placeholder="Password"             
                   value={this.state.password}            
                   onChange={this.setPassword}
                   maxLength="15"
-                />
-                <div className="createAccount">
-                  <button type="button" className="signup-btn" value="Register" onClick={this.clickSignupBtn}> Signup </button>
-                </div>
-              </div>
+            />
+            <div className="createAccount">
+              <button type="button" className="signup-btn" value="Register" onClick={this.clickSignupBtn}> Signup </button>
             </div>
           </div>
         </div>
-      </div> 
       );
     }
   }
