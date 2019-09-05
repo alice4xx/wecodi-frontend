@@ -1,10 +1,16 @@
 @import '../../styles/theme.scss';
+@import '../../styles/media.scss';
 
 .detailpages {
   margin-top: 110px;
   display: flex;
   justify-content: center;
   padding: 0 12px;
+  @media screen and (max-width: $break-medium) {
+    display: block;
+    padding: 0 12px;
+    margin-top: 80px;
+  }
 }
 
 .page-container {
@@ -32,6 +38,20 @@
     font-weight: 700;
     border-bottom: 1px solid $menuBorder;
     height: 91px;
+
+    @media screen and (max-width: 780px) {
+      font-size: 34px;
+      height: 100px;
+    }
+
+    @media screen and (max-width: 390px) {
+      font-size: 27px;
+      height: 100px;
+    }
+    @media screen and (max-width: 330px) {
+      font-size: 20px;
+      height: 100px;
+    }
   }
 
   .first-article {
@@ -199,15 +219,71 @@
       padding-left: 10px;
       cursor: pointer;
     }
+    .heart-count {
+      font-size: 16px;
+      padding-left: 10px;
+      padding-bottom: 4px;
+      margin-right: -6px;
+      font-weight: 600;
+    }
   }
 
-  .comments {
-    margin: 48px 0;
+  .gotocomments {
+    margin: 24px 0;
+    padding: 24px;
+    background-color: $headerBG;
+  }
 
-    .gotocomments {
-      margin: 24px 0;
-      padding: 24px;
-      background-color: $headerBG;
+  .comment-new-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .add-comment {
+      width: 100%;
+      height: 50px;
+      margin-left: 14px;
+      margin-right: 14px;
+      padding: 10px;
+      font-size: 16px;
+      color: $headerFont;
+      border: 1px solid $headerBorder;
+
+      @media screen and (max-width: 700px) {
+        width: 100%;
+        height: 70%;
+      }
     }
+
+    .comment-user-icon {
+      margin-right: 10px;
+      justify-content: center;
+
+      img {
+        height: 100%;
+        width: 50px;
+      }
+    }
+  }
+
+  .comment-btn {
+    width: 100%;
+    height: 50px;
+    padding: 10px 10px;
+    background-color: #f05d62;
+    display: inline-block;
+    font-size: 15px;
+    border-width: 0px;
+    border-radius: 3px;
+    color: white;
+    border-bottom: 2px solid #d84a55;
+  }
+
+  .comment-send button:hover {
+    background-color: #e58384;
+    border-bottom: 2px solid #d37479;
+    transition: 0.4s background-color;
+    cursor: pointer;
   }
 }
