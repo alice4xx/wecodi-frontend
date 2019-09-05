@@ -2,26 +2,18 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import './Signup.scss';
 import Footer from '../../Components/Footer/Footer';
-import { Link } from 'react-router-dom';
 
-class Signup extends Component {
-  Singup = async () => {
-    const response = await fetch('http://10.58.4.74:8000/signup', {
-      method: 'POST',
+class Signup extends React.Component {
+  constructor() {
+    super();
 
-      body: JSON.stringify({
-        user_id: '12341234sdfsdfsfsdfsd',
-        password: 'good',
-      }),
-    });
-    const result = await response.json();
-    if (result.message === 'same ID exists') {
-      alert('이미 있는 아이디 입니다!! 다시 가입 해주세요.');
-    } else if (result.message === 'SUCCESS') {
-      alert('환영합니다!! 가입 되었습니다!!!');
-      this.props.history.push('/login');
-    }
-  };
+    this.state = {
+      firstname: '',
+      lastname: '',
+      email: '',
+      password: '',
+    };
+  }
 
   clickSignupBtn = async () => {
     const { firstname, lastname, email, password } = this.state;
