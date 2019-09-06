@@ -17,7 +17,7 @@ class Inside extends Component {
   }
 
   componentDidMount() {
-    fetch('http://10.58.2.142:8002/article/category/2?offset=0&limit=20', {
+    fetch('http://10.58.7.236:8002/article/category/2?offset=0&limit=20', {
       method: 'GET',
       headers: {
         Authorization:
@@ -31,7 +31,7 @@ class Inside extends Component {
         this.setState({ articles: response.DATA });
       });
 
-    fetch('http://10.58.2.142:8002/article/recommend/105', {
+    fetch('http://10.58.7.236:8002/article/recommend/105', {
       method: 'GET',
       headers: {
         Authorization:
@@ -43,7 +43,7 @@ class Inside extends Component {
       .then(response => {
         this.setState({ Sidetitle3: response.DATA });
       });
-    fetch('http://10.58.2.142:8002/article/recommend/106', {
+    fetch('http://10.58.7.236:8002/article/recommend/106', {
       method: 'GET',
       headers: {
         Authorization:
