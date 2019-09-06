@@ -15,6 +15,10 @@ class Login extends Component {
     };
   }
 
+  componentDidMount() {
+    window.Kakao.init('0d3eb99a0ab9c7b96fcfacc9f8169438');
+  }
+
   changeEmailValue = e => {
     this.setState({
       EmailValue: e.target.value,
@@ -36,21 +40,21 @@ class Login extends Component {
       alert('pw 입력해주세요');
       return;
     }
-    fetch('http://10.58.2.142:8001/user/login ', {
+    fetch('http://10.58.7.239:8000/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user_id: this.state.EmailValue,
-        user_pw: this.state.PwValue,
+        email: this.state.EmailValue,
+        password: this.state.PwValue,
       }),
     })
       .then(response => response.json())
       .then(response => {
         console.log(response);
-        if (response.TOKEN) {
-          localStorage.setItem('wecodi_token', response.TOKEN);
+        if (response.access_token) {
+          localStorage.setItem('wecodi_token', response.access_token);
           this.props.history.push('/');
         }
         // else if (response.error_message) {
@@ -58,7 +62,16 @@ class Login extends Component {
         // }
       });
   };
-
+  clickKakaoBttn = () => {
+    window.Kakao.Auth.login({
+      success: function(authObj) {
+        alert(JSON.stringify(authObj));
+      },
+      fail: function(err) {
+        alert(JSON.stringify(err));
+      },
+    });
+  };
   render() {
     return (
       <div className="loginWrap">
@@ -89,21 +102,35 @@ class Login extends Component {
             <a href="/" className="forgot-1">
               Or you can join with,
             </a>
+
             <div className="social--Login">
               <div className="social-LoginWrap">
                 <div className="socialLogin">
                   <div className="imageCenter">
-                    <img src={Google} alt="googlelogo" width="35" />
+                    <img
+                      src={Google}
+                      alt="googlelogo"
+                      onClick={this.clickKakaoBttn}
+                    />
                   </div>
                 </div>
                 <div className="socialLogin">
                   <div className="imageCenter">
-                    <img src={Facebook} alt="facebooklogo" width="39" />
+                    <img
+                      src={Facebook}
+                      alt="facebooklogo"
+                      onClick={this.clickKakaoBttn}
+                    />
                   </div>
                 </div>
+
                 <div className="socialLogin">
                   <div className="imageCenter">
-                    <img src={Kakaotalk} alt="kakaotalklogo" width="35" />
+                    <img
+                      src={Kakaotalk}
+                      alt="kakaotalklogo"
+                      onClick={this.clickKakaoBttn}
+                    />
                   </div>
                 </div>
               </div>
