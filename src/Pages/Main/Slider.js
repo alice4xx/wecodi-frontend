@@ -11,6 +11,8 @@ class Slider extends Component {
       category: data[0].category,
       img: data[0].slider,
       path: data[0].path,
+      trending: [],
+      advice: [],
     };
   }
 
@@ -59,13 +61,39 @@ class Slider extends Component {
     this.interval = setInterval(() => {
       return this.moveSlider(null);
     }, 3000);
-  }
 
+    fetch('http://10.58.2.142:8002/article/recommend/102', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'AUTHORIZATION':
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+      },
+    })
+    .then(response => response.json())
+    .then(response => {
+      this.setState({ trending: response.DATA});
+    });
+    
+    fetch('http://10.58.2.142:8002/article/recommend/103', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'AUTHORIZATION':
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+      },
+    })
+    .then(response => response.json())
+    .then(response => {
+      this.setState({ advice: response.DATA});
+    });
+  }
   componentWillUnmount() {
     clearInterval(this.interval);
   }
 
   render() {
+    const { trending, advice } = this.state;
     return (
       <section className="SliderWrapper">
         <section className="Slider">
@@ -122,17 +150,14 @@ class Slider extends Component {
               <span>•</span> Trending Now <span>•</span>
             </h3>
             <div className="WidgetDetails">
-              <p>
-                <Link to="/">31 Days of Outfits: August Edition</Link>
-              </p>
-              <p>
-                <Link to="/">
-                  Stitch Fix Stylists Share Their Favorite Fall 2019 Looks
-                </Link>
-              </p>
-              <p>
-                <Link to="/">Not A Shorts Fan? Meet The Summer Pant</Link>
-              </p>
+              {trending.map((el, i) => {
+                return (
+                  <p>
+                    <Link to="/" key={i}>{el.title}</Link>
+                  </p>
+                  )
+                })
+              }
             </div>
           </div>
           <div className="RecentWidget">
@@ -140,15 +165,13 @@ class Slider extends Component {
               <span>•</span> Recent Stylist Advice <span>•</span>
             </h3>
             <div className="WidgetDetails">
-              <p>
-                <Link to="/">Can I wear gold & silver jewelry together?</Link>
-              </p>
-              <p>
-                <Link to="/">How can I build a capsule wardrobe for work?</Link>
-              </p>
-              <p>
-                <Link to="/">What are the new fall trends?</Link>
-              </p>
+              {advice.map((el, i) => {
+                return (
+                  <p>
+                    <Link to="/" key={i}>{el.title}</Link>
+                  </p>)
+              })
+              }
             </div>
           </div>
         </section>

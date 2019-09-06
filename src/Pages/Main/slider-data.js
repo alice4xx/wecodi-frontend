@@ -1,7 +1,7 @@
 const slider = [
   {
     id: 1,
-    title: 'One-And-Done Pieces To Try This Summer',
+    title: '한번에 끝내는 이번 여름 패션',
     category: 'FASHION TIPS',
     path: 'fashion-tips',
     slider:
@@ -9,7 +9,7 @@ const slider = [
   },
   {
     id: 2,
-    title: 'How to Style Shorts for Your Shape',
+    title: '내 몸에 맞는 셔츠 스타일링',
     category: 'FASHION TIPS',
     path: 'fashion-tips',
     slider:
@@ -25,7 +25,7 @@ const slider = [
   },
   {
     id: 4,
-    title: 'Not A Shorts Fan? Meet The Summer Pant',
+    title: '셔츠를 사랑하는 당신을 위한 이번 여름 팬츠 모음',
     category: 'FASHION TIPS',
     path: 'fashion-tips',
     slider:
@@ -33,7 +33,7 @@ const slider = [
   },
   {
     id: 5,
-    title: 'Stitch Fix Stylists Share Their Favorite Fall 2019 Looks',
+    title: 'Wecodi 스타일리스트가 추천하는 2019 가을 패션 룩',
     category: 'INSIDE STITCH FIX',
     path: 'inside-stitch-fix',
     slider:

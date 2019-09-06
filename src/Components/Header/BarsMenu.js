@@ -6,8 +6,8 @@ const path_url = {
   home: '/',
   fashion: '/fashion-tips',
   outfit: '/outfit-ideas',
-  inside: '/inside-stitch-fix',
-  about: '/about'
+  inside: '/inside-wecodi',
+  about: '/about',
 };
 
 const BarsMenu = props => {
