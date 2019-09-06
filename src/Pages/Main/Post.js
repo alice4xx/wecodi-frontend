@@ -2,16 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Post = ({ post = {} }) => {
-  const { thumb_img, categoryname, title } = post;
+  const { thumb_img, categoryname, title, article_id } = post;
   return (
     <div className="RecentContent">
-      <img src={thumb_img} alt="test" width="300" />
+      
+      <Link to={`/article/${article_id}`}><img src={thumb_img} alt="test" width="300" /></Link>
       <div className="ContentDetail">
         <Link to="/">
           <p className="ContentCategory">{categoryname}</p>
         </Link>
         <h2 className="ContentTitle">
-          <a href="/">{title}</a>
+          <Link to={`/article/${article_id}`}>{title}</Link>
         </h2>
       </div>
     </div>

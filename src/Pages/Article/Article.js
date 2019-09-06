@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './Article.scss';
 import { get } from 'http';
+import { Route, withRouter } from 'react-router-dom';
 import Footer from '../../Components/Footer/Footer';
 import Slideshowimg from '../../Images/slideshowsample-img.png';
 import ReviewContent from '../../Components/CommentBox/comment';
 
 class Article extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       comments: [],
       heart: 0,
@@ -19,7 +20,7 @@ class Article extends Component {
   }
 
   componentDidMount() {
-    fetch('http://10.58.2.142:8002/article/detail/1', {
+    fetch(`http://10.58.7.236:8002/article/detail/${this.state.id+1}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -37,18 +38,18 @@ class Article extends Component {
       });
     });
 
-    fetch('http://10.58.4.74:8003/comment', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    .then(response => response.json())
-    .then(response => {
-      this.setState({ comments: response });
-    });
+    // fetch('http://10.58.7.236:8002/comment/list/1', {
+    //   method: 'GET',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // })
+    // .then(response => response.json())
+    // .then(response => {
+    //   this.setState({ comments: response });
+    // });
 
-    fetch('http://10.58.2.142:8002/article/heartcheck/1', {
+    fetch('http://10.58.7.236:8002/article/heartcheck/1', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -64,6 +65,7 @@ class Article extends Component {
 
   render() {
     const { title, category, content} = this.state;
+    // const { match } = props;
     return (
       <>
         <div className="detailpages">

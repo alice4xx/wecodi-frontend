@@ -25,7 +25,7 @@ class Main extends Component {
 
   callApi = () => {
     return fetch(
-      'http://10.58.2.142:8002/article/category/0?offset=0&limit=9',
+      'http://10.58.7.236:8002/article/category/0?offset=0&limit=9',
       {
         method: 'GET',
         headers: {
