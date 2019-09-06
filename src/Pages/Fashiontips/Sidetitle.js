@@ -1,24 +1,16 @@
 import React from 'react';
 
-const InsidePost = a => (
-  <div className="fashion_articles">
-    <div className="thumbnail">
-      <img src={a.info.thumb_img} alt="sample" width="120" />
-    </div>
-    <div className="entry">
-      <div className="entry-Container">
-        <p className="entry-category">{a.info.categoryname}</p>
-        <h3 className="entry-title">
-          <a href="/" className="articleTitle">
-            {a.info.title}
-          </a>
-        </h3>
-      </div>
-    </div>
-  </div>
+const Sidetitle = a => (
+  <ul className="trendingNow">
+    <li>
+      <a href="/">
+        <span>{a.info.title}</span>
+      </a>
+    </li>
+  </ul>
 );
 
-export default InsidePost;
+export default Sidetitle;
 
 // const FashionPost = ({ info = {} }) => {
 //   const { thumbnail, category, title } = info;
