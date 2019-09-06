@@ -20,7 +20,7 @@ class Article extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://10.58.7.236:8002/article/detail/${this.state.id+1}`, {
+    fetch(`http://10.58.7.236:8002/article/detail/${this.props.match.params.id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ class Article extends Component {
 
   render() {
     const { title, category, content} = this.state;
-    // const { match } = props;
+    console.log(this.props);
     return (
       <>
         <div className="detailpages">
@@ -234,4 +234,4 @@ class Article extends Component {
   }
 }
 
-export default Article;
+export default withRouter(Article);
