@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import './Signup.scss';
 import Footer from '../../Components/Footer/Footer';
+import Message from '../../Components/Message/Message';
 
 class Signup extends React.Component {
   constructor() {
@@ -12,6 +13,7 @@ class Signup extends React.Component {
       lastname: '',
       email: '',
       password: '',
+      message: false,
     };
   }
 
