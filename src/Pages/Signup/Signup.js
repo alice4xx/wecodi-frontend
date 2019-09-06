@@ -50,7 +50,7 @@ class Signup extends React.Component {
       }
   
 
-    fetch('http://10.58.4.149:8000/user', {
+    fetch('http://10.58.7.239:8000/signup', {
 
       method: 'POST',
 
@@ -72,7 +72,7 @@ class Signup extends React.Component {
       .then((response) => response.json())
       .then((response) => {
 
-        if (response.message === 'SUCCESS!') {
+        if (response.message === 'SUCCESS') {
 
           alert('회원가입을 축하합니다.');
 

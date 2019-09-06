@@ -22,7 +22,7 @@ class Article extends Component {
 
   componentDidMount() {
 
-    fetch('http://10.58.4.74:8003/comment', {
+    fetch('http://10.58.7.236:8002/comment/1', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -31,9 +31,9 @@ class Article extends Component {
       .then((response) => response.json())
       .then((response) => {
         this.setState({ comments: response });
-      });
-
-      fetch('http://10.58.2.142:8002/article/heartcheck/1', {
+      });  
+      
+      fetch('http://10.58.7.236:8002/article/heartcheck/1', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -42,9 +42,15 @@ class Article extends Component {
     })
       .then((response) => response.json())
       .then((response) => {
-        this.setState({ heart: response.HEART_COUNT });
+        console.log(response);
+        this.setState({ heart: response.HEART_COUNT
+        ,heartbeat: response.HEART_CHECK });
+        // .catch(error=> console.log('parsing failed',error))
       });
+  }
 
+  clickHeartBtn = () => {
+    
   }
 
   render() {
@@ -120,7 +126,7 @@ class Article extends Component {
                   <p>love this? Help trend it! </p>
                   <div className="vote-counter">
                     <p className="heart-count">{this.state.heart}</p>
-                    <i className="far fa-heart heart-button" />
+                    <i className={`${this.state.heartbeat==='HEART_ON' ? 'fas': 'far' } fa-heart heart-button`} onClick={this.clickHeartBtn} />
                   </div>
                 </div>
               </section>
@@ -134,7 +140,7 @@ class Article extends Component {
                   </div>
                   <textarea className="add-comment" placeholder="Add a comment..." />
                   <div className="comment-send">
-                    <button type="button" className="comment-btn" value="Register" onClick={this.clickCommentBtn}> SEND </button>
+                    <button type="button" className="comment-btn" value="Register"> SEND </button>
                   </div>
                 </div>
                 <div className="real-user-comment">
