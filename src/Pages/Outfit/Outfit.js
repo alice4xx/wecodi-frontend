@@ -41,7 +41,7 @@ class Outfit extends Component {
 
   callApi = () => {
     return fetch(
-      `http://10.58.2.142:8002/article/category/0?offset=${this.state.index}&limit=${this.state.limit+this.state.index+8}`, 
+      `http://10.58.7.236:8002/article/category/0?offset=${this.state.index}&limit=${this.state.limit+this.state.index+8}`, 
       {
         method: 'GET',
         headers: {

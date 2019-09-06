@@ -62,7 +62,7 @@ class Slider extends Component {
       return this.moveSlider(null);
     }, 3000);
 
-    fetch('http://10.58.2.142:8002/article/recommend/102', {
+    fetch('http://10.58.7.236:8002/article/recommend/102', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ class Slider extends Component {
       this.setState({ trending: response.DATA});
     });
     
-    fetch('http://10.58.2.142:8002/article/recommend/103', {
+    fetch('http://10.58.7.236:8002/article/recommend/103', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -152,8 +152,8 @@ class Slider extends Component {
             <div className="WidgetDetails">
               {trending.map((el, i) => {
                 return (
-                  <p>
-                    <Link to="/" key={i}>{el.title}</Link>
+                  <p key={i}>
+                    <Link to={`/article/${el.article_id}`}>{el.title}</Link>
                   </p>
                   )
                 })
@@ -167,9 +167,10 @@ class Slider extends Component {
             <div className="WidgetDetails">
               {advice.map((el, i) => {
                 return (
-                  <p>
-                    <Link to="/" key={i}>{el.title}</Link>
-                  </p>)
+                  <p key={i}>
+                    <Link to={`/article/${el.article_id}`}>{el.title}</Link>
+                  </p>
+                )
               })
               }
             </div>
