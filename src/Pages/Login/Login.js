@@ -40,21 +40,21 @@ class Login extends Component {
       alert('pw 입력해주세요');
       return;
     }
-    fetch('http://10.58.2.142:8001/user/login ', {
+    fetch('http://10.58.7.239:8000/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user_id: this.state.EmailValue,
-        user_pw: this.state.PwValue,
+        email: this.state.EmailValue,
+        password: this.state.PwValue,
       }),
     })
       .then(response => response.json())
       .then(response => {
-        //console.log(response);
-        if (response.TOKEN) {
-          localStorage.setItem('wecodi_token', response.TOKEN);
+        console.log(response);
+        if (response.access_token) {
+          localStorage.setItem('wecodi_token', response.access_token);
           this.props.history.push('/');
         }
         // else if (response.error_message) {
