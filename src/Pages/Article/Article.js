@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './Article.scss';
-import { get } from 'http';
 import { Route, withRouter } from 'react-router-dom';
 import Footer from '../../Components/Footer/Footer';
-import Slideshowimg from '../../Images/slideshowsample-img.png';
 import ReviewContent from '../../Components/CommentBox/comment';
 
 class Article extends Component {
