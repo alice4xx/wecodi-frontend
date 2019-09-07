@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Article.scss';
-import { Route, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Footer from '../../Components/Footer/Footer';
 import ReviewContent from '../../Components/CommentBox/comment';
 
