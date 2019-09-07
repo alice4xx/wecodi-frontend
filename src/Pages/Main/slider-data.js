@@ -1,7 +1,7 @@
 const slider = [
   {
     id: 1,
-    title: '한번에 끝내는 이번 여름 패션',
+    title: '이번 여름에 꼭 입어볼 원피스 리스트',
     category: 'FASHION TIPS',
     path: 'fashion-tips',
     slider:
@@ -9,7 +9,7 @@ const slider = [
   },
   {
     id: 2,
-    title: '내 몸에 맞는 셔츠 스타일링',
+    title: '당신의 체형에 맞는 반바지 스타일링',
     category: 'FASHION TIPS',
     path: 'fashion-tips',
     slider:
@@ -18,14 +18,14 @@ const slider = [
   {
     id: 3,
     title: 'Episode 6: “Like a Boss”',
-    category: 'INSIDE STITCH FIX',
-    path: 'inside-stitch-fix',
+    category: 'INSIDE WECODI',
+    path: 'inside-wecodi',
     slider:
       'https://s3.amazonaws.com/com.stitchfix.blog/wp-content/uploads/2017/06/27135519/282A6251-1200x800.jpg',
   },
   {
     id: 4,
-    title: '셔츠를 사랑하는 당신을 위한 이번 여름 팬츠 모음',
+    title: '반바지가 싫으시다구요? 긴바지가 있습니다!',
     category: 'FASHION TIPS',
     path: 'fashion-tips',
     slider:
@@ -33,9 +33,9 @@ const slider = [
   },
   {
     id: 5,
-    title: 'Wecodi 스타일리스트가 추천하는 2019 가을 패션 룩',
-    category: 'INSIDE STITCH FIX',
-    path: 'inside-stitch-fix',
+    title: '위코디 스타일리스트가 추천하는 2019년 가을 스타일',
+    category: 'INSIDE WECODI',
+    path: 'inside-wecodi',
     slider:
       'https://s3.amazonaws.com/com.stitchfix.blog/wp-content/uploads/2016/10/30114225/T3_W20_BLG_Stylists-Favorite-Fall-Trends_382575736_SQ.jpg',
   },

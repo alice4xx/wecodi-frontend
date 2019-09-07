@@ -1,13 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import GridSample from '../../Images/grid-sample.png';
 import CloseBtn from '../../Images/close.png';
 
 const FancyBox = props => {
+  const [advice, setAdvice] = useState();
+
+  const path = {
+    'Fashion Tip': 'fashion-tips',
+    'Outfit Ideas': 'outfit-ideas',
+    'Inside Wecodi': 'inside-wecodi',
+  };
+
+  useEffect(() => {
+    fetch('http://10.58.7.236:8002/article/recommend/103', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        AUTHORIZATION:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+      },
+    })
+      .then(response => response.json())
+      .then(response => setAdvice(response.DATA));
+  }, []);
+
   return (
     <div className="FancyBox">
       <div className="FancyWrapper">
-        <div className="CloseBtn" onClick = {props.handleClick}>
+        <div className="CloseBtn" onClick={props.handleClick}>
           <img src={CloseBtn} alt="close" />
         </div>
         <div className="FancyContentWrap">
@@ -20,36 +40,17 @@ const FancyBox = props => {
               <div className="Line" />
             </div>
             <ul className="Stories">
-              <li className="StoriesList">
-                <Link to="/">
-                  <h3 className="Category">FASHION TIPS</h3>
-                </Link>
-                <Link to="/">
-                  <p className="Title">
-                    6 Wardrobe Essentials for Fearlessly Feminine Style
-                  </p>
-                </Link>
-              </li>
-              <li className="StoriesList">
-                <Link to="/">
-                  <h3 className="Category">FASHION TIPS</h3>
-                </Link>
-                <Link to="/">
-                  <p className="Title">
-                    6 Wardrobe Essentials for Fearlessly Feminine Style
-                  </p>
-                </Link>
-              </li>
-              <li className="StoriesList">
-                <Link to="/">
-                  <h3 className="Category">FASHION TIPS</h3>
-                </Link>
-                <Link to="/">
-                  <p className="Title">
-                    6 Wardrobe Essentials for Fearlessly Feminine Style
-                  </p>
-                </Link>
-              </li>
+              {advice &&
+                advice.map((el, i) => {
+                  return (
+                    <li className="StoriesList" key={i}>
+                      <Link to={`/${path[el.category]}`}>
+                        <h3 className="Category">{el.category}</h3>
+                      </Link>
+                      <Link to={`/article/${el.article_id}`}>{el.title}</Link>
+                    </li>
+                  );
+                })}
             </ul>
           </div>
         </div>
