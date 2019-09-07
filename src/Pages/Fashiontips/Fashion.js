@@ -18,7 +18,6 @@ class Fashion extends Component {
   }
 
   componentDidMount() {
-
     fetch('http://10.58.7.236:8002/article/category/1?offset=0&limit=5', {
       method: 'GET',
       headers: {

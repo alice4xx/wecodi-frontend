@@ -13,11 +13,12 @@ class Inside extends Component {
       articles: [],
       Sidetitle3: [],
       Sidetitle4: [],
+      readArticles: 1,
     };
   }
 
   componentDidMount() {
-    fetch('http://10.58.7.236:8002/article/category/2?offset=0&limit=20', {
+    fetch('http://10.58.7.236:8002/article/category/2?offset=0&limit=5', {
       method: 'GET',
       headers: {
         Authorization:
@@ -43,6 +44,7 @@ class Inside extends Component {
       .then(response => {
         this.setState({ Sidetitle3: response.DATA });
       });
+
     fetch('http://10.58.7.236:8002/article/recommend/106', {
       method: 'GET',
       headers: {
@@ -56,6 +58,31 @@ class Inside extends Component {
         this.setState({ Sidetitle4: response.DATA });
       });
   }
+  clickReadMore = () => {
+    const NewReadArticles = this.state.readArticles + 5;
+    this.setState({ readArticles: NewReadArticles });
+
+    fetch(
+      'http://10.58.7.236:8002/article/category/2?offset=' +
+        NewReadArticles +
+        '&limit=' +
+        (NewReadArticles + 5),
+      {
+        method: 'GET',
+        headers: {
+          Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+          'Content-Type': 'application/json',
+        },
+      },
+    )
+      .then(response => response.json())
+      .then(response => {
+        //console.log(response);
+        // console.log(this.state.articles.concat(response.DATA));
+        this.setState({ articles: this.state.articles.concat(response.DATA) });
+      });
+  };
 
   render() {
     return (
@@ -67,8 +94,8 @@ class Inside extends Component {
             </div>
             <div className="fashionTips">
               <div className="postWrap">
-                {this.state.articles.map(function(el) {
-                  return <InsidePost info={el} />;
+                {this.state.articles.map(function(el, i) {
+                  return <InsidePost info={el} key={i} />;
                 })}
               </div>
             </div>
@@ -80,9 +107,9 @@ class Inside extends Component {
                   <span>•</span> TRENDING NOW <span>•</span>
                 </div>
                 <ul className="trendingNow">
-                  {this.state.Sidetitle3.map(function(el) {
-                    return <Sidetitle info={el} />;
-                  })}
+                  {this.state.Sidetitle3.map((el, i) => (
+                    <Sidetitle info={el} key={i} />
+                  ))}
                 </ul>
               </div>
               <div className="trending_4">
@@ -90,15 +117,15 @@ class Inside extends Component {
                   <span>•</span> RECENT STYLIST ADVICE <span>•</span>
                 </div>
                 <ul className="trendingNow">
-                  {this.state.Sidetitle4.map(function(el) {
-                    return <Sidetitle info={el} />;
-                  })}
+                  {this.state.Sidetitle4.map((el, i) => (
+                    <Sidetitle info={el} key={i} />
+                  ))}
                 </ul>
               </div>
             </div>
           </div>
         </div>
-        <Readmore />
+        <Readmore handleClick={this.clickReadMore} />
         <Footer />
       </div>
     );
