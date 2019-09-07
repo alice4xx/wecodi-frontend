@@ -41,17 +41,6 @@ class Article extends Component {
         });
       });
 
-    // fetch('http://10.58.7.236:8002/comment/list/1', {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // })
-    // .then(response => response.json())
-    // .then(response => {
-    //   this.setState({ comments: response });
-    // });
-
     fetch('http://10.58.7.236:8002/article/heartcheck/1', {
       method: 'GET',
       headers: {
