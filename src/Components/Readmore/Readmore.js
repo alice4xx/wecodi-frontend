@@ -1,9 +1,9 @@
 import React from 'react';
 import './Readmore.scss';
 
-const Readmore = () => {
+const Readmore = (props) => {
   return (
-    <div className="Readmore">
+    <div className="Readmore" onClick={props.handleClick}>
       <div className="LineWrap">
         <div className="LeftLine" />
         <div className="RightLine" />

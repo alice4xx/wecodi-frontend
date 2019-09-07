@@ -14,7 +14,8 @@ class Article extends Component {
     this.state = {
 
       comments: [],
-      heart: 0,
+      heartcheck: 'HEART_OFF',
+      heartcount:0,
 
     };
 
@@ -45,15 +46,28 @@ class Article extends Component {
         console.log(response);
         this.setState({ heart: response.HEART_COUNT
         ,heartbeat: response.HEART_CHECK });
-        // .catch(error=> console.log('parsing failed',error))
       });
   }
 
   clickHeartBtn = () => {
-    
+    fetch('http://10.58.7.236:8002/article/heartcheck/1', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'AUTHORIZATION' : 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo'
+      },
+    })
+    .then((response) => response.json())
+    .then((response) => {
+      this.setState({
+        heartcount: response.HEART_COUNT,
+        heartcheck: response.HEART_CHECK
+      });
+    });
   }
 
   render() {
+    console.log(this.state);
     return (
       <>
         <div className="detailpages">
@@ -125,8 +139,8 @@ class Article extends Component {
                 <div className="heart-wrap">
                   <p>love this? Help trend it! </p>
                   <div className="vote-counter">
-                    <p className="heart-count">{this.state.heart}</p>
-                    <i className={`${this.state.heartbeat==='HEART_ON' ? 'fas': 'far' } fa-heart heart-button`} onClick={this.clickHeartBtn} />
+                    <p className="heart-count">{this.state.heartcount}</p>
+                    <i className={`${this.state.heartcheck==='HEART_ON' ? 'fas': 'far' } fa-heart heart-button`} onClick={this.clickHeartBtn} />
                   </div>
                 </div>
               </section>

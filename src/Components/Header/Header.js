@@ -25,10 +25,10 @@ const Header = () => {
             <Link to="/fashion-tips">FASHION TIPS</Link>
           </li>
           <li className="MenuList">
-            <Link to="/inside-stitch-fix">FEATURE</Link>
+            <Link to="/outfit-ideas">OUTFIT IDEAS</Link>
           </li>
           <li className="MenuList">
-            <Link to="/outfit-ideas">OUTFIT IDEAS</Link>
+            <Link to="/inside-wecodi">INSIDE WECODI</Link>
           </li>
         </ul>
         <div className="LoginWrap">

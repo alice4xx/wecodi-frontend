@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './comment.scss';
 
 
@@ -12,7 +12,8 @@ const ReviewContent = (props) => (
       <div className="review-Comment-Content">
         <div className="review-Comment-Text">
           <span className="review-Comment-UserName">
-            {props.comment.user__user_id}
+            console.log({props.comment.user_user_id})
+            {props.comment.user_user_id}
           </span>
         </div>
         <div className="review-Comment-UserWriteTime">

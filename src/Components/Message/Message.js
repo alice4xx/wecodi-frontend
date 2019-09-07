@@ -12,15 +12,19 @@ const Message = () => {
             <i className="far fa-check-circle" />
             <p className="MessageBody">가입을 축하합니다!</p>
             <div className="ButtonWrap">
-              <div className="Button">확인</div>
+              <div className="Button" onClick={() => setSuccess(!success)}>
+                확인
+              </div>
             </div>
           </>
         ) : (
           <>
             <i className="fas fa-ban" />
-            <p className="MessageBody">비밀번호가 틀렸습니다</p>
+            <p className="MessageBody">입력 정보를 확인해주세요.</p>
             <div className="ButtonWrap">
-              <div className="Button">확인</div>
+              <div className="Button" onClick={() => setSuccess(!success)}>
+                확인
+              </div>
             </div>
           </>
         )}
