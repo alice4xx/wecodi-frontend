@@ -1,12 +1,29 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import BarsMenu from './BarsMenu';
 import './Header.scss';
 import Logo from '../../Images/logo.png';
 
-const Header = () => {
+const Header = props => {
   const [mode, setMode] = useState(true);
-  const [login, setLogin] = useState(false);
+  const [token, setToken] = useState(false);
+  const WecodiToken = localStorage.getItem('wecodi-token');
+
+  const getToken = () => {
+    if (WecodiToken) {
+      setToken(!token);
+    }
+  };
+
+  const logout = () => {
+    localStorage.setItem('wecodi-token', '');
+    setToken(!token);
+    props.history.push('/');
+  };
+
+  useEffect(() => {
+    getToken();
+  });
 
   return (
     <div className="Header">
@@ -32,7 +49,7 @@ const Header = () => {
           </li>
         </ul>
         <div className="LoginWrap">
-          {login === false ? (
+          {token ? (
             <>
               <Link to="/login">
                 <div className="Login">Login</div>
@@ -43,9 +60,9 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link to="/login">
-                <div className="Login">Logout</div>
-              </Link>
+              <div className="Login" onClick={logout}>
+                Logout
+              </div>
               <Link to="/about">
                 <div className="Signup">About</div>
               </Link>
@@ -57,4 +74,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);

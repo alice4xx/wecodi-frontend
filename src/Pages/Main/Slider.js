@@ -66,40 +66,40 @@ class Slider extends Component {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'AUTHORIZATION':
+        AUTHORIZATION:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
       },
     })
-    .then(response => response.json())
-    .then(response => {
-      this.setState({ trending: response.DATA});
-    });
-    
-    fetch('http://10.58.7.236:8002/article/recommend/103', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'AUTHORIZATION':
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
-      },
-    })
-    .then(response => response.json())
-    .then(response => {
-      this.setState({ advice: response.DATA});
-    });
+      .then(response => response.json())
+      .then(response => {
+        this.setState({ trending: response.DATA });
+      });
 
     fetch('http://10.58.7.236:8002/article/recommend/103', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'AUTHORIZATION':
+        AUTHORIZATION:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
       },
     })
-    .then(response => response.json())
-    .then(response => {
-      this.setState({ advice: response.DATA});
-    });
+      .then(response => response.json())
+      .then(response => {
+        this.setState({ advice: response.DATA });
+      });
+
+    fetch('http://10.58.7.236:8002/article/recommend/103', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        AUTHORIZATION:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+      },
+    })
+      .then(response => response.json())
+      .then(response => {
+        this.setState({ advice: response.DATA });
+      });
   }
   componentWillUnmount() {
     clearInterval(this.interval);
@@ -118,7 +118,7 @@ class Slider extends Component {
           <section className="SliderBody">
             <div className="ImageWrap">
               <div className="ImageCover">
-                <Link to={`/article/${this.state.i+300}`}>
+                <Link to={`/article/${this.state.i + 300}`}>
                   <img src={this.state.img} alt="featured stories" />
                 </Link>
               </div>
@@ -152,7 +152,9 @@ class Slider extends Component {
               </p>
 
               <h2 className="DetailTitle">
-                <Link to="/">{this.state.title}</Link>
+                <Link to={`/article/${this.state.i + 300}`}>
+                  {this.state.title}
+                </Link>
               </h2>
             </div>
           </section>
@@ -168,14 +170,13 @@ class Slider extends Component {
                   <p key={i}>
                     <Link to={`/article/${el.article_id}`}>{el.title}</Link>
                   </p>
-                  )
-                })
-              }
+                );
+              })}
             </div>
           </div>
           <div className="RecentWidget">
             <h3 className="WidgetTitle">
-              <span>•</span> Recent Stylist Advice <span>•</span>
+              <span>•</span> Stylist Advice <span>•</span>
             </h3>
             <div className="WidgetDetails">
               {advice.map((el, i) => {
@@ -183,9 +184,8 @@ class Slider extends Component {
                   <p key={i}>
                     <Link to={`/article/${el.article_id}`}>{el.title}</Link>
                   </p>
-                )
-              })
-              }
+                );
+              })}
             </div>
           </div>
         </section>
