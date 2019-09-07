@@ -52,14 +52,10 @@ class Login extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response);
         if (response.access_token) {
           localStorage.setItem('wecodi_token', response.access_token);
           this.props.history.push('/');
         }
-        // else if (response.error_message) {
-        //   alert(response.error_message);
-        // }
       });
   };
   clickKakaoBttn = () => {

@@ -1,12 +1,14 @@
 import React from 'react';
-import './comment.scss';
+import './Comment.scss';
 
-
-const ReviewContent = (props) => (
-
+const ReviewContent = props => (
   <div className="review-Comment">
     <div className="review-user-icon">
-      <img className="img-icon" src="https://www.facebook.com/rsrc.php/v1/yi/r/odA9sNLrE86.jpg?_nc_x=Ij3Wp8lg5Kz" alt="" />
+      <img
+        className="img-icon"
+        src="https://www.facebook.com/rsrc.php/v1/yi/r/odA9sNLrE86.jpg?_nc_x=Ij3Wp8lg5Kz"
+        alt=""
+      />
     </div>
     <div className="review-Comment-User">
       <div className="review-Comment-Content">
@@ -22,15 +24,10 @@ const ReviewContent = (props) => (
           </span>
         </div>
         <div className="review-Comment-UserReview">
-          <p className="review-Comment-Review">
-            {props.comment.content}
-          </p>
+          <p className="review-Comment-Review">{props.comment.content}</p>
         </div>
       </div>
     </div>
   </div>
-  
 );
-  export default ReviewContent;
-
-   
+export default ReviewContent;

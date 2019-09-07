@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Article.scss';
 import { withRouter } from 'react-router-dom';
 import Footer from '../../Components/Footer/Footer';
-import ReviewContent from '../../Components/CommentBox/comment';
+import ReviewContent from '../../Components/Comment/Comment';
 
 class Article extends Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class Article extends Component {
         });
       });
 
-    fetch('http://10.58.7.236:8002/comment/1', {
+    fetch(`http://10.58.7.236:8002/comment/${this.props.match.params.id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -51,14 +51,17 @@ class Article extends Component {
         this.setState({ comments: response });
       });
 
-    fetch('http://10.58.7.236:8002/article/heartcheck/1', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        AUTHORIZATION:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+    fetch(
+      `http://10.58.7.236:8002/article/heartcheck/${this.props.match.params.id}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          AUTHORIZATION:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+        },
       },
-    })
+    )
       .then(response => response.json())
       .then(response => {
         this.setState({
@@ -69,14 +72,17 @@ class Article extends Component {
   }
 
   clickHeartBtn = () => {
-    fetch('http://10.58.7.236:8002/article/heartcheck/1', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        AUTHORIZATION:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+    fetch(
+      `http://10.58.7.236:8002/article/heartcheck/${this.props.match.params.id}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          AUTHORIZATION:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+        },
       },
-    })
+    )
       .then(response => response.json())
       .then(response => {
         this.setState({
