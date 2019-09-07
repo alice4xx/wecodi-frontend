@@ -87,6 +87,19 @@ class Slider extends Component {
     .then(response => {
       this.setState({ advice: response.DATA});
     });
+
+    fetch('http://10.58.7.236:8002/article/recommend/103', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'AUTHORIZATION':
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+      },
+    })
+    .then(response => response.json())
+    .then(response => {
+      this.setState({ advice: response.DATA});
+    });
   }
   componentWillUnmount() {
     clearInterval(this.interval);
@@ -105,7 +118,7 @@ class Slider extends Component {
           <section className="SliderBody">
             <div className="ImageWrap">
               <div className="ImageCover">
-                <Link to="/article">
+                <Link to={`/article/${this.state.i+300}`}>
                   <img src={this.state.img} alt="featured stories" />
                 </Link>
               </div>

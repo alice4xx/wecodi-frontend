@@ -17,29 +17,31 @@ class Signup extends React.Component {
     };
   }
 
-  clickSignupBtn = async () => {
-    const { firstname, lastname, email, password } = this.state;
+    clickSignupBtn = async () => {
+      const { firstname, lastname, email, password } = this.state;
 
-    if (firstname.length === 0) {
-      alert('Plz write your firstname');
-      return;
+      if (firstname.length === 0) {
+        alert('Plz write your firstname');
+        return;
+      }
+
+      if (lastname.length === 0) {
+        alert('Plz write your lastname');
+        return;
+      }
+
+      if (email.length === 0) {
+        alert('Plz write your email address');
+        return;
+      }
+
+      if (password.length === 0) {
+        alert('Plz write your password');
+        return;
+      }
     }
 
-    if (lastname.length === 0) {
-      alert('Plz write your lastname');
-      return;
-    }
-
-    if (email.length === 0) {
-      alert('Plz write your email address');
-      return;
-    }
-
-    if (password.length === 0) {
-      alert('Plz write your password');
-      return;
-    }
-
+  componentDidMount(){
     fetch('http://10.58.4.149:8000/user', {
       method: 'POST',
 
@@ -54,9 +56,10 @@ class Signup extends React.Component {
         password: this.state.password,
       }),
     })
-      .then(response => response.json())
-      .then(response => {
-        if (response.message === 'SUCCESS!') {
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.message === 'SUCCESS') {
+
           alert('회원가입을 축하합니다.');
 
           this.props.history.push('/login');
@@ -64,7 +67,7 @@ class Signup extends React.Component {
           alert(response.error_message);
         }
       });
-  };
+    }
 
   setFirstname = e => {
     this.setState({ firstname: e.target.value });
@@ -132,8 +135,7 @@ class Signup extends React.Component {
               value="Register"
               onClick={this.clickSignupBtn}
             >
-              {' '}
-              Signup{' '}
+            Signup
             </button>
           </div>
         </div>
@@ -142,4 +144,5 @@ class Signup extends React.Component {
   }
 }
 
-export default withRouter(Signup);
+
+export default withRouter(Signup)

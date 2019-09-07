@@ -13,6 +13,7 @@ class Inside extends Component {
       articles: [],
       Sidetitle3: [],
       Sidetitle4: [],
+      readArticles: 1,
     };
   }
 
@@ -98,7 +99,7 @@ class Inside extends Component {
             </div>
           </div>
         </div>
-        <Readmore />
+        <Readmore handleClick={this.clickReadMore} />
         <Footer />
       </div>
     );
