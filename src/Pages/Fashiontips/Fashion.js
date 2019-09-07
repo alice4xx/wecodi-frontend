@@ -18,6 +18,7 @@ class Fashion extends Component {
 
   // 리액트 lifecycle 확인..
   componentDidMount() {
+
     fetch('http://10.58.7.236:8002/article/category/1?offset=0&limit=5', {
       method: 'GET',
       headers: {
