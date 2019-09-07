@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const FashionPost = ({ info = {} }) => {
   const { thumb_img, categoryname, title, article_id } = info;
-
   const path = {
     'Fashion Tip': 'fashion-tips',
     'Outfit Ideas': 'outfit-ideas',
@@ -19,11 +18,11 @@ const FashionPost = ({ info = {} }) => {
       </div>
       <div className="entry">
         <div className="entry-Container">
-          <Link to={`/${path[categoryname]}`}>
+          <Link to={`/article/${article_id}`}>
             <p className="entry-category">{categoryname}</p>
           </Link>
           <h3 className="entry-title">
-            <Link to={`/article/$article_id}`} className="articleTitle">
+            <Link to={`/article/${article_id}`} className="articleTitle">
               {title}
             </Link>
           </h3>

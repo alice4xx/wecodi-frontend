@@ -37,20 +37,17 @@
     font-size: 41px;
     font-weight: 700;
     border-bottom: 1px solid $menuBorder;
-    height: 91px;
+    padding-bottom: 24px;
 
     @media screen and (max-width: 780px) {
       font-size: 34px;
-      height: 100px;
     }
 
     @media screen and (max-width: 390px) {
       font-size: 27px;
-      height: 100px;
     }
     @media screen and (max-width: 330px) {
       font-size: 20px;
-      height: 100px;
     }
   }
 

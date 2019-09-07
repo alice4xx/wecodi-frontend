@@ -40,7 +40,7 @@ class Login extends Component {
       alert('pw 입력해주세요');
       return;
     }
-    fetch('http://10.58.7.239:8000/user/login', {
+    fetch('http://10.58.5.126:8001/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
