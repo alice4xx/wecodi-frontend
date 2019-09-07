@@ -13,10 +13,10 @@ class Fashion extends Component {
       articles: [],
       Sidetitle1: [],
       Sidetitle2: [],
+      readArticles: 1,
     };
   }
 
-  // 리액트 lifecycle 확인..
   componentDidMount() {
 
     fetch('http://10.58.7.236:8002/article/category/1?offset=0&limit=5', {
@@ -29,7 +29,6 @@ class Fashion extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        // console.log(response);
         this.setState({ articles: response.DATA });
       });
 
@@ -59,7 +58,34 @@ class Fashion extends Component {
       });
   }
 
+  clickReadMore = () => {
+    const NewReadArticles = this.state.readArticles + 5;
+    this.setState({ readArticles: NewReadArticles });
+
+    fetch(
+      'http://10.58.7.236:8002/article/category/1?offset=' +
+        NewReadArticles +
+        '&limit=' +
+        (NewReadArticles + 5),
+      {
+        method: 'GET',
+        headers: {
+          Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+          'Content-Type': 'application/json',
+        },
+      },
+    )
+      .then(response => response.json())
+      .then(response => {
+        //console.log(response);
+        // console.log(this.state.articles.concat(response.DATA));
+        this.setState({ articles: this.state.articles.concat(response.DATA) });
+      });
+  }; //concat함수는 배열을 합치는 메서드. 내가 response받은 데이터는 아티클로 받고 그 스테이트가 변하고 전개 연산자 대신 콘캣을 사용할 수 있으므로 저렇게 씀
+
   render() {
+    const { articles, Sidetitle1, Sidetitle2 } = this.state;
     return (
       <div className="Fashion_Container">
         <div className="page_Body">
@@ -69,10 +95,8 @@ class Fashion extends Component {
             </div>
             <div className="fashionTips">
               <div className="postWrap">
-                {this.state.articles.map(function(el, i) {
-                  if (i < 15) {
-                    return <FashionPost info={el} />;
-                  }
+                {articles.map(function(el, i) {
+                  return <FashionPost info={el} key={i} />;
                 })}
               </div>
 
@@ -90,8 +114,8 @@ class Fashion extends Component {
                   <span>•</span> TRENDING NOW <span>•</span>
                 </div>
                 <ul className="trendingNow">
-                  {this.state.Sidetitle1.map(function(el) {
-                    return <Sidetitle info={el} />;
+                  {Sidetitle1.map(function(el, i) {
+                    return <Sidetitle info={el} key={i} />;
                   })}
                 </ul>
               </div>
@@ -100,15 +124,15 @@ class Fashion extends Component {
                   <span>•</span> RECENT STYLIST ADVICE <span>•</span>
                 </div>
                 <ul className="trendingNow">
-                  {this.state.Sidetitle2.map(function(el) {
-                    return <Sidetitle info={el} />;
+                  {Sidetitle2.map(function(el, i) {
+                    return <Sidetitle info={el} key={i} />;
                   })}
                 </ul>
               </div>
             </div>
           </div>
         </div>
-        <Readmore />
+        <Readmore handleClick={this.clickReadMore} />
         <Footer />
       </div>
     );
