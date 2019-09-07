@@ -9,11 +9,12 @@ class Article extends Component {
     super(props);
     this.state = {
       comments: [],
-      heart: 0,
       id: 0,
       title: '',
       category: '',
       content: [],
+      heartcount: 0,
+      heartcheck: 'HEART_OFF',
     };
   }
 
@@ -39,6 +40,17 @@ class Article extends Component {
         });
       });
 
+    fetch('http://10.58.7.236:8002/comment/1', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(response => response.json())
+      .then(response => {
+        this.setState({ comments: response });
+      });
+
     fetch('http://10.58.7.236:8002/article/heartcheck/1', {
       method: 'GET',
       headers: {
@@ -49,12 +61,40 @@ class Article extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        this.setState({ heart: response.HEART_COUNT });
+        this.setState({
+          heartcount: response.HEART_COUNT,
+          heartcheck: response.HEART_CHECK,
+        });
       });
   }
 
+  clickHeartBtn = () => {
+    fetch('http://10.58.7.236:8002/article/heartcheck/1', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        AUTHORIZATION:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+      },
+    })
+      .then(response => response.json())
+      .then(response => {
+        this.setState({
+          heartcount: response.HEART_COUNT,
+          heartcheck: response.HEART_CHECK,
+        });
+      });
+  };
+
   render() {
-    const { title, category, content } = this.state;
+    const {
+      title,
+      category,
+      content,
+      heartcount,
+      heartcheck,
+      comments,
+    } = this.state;
     return (
       <>
         <div className="detailpages">
@@ -105,8 +145,13 @@ class Article extends Component {
                 <div className="heart-wrap">
                   <p>love this? Help trend it! </p>
                   <div className="vote-counter">
-                    <p className="heart-count">{this.state.heart}</p>
-                    <i className="far fa-heart heart-button" />
+                    <p className="heart-count">{heartcount}</p>
+                    <i
+                      className={`${
+                        heartcheck === 'HEART_ON' ? 'fas' : 'far'
+                      } fa-heart heart-button`}
+                      onClick={this.clickHeartBtn}
+                    />
                   </div>
                 </div>
               </section>
@@ -133,13 +178,12 @@ class Article extends Component {
                       value="Register"
                       onClick={this.clickCommentBtn}
                     >
-                      {' '}
-                      SEND{' '}
+                      SEND
                     </button>
                   </div>
                 </div>
                 <div className="real-user-comment">
-                  {this.state.comments.map(el => {
+                  {comments.map(el => {
                     return <ReviewContent comment={el} />;
                   })}
                 </div>
