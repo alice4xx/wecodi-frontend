@@ -20,23 +20,26 @@ class Article extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://10.58.7.236:8002/article/detail/${this.state.id+1}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'AUTHORIZATION':
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+    fetch(
+      `http://10.58.7.236:8002/article/detail/${this.props.match.params.id}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          AUTHORIZATION:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+        },
       },
-    })
-    .then(response => response.json())
-    .then(response => response.DATA)
-    .then(response => {
-      this.setState({
-        title: response.TITLE,
-        category: response.CATEGORY,
-        content: response.CONTENT,
+    )
+      .then(response => response.json())
+      .then(response => response.DATA)
+      .then(response => {
+        this.setState({
+          title: response.TITLE,
+          category: response.CATEGORY,
+          content: response.CONTENT,
+        });
       });
-    });
 
     // fetch('http://10.58.7.236:8002/comment/list/1', {
     //   method: 'GET',
@@ -53,19 +56,18 @@ class Article extends Component {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'AUTHORIZATION':
+        AUTHORIZATION:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
       },
     })
-    .then(response => response.json())
-    .then(response => {
-      this.setState({ heart: response.HEART_COUNT });
-    });
+      .then(response => response.json())
+      .then(response => {
+        this.setState({ heart: response.HEART_COUNT });
+      });
   }
 
   render() {
-    const { title, category, content} = this.state;
-    // const { match } = props;
+    const { title, category, content } = this.state;
     return (
       <>
         <div className="detailpages">
@@ -76,106 +78,36 @@ class Article extends Component {
             <div className="page-body">
               <section className="section-wrap">
                 <header className="section-title">
-                  <h1 className="entry-title">
-                    {' '}
-                    {title}
-                  </h1>
-                  <div className="first-article">
-                    <p>
-                      {content}
-                    </p>
-                  </div>
+                  <h1 className="entry-title"> {title}</h1>
+                  {content[0] && (
+                    <div className="first-article">
+                      <p>{content[0]}</p>
+                    </div>
+                  )}
                 </header>
-                <div className="main-content">
-                  <div className="entry-content">
-                    <span className="content-title">
-                      Keep reading for more August style inspiration
-                    </span>
-                  </div>
-                  <div className="slideshow-slide-first">
-                    <img src={Slideshowimg} alt="beautiful-clothing" />
-                  </div>
+                <div className="">
+                  {content[3] && (
+                    <div className="slideshow-slide-first">
+                      <img src={content[3]} alt="beautiful-clothing" />
+                    </div>
+                  )}
                   <div className="share-this-wrap">
-                    <h2 className="second-title">
-                      <span>work meet play</span>
-                    </h2>
-                    <p className="second-article">
-                      <span>
-                        Get down to business this summer in fun, lightweight
-                        pieces designed to make you feel chic while staying
-                        cool. Sleek trousers with a luxe-looking tee or crisp
-                        button-down, plus bright block heels or pointy flats, is
-                        a no-stress look that’s put-together and polished. Pair
-                        a midi or an A-line dress with an oversized tote that’s
-                        perfect for commuting and carrying your laptop,
-                        after-work heels, or both.
-                      </span>
-                    </p>
-                    <div className="slideshow-slide-second">
-                      <img src={Slideshowimg} alt="beautiful-clothing-second" />
-                    </div>
-                    <h2 className="third-title">
-                      <span>Boho Your Way</span>
-                    </h2>
-                    <p className="third-article">
-                      <span>
-                        Stay sunshine-ready in soft and flowy earth-tone skirts
-                        that move with the late-summer, weekend breeze. Want
-                        more subtle hints of boho for everyday wear? Consider a
-                        cream-colored flowy tunic with metallic embroidered
-                        details as a statement piece, and build around it with
-                        cropped trousers or denim and a neutral wedge sandal.{' '}
-                      </span>
-                    </p>
-                    <div className="slideshow-slide-third">
-                      <img src={Slideshowimg} alt="beautiful-clothing-third" />
-                    </div>
-                    <h2 className="fourth-title">
-                      <span>Back to Denim</span>
-                    </h2>
-                    <p className="fourth-article">
-                      <span>
-                        What is summer, fall or any season for that matter
-                        without{' '}
-                        <a
-                          href="https://www.stitchfix.com/women/blog/denim-trends/?ref=blog"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {' '}
-                          proper denim
-                        </a>
-                        ? Combat over-air-conditioned office spaces with casual
-                        but elevated medium-dark denim for work; add a bright,
-                        white blazer layered over a silky tank or basic knit,
-                        and seal the deal with hot-red heels. Keep things light
-                        on the weekend in a pale pink denim skirt with a neutral
-                        crossbody bag or clutch and a lightweight, printed
-                        blouse. And when temps cool down, just add booties and
-                        tights for the ultimate ready-for-fall outfit.
-                      </span>
-                    </p>
-                    <p className="wrap-up-article">
-                      <em>
-                        <b>
-                          Prolong your days of fun-in-the-sun while getting
-                          fall-ready
-                        </b>
-                        <b>. </b>
-                        <a
-                          href="https://stitchfix.com/women"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <span>Ask your Stylist</span>{' '}
-                        </a>
-                        <b>
-                          for effortless pieces that will help you feel your
-                          best and spend more time doing what you love
-                        </b>
-                        <b>.</b>
-                      </em>
-                    </p>
+                    {content[1] && (
+                      <p className="second-article">
+                        <span>{content[1]}</span>
+                      </p>
+                    )}
+
+                    {content[4] && (
+                      <div className="slideshow-slide-second">
+                        <img src={content[4]} alt="beautiful-clothing" />
+                      </div>
+                    )}
+                    {content[2] && (
+                      <p className="third-article">
+                        <span>{content[2]} </span>
+                      </p>
+                    )}
                     <div className="author-byline">
                       <p>By: Stitch Fix</p>
                     </div>
@@ -234,4 +166,4 @@ class Article extends Component {
   }
 }
 
-export default Article;
+export default withRouter(Article);
