@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.scss';
 import Logo from '../../Images/logo-white.png';
 
@@ -9,37 +10,37 @@ class Footer extends Component {
         <div className="footerWrap">
           <div className="footerRow">
             <div className="logo--stacked">
-              <a href="/">
+              <Link to="/">
                 <img src={Logo} alt="logo" />
-              </a>
+              </Link>
             </div>
             <div className="footerListWrap">
               <ul className="footerList">
                 <li>
-                  <a href="/about">About Us</a>
+                  <Link to="/about">About Us</Link>
                 </li>
                 <li>
-                  <a target="_blank" href="https://soongyu.github.io/">
+                  <a href="https://soongyu.github.io/">
                     Soongyu Kwon
                   </a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://playwright20.github.io/">
+                  <a href="https://playwright20.github.io/">
                     kamsa kim
                   </a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://babytiger.netlify.com">
+                  <a href="https://babytiger.netlify.com">
                     I Re Shin
                   </a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://alice4xx.github.io/">
+                  <a href="https://alice4xx.github.io/">
                     JinKyung Lee
                   </a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://rumbarum.github.io/">
+                  <a href="https://rumbarum.github.io/">
                     Bareum Han
                   </a>
                 </li>

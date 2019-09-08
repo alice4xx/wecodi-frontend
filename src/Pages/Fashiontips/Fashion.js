@@ -18,7 +18,7 @@ class Fashion extends Component {
   }
 
   componentDidMount() {
-    fetch('http://10.58.7.236:8002/article/category/1?offset=0&limit=5', {
+    fetch('http://10.58.6.3:8002/article/category/1?offset=0&limit=5', {
       method: 'GET',
       headers: {
         Authorization:
@@ -31,7 +31,7 @@ class Fashion extends Component {
         this.setState({ articles: response.DATA });
       });
 
-    fetch('http://10.58.7.236:8002/article/recommend/100', {
+    fetch('http://10.58.6.3:8002/article/recommend/100', {
       method: 'GET',
       headers: {
         Authorization:
@@ -43,7 +43,7 @@ class Fashion extends Component {
       .then(response => {
         this.setState({ Sidetitle1: response.DATA });
       });
-    fetch('http://10.58.7.236:8002/article/recommend/101', {
+    fetch('http://10.58.6.3:8002/article/recommend/101', {
       method: 'GET',
       headers: {
         Authorization:
@@ -62,7 +62,7 @@ class Fashion extends Component {
     this.setState({ readArticles: NewReadArticles });
 
     fetch(
-      'http://10.58.7.236:8002/article/category/1?offset=' +
+      'http://10.58.6.3:8002/article/category/1?offset=' +
         NewReadArticles +
         '&limit=' +
         (NewReadArticles + 5),

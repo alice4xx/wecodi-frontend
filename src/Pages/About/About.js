@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './About.scss';
 import Footer from '../../Components/Footer/Footer';
+import AboutImg from '../../Images/about.png';
 
 class About extends Component {
   render() {
@@ -15,18 +16,32 @@ class About extends Component {
             </section>
             <section className="Container">
               <div className="ImageWrap">
-                <img
-                  src="https://s3.amazonaws.com/com.stitchfix.blog/wp-content/uploads/2016/02/24172234/aboutus.jpg"
-                  alt="about"
-                />
+                <img src={AboutImg} alt="about" />
               </div>
-              <h3 className="Subtitle">위코디 팀 너무 수고 많으셨습니다! :)</h3>
+              <h3 className="Subtitle">
+                Wecodi Forever <i className="fas fa-seedling Seeding" />
+              </h3>
               <div className="ContentWrap">
                 <p className="ContentBody">
-                  프론트엔드 김감사, 이진경, 권순규
+                  <p>
+                    김감사 : 모든 것이 은혜입니다. 함께해줘서 고마워요.{' '}
+                    <i className="fas fa-hand-holding-heart Kamsa" />
+                  </p>
+                  <p>
+                    권순규 : 의미 있는 우리 모두의 첫 프로젝트, 너무 고생
+                    많으셨습니다! 위코디 팀 만세!{' '}
+                  </p>
+                  <p>이진경 : 그냥 재미있을 것 같았고 너무나 기대 이상이었습니다, xoxo </p>
+                  <p>
+                    신이레 : 소통이 원활한 팀과 함께 으쌰으쌰 하며 보낸 2주!
+                    너무나 값졌습니다.
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;다음
+                    걸음도 화이팅! :)
+                  </p>
+                  <p>한바름 : 한 바름 하는 한바름은 오늘도 바름바름합니다.</p>
                   <br />
-                  백엔드 한바름, 신이레
-                  <br />
+                  <p>송은우, 김예리, 박지훈 멘토님 감사합니다.</p>
                 </p>
               </div>
             </section>

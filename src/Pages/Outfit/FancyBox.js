@@ -12,7 +12,7 @@ const FancyBox = props => {
   };
 
   useEffect(() => {
-    fetch('http://10.58.7.236:8002/article/recommend/103', {
+    fetch('http://10.58.6.3:8002/article/recommend/103', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

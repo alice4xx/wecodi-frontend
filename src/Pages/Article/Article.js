@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Article.scss';
 import { withRouter } from 'react-router-dom';
 import Footer from '../../Components/Footer/Footer';
-import ReviewContent from '../../Components/CommentBox/comment';
+import ReviewContent from '../../Components/Comment/Comment';
 
 class Article extends Component {
   constructor(props) {
@@ -15,17 +15,18 @@ class Article extends Component {
       content: [],
       heartcount: 0,
       heartcheck: 'HEART_OFF',
+      commentValue: '',
     };
   }
 
   componentDidMount() {
     fetch(
-      `http://10.58.7.236:8002/article/detail/${this.props.match.params.id}`,
+      `http://10.58.6.3:8002/article/detail/${this.props.match.params.id}`,
       {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          AUTHORIZATION:
+          'AUTHORIZATION':
             'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
         },
       },
@@ -40,25 +41,33 @@ class Article extends Component {
         });
       });
 
-    fetch('http://10.58.7.236:8002/comment/1', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
+    fetch(
+      `http://10.58.6.3:8002/comment/list/${this.props.match.params.id}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'AUTHORIZATION':
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+        },
       },
-    })
+    )
       .then(response => response.json())
       .then(response => {
-        this.setState({ comments: response });
+        this.setState({ comments: response.DATA });
       });
 
-    fetch('http://10.58.7.236:8002/article/heartcheck/1', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        AUTHORIZATION:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+    fetch(
+      `http://10.58.6.3:8002/article/heartcheck/${this.props.match.params.id}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'AUTHORIZATION':
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+        },
       },
-    })
+    )
       .then(response => response.json())
       .then(response => {
         this.setState({
@@ -69,14 +78,17 @@ class Article extends Component {
   }
 
   clickHeartBtn = () => {
-    fetch('http://10.58.7.236:8002/article/heartcheck/1', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        AUTHORIZATION:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+    fetch(
+      `http://10.58.6.3:8002/article/heartcheck/${this.props.match.params.id}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'AUTHORIZATION':
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+        },
       },
-    })
+    )
       .then(response => response.json())
       .then(response => {
         this.setState({
@@ -85,6 +97,31 @@ class Article extends Component {
         });
       });
   };
+
+  textValue = (e) => {
+    this.setState({commentValue: e.target.value});
+  }
+
+  clickCommentBtn = () => {
+    fetch(
+      `http://10.58.6.3:8002/comment/add/${this.props.match.params.id}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'AUTHORIZATION':
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+        },
+        body: JSON.stringify({
+          'comment': this.state.commentValue,
+        })
+      },
+    )
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+      });
+  }
 
   render() {
     const {
@@ -170,6 +207,7 @@ class Article extends Component {
                   <textarea
                     className="add-comment"
                     placeholder="Add a comment..."
+                    onChange={this.textValue}
                   />
                   <div className="comment-send">
                     <button
@@ -183,8 +221,8 @@ class Article extends Component {
                   </div>
                 </div>
                 <div className="real-user-comment">
-                  {comments.map(el => {
-                    return <ReviewContent comment={el} />;
+                  {comments.map((el, i) => {
+                    return <ReviewContent comment={el} key={i} />;
                   })}
                 </div>
               </div>
