@@ -16,6 +16,7 @@ class Login extends Component {
       message: '',
     };
   }
+  // test
 
   componentDidMount() {
     window.Kakao.init('0d3eb99a0ab9c7b96fcfacc9f8169438');
@@ -48,11 +49,11 @@ class Login extends Component {
         if (response.access_token) {
           localStorage.setItem('wecodi_token', response.access_token);
           this.props.history.push('/');
-        } else if (response.message === "INVALID_EMAIL_ADDRESS") {
+        } else if (response.message === 'INVALID_EMAIL_ADDRESS') {
           this.setState({
             textbox: true,
-            message: '아이디 혹은 비밀번호를 확인해주세요.'
-          })
+            message: '아이디 혹은 비밀번호를 확인해주세요.',
+          });
         }
       });
   };
@@ -108,19 +109,23 @@ class Login extends Component {
             Log In{' '}
           </button>
           {this.state.textbox && (
-          <div className="MessageWrap">
-            <div className="MessageBox">
-              <i className="fas fa-ban" />
-              <p className="MessageBody">{this.state.message}</p>
-              <div className="ButtonWrap">
-                <div className="Button" onClick={() => {
-                  this.setState({textbox: !this.state.textbox})
-                }}>
-                  확인
+            <div className="MessageWrap">
+              <div className="MessageBox">
+                <i className="fas fa-ban" />
+                <p className="MessageBody">{this.state.message}</p>
+                <div className="ButtonWrap">
+                  <div
+                    className="Button"
+                    onClick={() => {
+                      this.setState({ textbox: !this.state.textbox });
+                    }}
+                  >
+                    확인
+                  </div>
                 </div>
               </div>
             </div>
-          </div>)}
+          )}
           <div className="forgot">
             <a href="/" className="forgot-1">
               Or you can join with,
