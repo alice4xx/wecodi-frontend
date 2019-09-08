@@ -28,7 +28,7 @@ class Main extends Component {
 
   callApi = () => {
     return fetch(
-      'http://10.58.7.236:8002/article/category/0?offset=0&limit=9',
+      'http://10.58.6.3:8002/article/allcategory?offset=0&limit=9',
       {
         method: 'GET',
         headers: {
@@ -46,7 +46,7 @@ class Main extends Component {
     this.setState({ readArticles: NewReadArticles });
 
     fetch(
-      'http://10.58.7.236:8002/article/category/1?offset=' +
+      'http://10.58.6.3:8002/article/category/1?offset=' +
         NewReadArticles +
         '&limit=' +
         (NewReadArticles + 6),

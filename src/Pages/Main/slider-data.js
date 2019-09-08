@@ -13,7 +13,7 @@ const slider = [
     category: 'FASHION TIPS',
     path: 'fashion-tips',
     slider:
-      'https://s3.amazonaws.com/com.stitchfix.blog/wp-content/uploads/2017/05/09143454/T3_W19_BLG_Dont-Love-Shorts-Meet-the-Summer-Pant_3572694382_HF-616x411.jpg',
+      'https://s3.amazonaws.com/com.stitchfix.blog/wp-content/uploads/2017/05/09143454/T3_W19_BLG_Dont-Love-Shorts-Meet-the-Summer-Pant_3572694382_HF.jpg',
   },
   {
     id: 3,

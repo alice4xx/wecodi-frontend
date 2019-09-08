@@ -12,13 +12,14 @@ class Login extends Component {
     this.state = {
       EmailValue: '',
       PwValue: '',
+      textbox: false,
+      message: '',
     };
   }
 
   componentDidMount() {
     window.Kakao.init('0d3eb99a0ab9c7b96fcfacc9f8169438');
   }
-
   changeEmailValue = e => {
     this.setState({
       EmailValue: e.target.value,
@@ -32,15 +33,7 @@ class Login extends Component {
   };
 
   clickLogInButton = () => {
-    if (this.state.EmailValue.length === 0) {
-      alert('email 입력해주세요');
-      return;
-    }
-    if (this.state.PwValue.length === 0) {
-      alert('pw 입력해주세요');
-      return;
-    }
-    fetch('http://10.58.7.239:8000/user/login', {
+    fetch('http://10.58.6.30:8001/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -55,19 +48,40 @@ class Login extends Component {
         if (response.access_token) {
           localStorage.setItem('wecodi_token', response.access_token);
           this.props.history.push('/');
+        } else if (response.message === "INVALID_EMAIL_ADDRESS") {
+          this.setState({
+            textbox: true,
+            message: '아이디 혹은 비밀번호를 확인해주세요.'
+          })
         }
       });
   };
-  clickKakaoBttn = () => {
-    window.Kakao.Auth.login({
-      success: function(authObj) {
-        alert(JSON.stringify(authObj));
-      },
-      fail: function(err) {
-        alert(JSON.stringify(err));
-      },
-    });
-  };
+
+  // clickKakaoBttn = () => {
+  //   window.Kakao.Auth.login({
+  //     success: authObj => {
+  //       alert(JSON.stringify(authObj));
+
+  //       fetch('', {
+  //         headers: {
+  //           Authorization: authObj.access_token,
+  //         },
+  //       })
+  //         .then(response => response.json())
+  //         .then(response => {
+  //           console.log(response);
+  //           if (response.access_token) {
+  //             localStorage.setItem('wecodi_token', response.access_token);
+  //             this.props.history.push('/');
+  //           }
+  //         });
+  //     },
+  //     fail: function(err) {
+  //       alert(JSON.stringify(err));
+  //     },
+  //   });
+  // };
+
   render() {
     return (
       <div className="loginWrap">
@@ -93,7 +107,20 @@ class Login extends Component {
             {' '}
             Log In{' '}
           </button>
-
+          {this.state.textbox && (
+          <div className="MessageWrap">
+            <div className="MessageBox">
+              <i className="fas fa-ban" />
+              <p className="MessageBody">{this.state.message}</p>
+              <div className="ButtonWrap">
+                <div className="Button" onClick={() => {
+                  this.setState({textbox: !this.state.textbox})
+                }}>
+                  확인
+                </div>
+              </div>
+            </div>
+          </div>)}
           <div className="forgot">
             <a href="/" className="forgot-1">
               Or you can join with,
