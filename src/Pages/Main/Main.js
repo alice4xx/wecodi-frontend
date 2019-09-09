@@ -61,11 +61,9 @@ class Main extends Component {
     )
       .then(response => response.json())
       .then(response => {
-        //console.log(response);
-        // console.log(this.state.articles.concat(response.DATA));
         this.setState({ articles: this.state.articles.concat(response.DATA) });
       });
-  }; //concat함수는 배열을 합치는 메서드. 내가 response받은 데이터는 아티클로 받고 그 스테이트가 변하고 전개 연산자 대신 콘캣을 사용할 수 있으므로 저렇게 씀
+  };
 
   componentDidMount() {
     this.getPost();

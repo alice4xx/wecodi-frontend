@@ -28,7 +28,6 @@ class Article extends Component {
         headers: {
           'Content-Type': 'application/json',
           AUTHORIZATION: this.token,
-          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
         },
       },
     )
@@ -49,7 +48,6 @@ class Article extends Component {
         headers: {
           'Content-Type': 'application/json',
           AUTHORIZATION: this.token,
-          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
         },
       },
     )
@@ -65,7 +63,6 @@ class Article extends Component {
         headers: {
           'Content-Type': 'application/json',
           AUTHORIZATION: this.token,
-          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
         },
       },
     )
@@ -86,7 +83,6 @@ class Article extends Component {
         headers: {
           'Content-Type': 'application/json',
           AUTHORIZATION: this.token,
-          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
         },
       },
     )
@@ -99,9 +95,32 @@ class Article extends Component {
       });
   };
 
-  textValue = e => {
-    this.setState({ commentValue: e.target.value });
-  };
+  textValue = (e) => {
+    this.setState({commentValue: e.target.value});
+  }
+
+  clickCommentBtn = () => {
+    fetch(
+      `http://13.125.254.18:8000/comment/add/${this.props.match.params.id}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'AUTHORIZATION':
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
+        },
+        body: JSON.stringify({
+          'comment': this.state.commentValue,
+        })
+      },
+    )
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        // 구현해야 됨.
+      });
+  }
+
 
   // clickCommentBtn = () => {
   //   fetch(
@@ -150,6 +169,7 @@ class Article extends Component {
       heartcheck,
       comments,
     } = this.state;
+    console.log(heartcount, heartcheck);
     return (
       <>
         <div className="detailpages">
