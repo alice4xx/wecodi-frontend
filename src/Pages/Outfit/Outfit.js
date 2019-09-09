@@ -43,14 +43,14 @@ class Outfit extends Component {
 
   callApi = () => {
     return fetch(
-      `http://10.58.6.3:8002/article/category/3?offset=${
+      `http://13.125.254.18:8000/article/category/3?offset=${
         this.state.index
       }&limit=${this.state.limit + this.state.index + 8}`,
       {
         method: 'GET',
         headers: {
           AUTHORIZATION:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
         },
       },
     )

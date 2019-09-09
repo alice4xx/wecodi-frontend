@@ -21,13 +21,13 @@ class Article extends Component {
 
   componentDidMount() {
     fetch(
-      `http://10.58.6.3:8002/article/detail/${this.props.match.params.id}`,
+      `http://13.125.254.18:8000/article/detail/${this.props.match.params.id}`,
       {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           'AUTHORIZATION':
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
         },
       },
     )
@@ -42,13 +42,13 @@ class Article extends Component {
       });
 
     fetch(
-      `http://10.58.6.3:8002/comment/list/${this.props.match.params.id}`,
+      `http://13.125.254.18:8000/comment/list/${this.props.match.params.id}`,
       {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           'AUTHORIZATION':
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
         },
       },
     )
@@ -58,13 +58,13 @@ class Article extends Component {
       });
 
     fetch(
-      `http://10.58.6.3:8002/article/heartcheck/${this.props.match.params.id}`,
+      `http://13.125.254.18:8000/article/heartcheck/${this.props.match.params.id}`,
       {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           'AUTHORIZATION':
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
         },
       },
     )
@@ -79,13 +79,13 @@ class Article extends Component {
 
   clickHeartBtn = () => {
     fetch(
-      `http://10.58.6.3:8002/article/heartcheck/${this.props.match.params.id}`,
+      `http://13.125.254.18:8000/article/heartcheck/${this.props.match.params.id}`,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'AUTHORIZATION':
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
         },
       },
     )
@@ -104,13 +104,13 @@ class Article extends Component {
 
   clickCommentBtn = () => {
     fetch(
-      `http://10.58.6.3:8002/comment/add/${this.props.match.params.id}`,
+      `http://13.125.254.18:8000/comment/add/${this.props.match.params.id}`,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'AUTHORIZATION':
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
         },
         body: JSON.stringify({
           'comment': this.state.commentValue,
@@ -120,6 +120,7 @@ class Article extends Component {
       .then(response => response.json())
       .then(response => {
         console.log(response);
+        // 구현해야 됨.
       });
   }
 
@@ -132,6 +133,7 @@ class Article extends Component {
       heartcheck,
       comments,
     } = this.state;
+    console.log(heartcount, heartcheck);
     return (
       <>
         <div className="detailpages">

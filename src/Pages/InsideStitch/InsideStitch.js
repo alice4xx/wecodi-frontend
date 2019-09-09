@@ -18,11 +18,11 @@ class Inside extends Component {
   }
 
   componentDidMount() {
-    fetch('http://10.58.6.3:8002/article/category/2?offset=0&limit=5', {
+    fetch('http://13.125.254.18:8000/article/category/2?offset=0&limit=5', {
       method: 'GET',
       headers: {
         Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
         'Content-Type': 'application/json',
       },
     })
@@ -32,11 +32,11 @@ class Inside extends Component {
         this.setState({ articles: response.DATA });
       });
 
-    fetch('http://10.58.6.3:8002/article/recommend/105', {
+    fetch('http://13.125.254.18:8000/article/recommend/105', {
       method: 'GET',
       headers: {
         Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
         'Content-Type': 'application/json',
       },
     })
@@ -45,11 +45,11 @@ class Inside extends Component {
         this.setState({ Sidetitle3: response.DATA });
       });
 
-    fetch('http://10.58.6.3:8002/article/recommend/106', {
+    fetch('http://13.125.254.18:8000/article/recommend/106', {
       method: 'GET',
       headers: {
         Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
         'Content-Type': 'application/json',
       },
     })
@@ -63,7 +63,7 @@ class Inside extends Component {
     this.setState({ readArticles: NewReadArticles });
 
     fetch(
-      'http://10.58.6.3:8002/article/category/2?offset=' +
+      'http://13.125.254.18:8000/article/category/2?offset=' +
         NewReadArticles +
         '&limit=' +
         (NewReadArticles + 5),
@@ -71,7 +71,7 @@ class Inside extends Component {
         method: 'GET',
         headers: {
           Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
           'Content-Type': 'application/json',
         },
       },

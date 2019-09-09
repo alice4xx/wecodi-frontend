@@ -28,13 +28,9 @@ class Main extends Component {
 
   callApi = () => {
     return fetch(
-      'http://10.58.6.3:8002/article/allcategory?offset=0&limit=9',
+      'http://13.125.254.18:8000/article/allcategory?offset=0&limit=9',
       {
         method: 'GET',
-        headers: {
-          AUTHORIZATION:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
-        },
       },
     )
       .then(response => response.json())
@@ -46,26 +42,22 @@ class Main extends Component {
     this.setState({ readArticles: NewReadArticles });
 
     fetch(
-      'http://10.58.6.3:8002/article/category/1?offset=' +
+      'http://13.125.254.18:8000/article/category/1?offset=' +
         NewReadArticles +
         '&limit=' +
         (NewReadArticles + 6),
       {
         method: 'GET',
         headers: {
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
           'Content-Type': 'application/json',
         },
       },
     )
       .then(response => response.json())
       .then(response => {
-        //console.log(response);
-        // console.log(this.state.articles.concat(response.DATA));
         this.setState({ articles: this.state.articles.concat(response.DATA) });
       });
-  }; //concat함수는 배열을 합치는 메서드. 내가 response받은 데이터는 아티클로 받고 그 스테이트가 변하고 전개 연산자 대신 콘캣을 사용할 수 있으므로 저렇게 씀
+  };
 
   componentDidMount() {
     this.getPost();
