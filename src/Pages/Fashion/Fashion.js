@@ -77,8 +77,6 @@ class Fashion extends Component {
     )
       .then(response => response.json())
       .then(response => {
-        //console.log(response);
-        // console.log(this.state.articles.concat(response.DATA));
         this.setState({ articles: this.state.articles.concat(response.DATA) });
       });
   };

@@ -25,7 +25,7 @@ class Footer extends Component {
                   </a>
                 </li>
                 <li>
-                  <a href="https://playwright20.github.io/">
+                  <a href="https://velog.io/@apollostk/">
                     kamsa kim
                   </a>
                 </li>

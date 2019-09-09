@@ -7,22 +7,21 @@ import Content from './Content';
 import Loading from '../../Components/Loading/Loading';
 
 class Outfit extends Component {
-  state = {
-    mode: false,
-    index: 0,
-    limit: 1,
-    outfits: [],
-    target: 0,
-  };
+  constructor(props) {
+    super(props);
 
-  // handleOutsideClick(e) {
-  //   // this.modal 는 모달 부분의 ref
-  //   if (this.modal.contains(e.target)/* || !this.props.show*/) {
-  //     return;
-  //   }
+    this.state = {
+      mode: false,
+      index: 0,
+      limit: 1,
+      outfits: [],
+      target: 0,
+    }
 
-  //   this.close();
-  // }
+    this.token = localStorage.getItem('wecodi_token')
+      ? localStorage.getItem('wecodi_token')
+      : '';
+  }
 
   getMore = () => {
     this.setState(
@@ -43,14 +42,13 @@ class Outfit extends Component {
 
   callApi = () => {
     return fetch(
-      `http://113.125.254.18:8000/article/category/3?offset=${
+      `http://13.125.254.18:8000/article/category/3?offset=${
         this.state.index
       }&limit=${this.state.limit + this.state.index + 8}`,
       {
         method: 'GET',
         headers: {
-          AUTHORIZATION:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
+          AUTHORIZATION: this.token,
         },
       },
     )

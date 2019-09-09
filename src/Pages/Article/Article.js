@@ -31,7 +31,13 @@ class Article extends Component {
         },
       },
     )
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json()
+        } else {
+          throw new Error('로그인이 필요합니다!');
+        }
+      })
       .then(response => response.DATA)
       .then(response => {
         this.setState({
@@ -39,21 +45,23 @@ class Article extends Component {
           category: response.CATEGORY,
           content: response.CONTENT,
         });
-      });
+      })
+      .catch(error => {
+        alert('로그인을 해야만 볼 수 있습니다!');
+        this.props.history.push('/login');
+      })
 
-    fetch(
-      `http://13.125.254.18:8000/comment/list/${this.props.match.params.id}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          AUTHORIZATION: this.token,
-        },
+    fetch(`http://13.125.254.18:8000/comment/list/${this.props.match.params.id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'AUTHORIZATION':
+          this.token,
       },
-    )
+    })
       .then(response => response.json())
       .then(response => {
-        this.setState({ comments: response.DATA });
+        this.setState({ comments: response.DATA});
       });
 
     fetch(
@@ -100,66 +108,43 @@ class Article extends Component {
   }
 
   clickCommentBtn = () => {
+  
     fetch(
       `http://13.125.254.18:8000/comment/add/${this.props.match.params.id}`,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'AUTHORIZATION':
+          authorization:
             'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
         },
-        body: JSON.stringify({
-          'comment': this.state.commentValue,
-        })
-      },
-    )
+        body:JSON.stringify({
+          comment: this.state.commentValue,
+        }),
+      })
       .then(response => response.json())
       .then(response => {
-        console.log(response);
-        // 구현해야 됨.
+        if(response.RESULT === 'ADDED'){
+          fetch(`http://13.125.254.18:8000/comment/list/${this.props.match.params.id}`,{
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
+            },
+          })
+            .then((response) => response.json())
+            .then((response) => {
+              this.setState({
+                comments:response.DATA.reverse(),
+                commentValue:'',    
+            });
+          });
+          
+        }
       });
-  }
+    }
 
-
-  // clickCommentBtn = () => {
-  //   fetch(
-  //     `http://13.125.254.18:8000/comment/add/${this.props.match.params.id}`,
-  //     {
-  //       method: 'GET',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         AUTHORIZATION: this.token,
-  //         // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
-  //       },
-  //     },
-  //   )
-  //     .then(response => response.json())
-  //     .then(response => {
-  //       //console.log('reponse다', response);
-  //       this.setState({
-  //         comments: response.reverse(),
-  //       });
-  //     });
-  // // fetch(
-  // //   `http://13.125.254.18:8000/comment/add/${this.props.match.params.id}`,
-  // //   {
-  // //     method: 'POST',
-  // //     headers: {
-  // //       'Content-Type': 'application/json',
-  // //       AUTHORIZATION:
-  //         'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
-  // //     },
-  // //     body: JSON.stringify({
-  // //       comment: this.state.commentValue,
-  // //     }),
-  // //   },
-  // // )
-  // //   .then(response => response.json())
-  // //   .then(response => {
-  // //     console.log(response);
-  // //   });
-  //};
   render() {
     const {
       title,
@@ -169,7 +154,6 @@ class Article extends Component {
       heartcheck,
       comments,
     } = this.state;
-    console.log(heartcount, heartcheck);
     return (
       <>
         <div className="detailpages">

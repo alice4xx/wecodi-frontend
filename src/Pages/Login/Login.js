@@ -18,9 +18,9 @@ class Login extends Component {
   }
   // testa:
 
-  componentDidMount() {
-    window.Kakao.init('0d3eb99a0ab9c7b96fcfacc9f8169438');
-  }
+  // componentDidMount() {
+  //   window.Kakao.init('0d3eb99a0ab9c7b96fcfacc9f8169438');
+  // }
   changeEmailValue = e => {
     this.setState({
       EmailValue: e.target.value,
