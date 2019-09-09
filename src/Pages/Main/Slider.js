@@ -12,7 +12,7 @@ class Slider extends Component {
       img: data[0].slider,
       path: data[0].path,
       trending: [],
-      advice: [],
+      advice: []
     };
   }
 
