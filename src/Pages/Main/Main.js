@@ -28,12 +28,12 @@ class Main extends Component {
 
   callApi = () => {
     return fetch(
-      'http://10.58.6.3:8002/article/allcategory?offset=0&limit=9',
+      'http://13.125.254.18:8000/article/allcategory?offset=0&limit=9',
       {
         method: 'GET',
         headers: {
           AUTHORIZATION:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
         },
       },
     )
@@ -46,7 +46,7 @@ class Main extends Component {
     this.setState({ readArticles: NewReadArticles });
 
     fetch(
-      'http://10.58.6.3:8002/article/category/1?offset=' +
+      'http://13.125.254.18:8000/article/category/1?offset=' +
         NewReadArticles +
         '&limit=' +
         (NewReadArticles + 6),
@@ -54,7 +54,7 @@ class Main extends Component {
         method: 'GET',
         headers: {
           Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
           'Content-Type': 'application/json',
         },
       },

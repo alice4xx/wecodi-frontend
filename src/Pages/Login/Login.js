@@ -16,7 +16,7 @@ class Login extends Component {
       message: '',
     };
   }
-  // test
+  // testa:
 
   componentDidMount() {
     window.Kakao.init('0d3eb99a0ab9c7b96fcfacc9f8169438');
@@ -34,7 +34,7 @@ class Login extends Component {
   };
 
   clickLogInButton = () => {
-    fetch('http://10.58.6.30:8001/user/login', {
+    fetch('http://13.125.254.18:8000/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -46,8 +46,8 @@ class Login extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        if (response.access_token) {
-          localStorage.setItem('wecodi_token', response.access_token);
+        if (response.TOKEN) {
+          localStorage.setItem('wecodi_token', response.TOKEN);
           this.props.history.push('/');
         } else if (response.message === 'INVALID_EMAIL_ADDRESS') {
           this.setState({

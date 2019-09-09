@@ -17,17 +17,18 @@ class Article extends Component {
       heartcheck: 'HEART_OFF',
       commentValue: '',
     };
+    this.token = localStorage.getItem('wecodi_token');
   }
 
   componentDidMount() {
     fetch(
-      `http://10.58.6.3:8002/article/detail/${this.props.match.params.id}`,
+      `http://13.125.254.18:8000/article/detail/${this.props.match.params.id}`,
       {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'AUTHORIZATION':
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+          AUTHORIZATION: this.token,
+          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
         },
       },
     )
@@ -42,13 +43,13 @@ class Article extends Component {
       });
 
     fetch(
-      `http://10.58.6.3:8002/comment/list/${this.props.match.params.id}`,
+      `http://13.125.254.18:8000/comment/list/${this.props.match.params.id}`,
       {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'AUTHORIZATION':
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+          AUTHORIZATION: this.token,
+          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
         },
       },
     )
@@ -58,13 +59,13 @@ class Article extends Component {
       });
 
     fetch(
-      `http://10.58.6.3:8002/article/heartcheck/${this.props.match.params.id}`,
+      `http://13.125.254.18:8000/article/heartcheck/${this.props.match.params.id}`,
       {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'AUTHORIZATION':
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+          AUTHORIZATION: this.token,
+          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
         },
       },
     )
@@ -79,13 +80,13 @@ class Article extends Component {
 
   clickHeartBtn = () => {
     fetch(
-      `http://10.58.6.3:8002/article/heartcheck/${this.props.match.params.id}`,
+      `http://13.125.254.18:8000/article/heartcheck/${this.props.match.params.id}`,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'AUTHORIZATION':
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
+          AUTHORIZATION: this.token,
+          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
         },
       },
     )
@@ -98,31 +99,48 @@ class Article extends Component {
       });
   };
 
-  textValue = (e) => {
-    this.setState({commentValue: e.target.value});
-  }
+  textValue = e => {
+    this.setState({ commentValue: e.target.value });
+  };
 
-  clickCommentBtn = () => {
-    fetch(
-      `http://10.58.6.3:8002/comment/add/${this.props.match.params.id}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'AUTHORIZATION':
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTExIn0.sECbRkAG52DuaBKpv4XpJ2KrT-s56b8ObFR3T_DD6oo',
-        },
-        body: JSON.stringify({
-          'comment': this.state.commentValue,
-        })
-      },
-    )
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-      });
-  }
-
+  // clickCommentBtn = () => {
+  //   fetch(
+  //     `http://13.125.254.18:8000/comment/add/${this.props.match.params.id}`,
+  //     {
+  //       method: 'GET',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         AUTHORIZATION: this.token,
+  //         // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
+  //       },
+  //     },
+  //   )
+  //     .then(response => response.json())
+  //     .then(response => {
+  //       //console.log('reponse다', response);
+  //       this.setState({
+  //         comments: response.reverse(),
+  //       });
+  //     });
+  // // fetch(
+  // //   `http://13.125.254.18:8000/comment/add/${this.props.match.params.id}`,
+  // //   {
+  // //     method: 'POST',
+  // //     headers: {
+  // //       'Content-Type': 'application/json',
+  // //       AUTHORIZATION:
+  //         'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
+  // //     },
+  // //     body: JSON.stringify({
+  // //       comment: this.state.commentValue,
+  // //     }),
+  // //   },
+  // // )
+  // //   .then(response => response.json())
+  // //   .then(response => {
+  // //     console.log(response);
+  // //   });
+  //};
   render() {
     const {
       title,
