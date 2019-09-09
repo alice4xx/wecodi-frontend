@@ -17,6 +17,7 @@ class Article extends Component {
       heartcheck: 'HEART_OFF',
       commentValue: '',
     };
+    this.token = localStorage.getItem('wecodi_token');
   }
 
   componentDidMount() {
@@ -26,8 +27,13 @@ class Article extends Component {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+<<<<<<< HEAD
           'AUTHORIZATION':
             'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
+=======
+          AUTHORIZATION: this.token,
+          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
+>>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
         },
       },
     )
@@ -47,8 +53,13 @@ class Article extends Component {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+<<<<<<< HEAD
           'AUTHORIZATION':
             'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
+=======
+          AUTHORIZATION: this.token,
+          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
+>>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
         },
       },
     )
@@ -63,8 +74,13 @@ class Article extends Component {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+<<<<<<< HEAD
           'AUTHORIZATION':
             'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
+=======
+          AUTHORIZATION: this.token,
+          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
+>>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
         },
       },
     )
@@ -84,8 +100,13 @@ class Article extends Component {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+<<<<<<< HEAD
           'AUTHORIZATION':
             'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
+=======
+          AUTHORIZATION: this.token,
+          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
+>>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
         },
       },
     )
@@ -98,6 +119,7 @@ class Article extends Component {
       });
   };
 
+<<<<<<< HEAD
   textValue = (e) => {
     this.setState({commentValue: e.target.value});
   }
@@ -123,7 +145,50 @@ class Article extends Component {
         // 구현해야 됨.
       });
   }
+=======
+  textValue = e => {
+    this.setState({ commentValue: e.target.value });
+  };
+>>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
 
+  // clickCommentBtn = () => {
+  //   fetch(
+  //     `http://13.125.254.18:8000/comment/add/${this.props.match.params.id}`,
+  //     {
+  //       method: 'GET',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         AUTHORIZATION: this.token,
+  //         // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
+  //       },
+  //     },
+  //   )
+  //     .then(response => response.json())
+  //     .then(response => {
+  //       //console.log('reponse다', response);
+  //       this.setState({
+  //         comments: response.reverse(),
+  //       });
+  //     });
+  // // fetch(
+  // //   `http://13.125.254.18:8000/comment/add/${this.props.match.params.id}`,
+  // //   {
+  // //     method: 'POST',
+  // //     headers: {
+  // //       'Content-Type': 'application/json',
+  // //       AUTHORIZATION:
+  //         'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.jjK7AoCc3A0FKU-Xk36HXOtmbviacrfU0LlAaf33vhg',
+  // //     },
+  // //     body: JSON.stringify({
+  // //       comment: this.state.commentValue,
+  // //     }),
+  // //   },
+  // // )
+  // //   .then(response => response.json())
+  // //   .then(response => {
+  // //     console.log(response);
+  // //   });
+  //};
   render() {
     const {
       title,

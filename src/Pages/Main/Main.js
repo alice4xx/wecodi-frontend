@@ -31,6 +31,10 @@ class Main extends Component {
       'http://13.125.254.18:8000/article/allcategory?offset=0&limit=9',
       {
         method: 'GET',
+        headers: {
+          AUTHORIZATION:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
+        },
       },
     )
       .then(response => response.json())
@@ -49,6 +53,8 @@ class Main extends Component {
       {
         method: 'GET',
         headers: {
+          Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
           'Content-Type': 'application/json',
         },
       },

@@ -16,6 +16,7 @@ class Login extends Component {
       message: '',
     };
   }
+  // testa:
 
   componentDidMount() {
     window.Kakao.init('0d3eb99a0ab9c7b96fcfacc9f8169438');
@@ -33,7 +34,11 @@ class Login extends Component {
   };
 
   clickLogInButton = () => {
+<<<<<<< HEAD
     fetch('http://10.58.6.30:8000/user/login', {
+=======
+    fetch('http://13.125.254.18:8000/user/login', {
+>>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -45,14 +50,14 @@ class Login extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        if (response.access_token) {
-          localStorage.setItem('wecodi_token', response.access_token);
+        if (response.TOKEN) {
+          localStorage.setItem('wecodi_token', response.TOKEN);
           this.props.history.push('/');
-        } else if (response.message === "INVALID_EMAIL_ADDRESS") {
+        } else if (response.message === 'INVALID_EMAIL_ADDRESS') {
           this.setState({
             textbox: true,
-            message: '아이디 혹은 비밀번호를 확인해주세요.'
-          })
+            message: '아이디 혹은 비밀번호를 확인해주세요.',
+          });
         }
       });
   };
@@ -108,19 +113,23 @@ class Login extends Component {
             Log In{' '}
           </button>
           {this.state.textbox && (
-          <div className="MessageWrap">
-            <div className="MessageBox">
-              <i className="fas fa-ban" />
-              <p className="MessageBody">{this.state.message}</p>
-              <div className="ButtonWrap">
-                <div className="Button" onClick={() => {
-                  this.setState({textbox: !this.state.textbox})
-                }}>
-                  확인
+            <div className="MessageWrap">
+              <div className="MessageBox">
+                <i className="fas fa-ban" />
+                <p className="MessageBody">{this.state.message}</p>
+                <div className="ButtonWrap">
+                  <div
+                    className="Button"
+                    onClick={() => {
+                      this.setState({ textbox: !this.state.textbox });
+                    }}
+                  >
+                    확인
+                  </div>
                 </div>
               </div>
             </div>
-          </div>)}
+          )}
           <div className="forgot">
             <a href="/" className="forgot-1">
               Or you can join with,

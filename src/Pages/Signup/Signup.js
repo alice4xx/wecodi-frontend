@@ -17,31 +17,29 @@ class Signup extends React.Component {
     };
   }
 
-    clickSignupBtn = async () => {
-      const { firstname, lastname, email, password } = this.state;
+  clickSignupBtn = async () => {
+    const { firstname, lastname, email, password } = this.state;
 
-      if (firstname.length === 0) {
-        alert('Plz write your firstname');
-        return;
-      }
-
-      if (lastname.length === 0) {
-        alert('Plz write your lastname');
-        return;
-      }
-
-      if (email.length === 0) {
-        alert('Plz write your email address');
-        return;
-      }
-
-      if (password.length === 0) {
-        alert('Plz write your password');
-        return;
-      }
+    if (firstname.length === 0) {
+      alert('Plz write your firstname');
+      return;
     }
 
-  componentDidMount(){
+    if (lastname.length === 0) {
+      alert('Plz write your lastname');
+      return;
+    }
+
+    if (email.length === 0) {
+      alert('Plz write your email address');
+      return;
+    }
+
+    if (password.length === 0) {
+      alert('Plz write your password');
+      return;
+    }
+
     fetch('http://13.125.254.18:8000/user/signup', {
       method: 'POST',
 
@@ -56,8 +54,8 @@ class Signup extends React.Component {
         password: this.state.password,
       }),
     })
-      .then((response) => response.json())
-      .then((response) => {
+      .then(response => response.json())
+      .then(response => {
         if (response.message === 'SUCCESS') {
           alert('회원가입을 축하합니다.');
           this.props.history.push('/login');
@@ -65,7 +63,31 @@ class Signup extends React.Component {
           alert(response.error_message);
         }
       });
-    }
+  };
+
+  componentDidMount() {
+    // fetch('http://13.125.254.18:8000/user/signup', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     last_name: this.state.lastname,
+    //     first_name: this.state.firstname,
+    //     email: this.state.email,
+    //     password: this.state.password,
+    //   }),
+    // })
+    //   .then(response => response.json())
+    //   .then(response => {
+    //     if (response.message === 'SUCCESS') {
+    //       alert('회원가입을 축하합니다.');
+    //       this.props.history.push('/login');
+    //     } else {
+    //       alert(response.error_message);
+    //     }
+    //   });
+  }
 
   setFirstname = e => {
     this.setState({ firstname: e.target.value });
@@ -133,7 +155,7 @@ class Signup extends React.Component {
               value="Register"
               onClick={this.clickSignupBtn}
             >
-            Signup
+              Signup
             </button>
           </div>
         </div>
@@ -142,5 +164,4 @@ class Signup extends React.Component {
   }
 }
 
-
-export default withRouter(Signup)
+export default withRouter(Signup);
