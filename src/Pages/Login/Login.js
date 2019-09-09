@@ -34,11 +34,7 @@ class Login extends Component {
   };
 
   clickLogInButton = () => {
-<<<<<<< HEAD
-    fetch('http://10.58.6.30:8000/user/login', {
-=======
     fetch('http://13.125.254.18:8000/user/login', {
->>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

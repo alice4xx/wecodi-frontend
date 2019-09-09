@@ -25,13 +25,7 @@ class Inside extends Component {
     fetch('http://13.125.254.18:8000/article/category/2?offset=0&limit=5', {
       method: 'GET',
       headers: {
-<<<<<<< HEAD
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
-=======
         Authorization: this.token,
-
->>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
         'Content-Type': 'application/json',
       },
     })
@@ -44,13 +38,7 @@ class Inside extends Component {
     fetch('http://13.125.254.18:8000/article/recommend/105', {
       method: 'GET',
       headers: {
-<<<<<<< HEAD
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
-        'Content-Type': 'application/json',
-=======
         Authorization: this.token,
->>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
       },
     })
       .then(response => response.json())
@@ -61,12 +49,7 @@ class Inside extends Component {
     fetch('http://13.125.254.18:8000/article/recommend/106', {
       method: 'GET',
       headers: {
-<<<<<<< HEAD
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
-=======
         Authorization: this.token,
->>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
         'Content-Type': 'application/json',
       },
     })
@@ -87,20 +70,13 @@ class Inside extends Component {
       {
         method: 'GET',
         headers: {
-<<<<<<< HEAD
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
-=======
           Authorization: this.token,
->>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
           'Content-Type': 'application/json',
         },
       },
     )
       .then(response => response.json())
       .then(response => {
-        //console.log(response);
-        // console.log(this.state.articles.concat(response.DATA));
         this.setState({ articles: this.state.articles.concat(response.DATA) });
       });
   };

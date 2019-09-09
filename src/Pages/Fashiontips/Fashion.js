@@ -25,12 +25,7 @@ class Fashion extends Component {
     fetch('http://13.125.254.18:8000/article/category/1?offset=0&limit=5', {
       method: 'GET',
       headers: {
-<<<<<<< HEAD
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
-=======
         Authorization: this.token,
->>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
         'Content-Type': 'application/json',
       },
     })
@@ -42,12 +37,7 @@ class Fashion extends Component {
     fetch('http://13.125.254.18:8000/article/recommend/100', {
       method: 'GET',
       headers: {
-<<<<<<< HEAD
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
-=======
         Authorization: this.token,
->>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
         'Content-Type': 'application/json',
       },
     })
@@ -58,12 +48,7 @@ class Fashion extends Component {
     fetch('http://13.125.254.18:8000/article/recommend/101', {
       method: 'GET',
       headers: {
-<<<<<<< HEAD
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
-=======
         Authorization: this.token,
->>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
         'Content-Type': 'application/json',
       },
     })
@@ -85,12 +70,7 @@ class Fashion extends Component {
       {
         method: 'GET',
         headers: {
-<<<<<<< HEAD
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
-=======
           Authorization: this.token,
->>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
           'Content-Type': 'application/json',
         },
       },

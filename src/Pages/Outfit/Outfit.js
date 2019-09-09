@@ -43,11 +43,7 @@ class Outfit extends Component {
 
   callApi = () => {
     return fetch(
-<<<<<<< HEAD
-      `http://13.125.254.18:8000/article/category/3?offset=${
-=======
       `http://113.125.254.18:8000/article/category/3?offset=${
->>>>>>> 20643fddaa8688ac425bd7774ed98241d234c43e
         this.state.index
       }&limit=${this.state.limit + this.state.index + 8}`,
       {
