@@ -57,10 +57,10 @@ class Signup extends React.Component {
       .then(response => response.json())
       .then(response => {
         if (response.message === 'SUCCESS') {
-          alert('회원가입을 축하합니다.');
+          // alert('회원가입을 축하합니다.');
           this.props.history.push('/login');
         } else {
-          alert(response.error_message);
+          alert(response.message);
         }
       });
   };
