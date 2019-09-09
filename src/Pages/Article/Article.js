@@ -116,7 +116,7 @@ class Article extends Component {
         headers: {
           'Content-Type': 'application/json',
           authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
+            this.token,
         },
         body:JSON.stringify({
           comment: this.state.commentValue,
@@ -130,7 +130,7 @@ class Article extends Component {
             headers: {
               'Content-Type': 'application/json',
               authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMn0.eMDToX8PM0dxWr7sbXogpzv7tF5VFUZWRS-btmY2MOo',
+              this.token,
             },
           })
             .then((response) => response.json())
