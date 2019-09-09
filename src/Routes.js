@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Main from './Pages/Main/Main';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
-import Fashion from './Pages/Fashiontips/Fashion';
+import Fashion from './Pages/Fashion/Fashion';
 import InsideStitch from './Pages/InsideStitch/InsideStitch';
 import Article from './Pages/Article/Article';
 import About from './Pages/About/About';

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './InsideStitch.scss';
 import Footer from '../../Components/Footer/Footer';
 import InsidePost from './InsidePost';
-import Sidetitle from '../Fashiontips/Sidetitle';
+import Sidetitle from '../Fashion/Sidetitle';
 import Readmore from '../../Components/Readmore/Readmore';
 
 class Inside extends Component {
@@ -31,7 +31,6 @@ class Inside extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        // console.log(response);
         this.setState({ articles: response.DATA });
       });
 

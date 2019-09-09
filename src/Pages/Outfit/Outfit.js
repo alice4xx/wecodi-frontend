@@ -23,15 +23,6 @@ class Outfit extends Component {
       : '';
   }
 
-  // handleOutsideClick(e) {
-  //   // this.modal 는 모달 부분의 ref
-  //   if (this.modal.contains(e.target)/* || !this.props.show*/) {
-  //     return;
-  //   }
-
-  //   this.close();
-  // }
-
   getMore = () => {
     this.setState(
       {

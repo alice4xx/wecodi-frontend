@@ -65,29 +65,7 @@ class Signup extends React.Component {
       });
   };
 
-  componentDidMount() {
-    // fetch('http://13.125.254.18:8000/user/signup', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     last_name: this.state.lastname,
-    //     first_name: this.state.firstname,
-    //     email: this.state.email,
-    //     password: this.state.password,
-    //   }),
-    // })
-    //   .then(response => response.json())
-    //   .then(response => {
-    //     if (response.message === 'SUCCESS') {
-    //       alert('회원가입을 축하합니다.');
-    //       this.props.history.push('/login');
-    //     } else {
-    //       alert(response.error_message);
-    //     }
-    //   });
-  }
+  componentDidMount() {}
 
   setFirstname = e => {
     this.setState({ firstname: e.target.value });
