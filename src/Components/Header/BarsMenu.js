@@ -22,7 +22,8 @@ const BarsMenu = props => {
     <div className={toggle}>
       <div className="BarsHeader">
         <span>
-          <a href="/Login">Login</a>
+          <a href="/Login">Login</a> 
+          | 
           <a href="Signup">Signup</a>
         </span>
         <div className="CloseBtnWrap" onClick={props.handleClick}>

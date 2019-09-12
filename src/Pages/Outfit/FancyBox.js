@@ -47,7 +47,9 @@ const FancyBox = props => {
                       <Link to={`/${path[el.category]}`}>
                         <h3 className="Category">{el.category}</h3>
                       </Link>
-                      <Link to={`/article/${el.article_id}`}>{el.title}</Link>
+                      <Link to={`/article/${el.article_id}`}>
+                        <p className="StoriesTitle">{el.title}</p>
+                      </Link>
                     </li>
                   );
                 })}
