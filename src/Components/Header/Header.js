@@ -4,34 +4,17 @@ import BarsMenu from './BarsMenu';
 import './Header.scss';
 import Logo from '../../Images/logo.png';
 
-const Header = props => {
+const Header = () => {
   const [mode, setMode] = useState(true);
-  const [token, setToken] = useState(false);
   const [message, setMessage] = useState(false);
   const [messageText, setText] = useState('');
   const WecodiToken = localStorage.getItem('wecodi_token');
 
-  const getToken = () => {
-    if (WecodiToken) {
-      setToken(!token);
-    }
-  };
-
   const logout = () => {
     localStorage.clear();
-    setToken(!token);
     setMessage(!message);
     setText('로그아웃 되었습니다!');
   };
-
-  const goToHome = () => {
-    props.history.push('/');
-  }
-
-  useEffect(() => {
-    getToken();
-  }, []);
-
   return (
     <div className="Header">
       <div className="Wrapper">
@@ -76,23 +59,23 @@ const Header = props => {
             </>
           )}
           {message && (
-          <div className="MessageWrap">
-            <div className="MessageBox">
-              <i className="fas fa-ban" />
-              <p className="MessageBody">{messageText}</p>
-              <div className="ButtonWrap">
-                <div
-                  className="Button"
-                  onClick={() => {
-                  setMessage(!message)
-                }}
-                >
-                  확인
+            <div className="MessageWrap">
+              <div className="MessageBox">
+                <i className="fas fa-ban" />
+                <p className="MessageBody">{messageText}</p>
+                <div className="ButtonWrap">
+                  <div
+                    className="Button"
+                    onClick={() => {
+                    setMessage(!message)
+                  }}
+                  >
+                    확인
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-)}
+          )}
         </div>
       </div>
     </div>
