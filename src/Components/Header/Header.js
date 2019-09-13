@@ -61,14 +61,14 @@ const Header = () => {
           {message && (
             <div className="MessageWrap">
               <div className="MessageBox">
-                <i className="fas fa-ban" />
+                <i className="far fa-check-circle" />
                 <p className="MessageBody">{messageText}</p>
                 <div className="ButtonWrap">
                   <div
                     className="Button"
                     onClick={() => {
-                    setMessage(!message)
-                  }}
+                      setMessage(!message);
+                    }}
                   >
                     확인
                   </div>
